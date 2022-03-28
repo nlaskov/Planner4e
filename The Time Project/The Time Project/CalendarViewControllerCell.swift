@@ -24,16 +24,17 @@ class CalendarViewControllerCell: UICollectionViewCell{
     }
     func setImportanse(importanse:Int){
         if importanse == 0{
-            self.backgroundColor = .green
-            comment.backgroundColor = .green
+            self.backgroundColor = UIColor.init(red: CGFloat(175 as Double/225), green: CGFloat(227 as Double/225), blue: CGFloat(120 as Double/225), alpha: CGFloat(1))
+            
+            comment.backgroundColor = UIColor.init(red: CGFloat(175 as Double/225), green: CGFloat(227 as Double/225), blue: CGFloat(120 as Double/225), alpha: CGFloat(1))
         }
         else if importanse == 1 {
-            self.backgroundColor = .yellow
-            comment.backgroundColor = .yellow
+            self.backgroundColor =  UIColor.init(red: CGFloat(249 as Double/225), green: CGFloat(219 as Double/225), blue: CGFloat(98 as Double/225), alpha: CGFloat(1))
+            comment.backgroundColor = UIColor.init(red: CGFloat(249 as Double/225), green: CGFloat(219 as Double/225), blue: CGFloat(98 as Double/225), alpha: CGFloat(1))
         }
         else {
-            self.backgroundColor = .red
-            comment.backgroundColor = .red
+            self.backgroundColor = UIColor.init(red: CGFloat(249 as Double/225), green: CGFloat(98 as Double/225), blue: CGFloat(125 as Double/225), alpha: CGFloat(1))
+            comment.backgroundColor = UIColor.init(red: CGFloat(249 as Double/225), green: CGFloat(98 as Double/225), blue: CGFloat(125 as Double/225), alpha: CGFloat(1))
         }
     }
     func setSwitch(value:Bool){
