@@ -22,7 +22,7 @@ class CalendarViewController: UIViewController{
         dayCollectionView.delegate = self
     }
     
-    var database:[[Any]] = [["Task_1",1,1,false],["Task_2",1,3,true]]
+    var database:[[Any]] = [["Task_1",1,0,false],["Task_2",1,1,false],["Task_3",1,2,false]]
     
     
     

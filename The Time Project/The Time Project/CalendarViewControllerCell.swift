@@ -16,28 +16,45 @@ class CalendarViewControllerCell: UICollectionViewCell{
     @IBOutlet var title: UILabel!
     @IBOutlet var done: UISwitch!
     @IBOutlet var cellView: UIView!
-    
+    @IBOutlet var comment: UITextView!
     
     func category(category: Int){
         
     }
     func setImportanse(importanse:Int){
         if importanse == 0{
-            cellView.backgroundColor = .green
+            self.backgroundColor = .green
+            comment.backgroundColor = .green
         }
         else if importanse == 1 {
-            cellView.backgroundColor = .yellow
+            self.backgroundColor = .yellow
+            comment.backgroundColor = .yellow
         }
         else {
-            cellView.backgroundColor = .red
+            self.backgroundColor = .red
+            comment.backgroundColor = .red
         }
     }
     func setSwitch(value:Bool){
         if value {
             done.isOn = true
+            self.alpha = CGFloat(0.1)
         }
         else{
             done.isOn = false
+            self.alpha = CGFloat(1)
+        }
+        comment.isHidden = !done.isOn
+    }
+    @IBAction func changeSwitch(_ sender: Any) {
+        comment.isHidden = !done.isOn
+        
+        if done.isOn {
+            self.alpha = CGFloat(0.4)
+        }
+        else{
+            self.alpha = CGFloat(1)
         }
     }
+    
 }
