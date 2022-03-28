@@ -18,6 +18,7 @@ class CalendarViewControllerCell: UICollectionViewCell{
     @IBOutlet var cellView: UIView!
     @IBOutlet var comment: UITextView!
     
+    
     func category(category: Int){
         
     }
@@ -38,11 +39,16 @@ class CalendarViewControllerCell: UICollectionViewCell{
     func setSwitch(value:Bool){
         if value {
             done.isOn = true
-            self.alpha = CGFloat(0.1)
+            UIView.animate(withDuration: 0.5) {
+                self.alpha = CGFloat(0.4)
+            }
+            
         }
         else{
             done.isOn = false
-            self.alpha = CGFloat(1)
+            UIView.animate(withDuration: 0.5) {
+                self.alpha = CGFloat(1)
+            }
         }
         comment.isHidden = !done.isOn
     }
@@ -50,10 +56,14 @@ class CalendarViewControllerCell: UICollectionViewCell{
         comment.isHidden = !done.isOn
         
         if done.isOn {
-            self.alpha = CGFloat(0.4)
+            UIView.animate(withDuration: 0.5) {
+                self.alpha = CGFloat(0.4)
+            }
         }
         else{
-            self.alpha = CGFloat(1)
+            UIView.animate(withDuration: 0.5) {
+                self.alpha = CGFloat(1)
+            }
         }
     }
     
