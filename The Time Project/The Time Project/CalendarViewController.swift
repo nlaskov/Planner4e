@@ -13,13 +13,20 @@ class CalendarViewController: UIViewController{
     
     
     @IBOutlet var viewSegment: UISegmentedControl!
+    @IBOutlet var addTaskButton: UIButton!
     
     @IBOutlet var dayView: UIView!
     @IBOutlet var weekView: UIView!
     @IBOutlet var monthView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // CODE
+        
+        viewSegment.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
+        addTaskButton.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
+        //addTaskButton.setTitleColor(.black, for: .normal)
+        addTaskButton.layer.cornerRadius=25
         
     }
     

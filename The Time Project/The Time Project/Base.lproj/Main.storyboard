@@ -79,14 +79,10 @@
                                     <constraint firstAttribute="height" constant="50" id="hED-4v-H0R"/>
                                     <constraint firstAttribute="width" constant="50" id="vL0-Sq-24k"/>
                                 </constraints>
-                                <buttonConfiguration key="configuration" style="tinted" image="plus" catalog="system" title="" cornerStyle="capsule"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="plus" catalog="system" title="" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background"/>
+                                </buttonConfiguration>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mna-DC-6nF">
-                                <rect key="frame" x="0.0" y="167" width="414" height="631"/>
-                                <connections>
-                                    <segue destination="UVe-6h-0uz" kind="embed" id="VTL-93-9qx"/>
-                                </connections>
-                            </containerView>
                             <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dkx-0P-P4n">
                                 <rect key="frame" x="0.0" y="167" width="414" height="631"/>
                                 <connections>
@@ -99,11 +95,17 @@
                                     <segue destination="Ms2-Us-gBo" kind="embed" id="pEa-Bp-swo"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mna-DC-6nF">
+                                <rect key="frame" x="0.0" y="144" width="414" height="654"/>
+                                <connections>
+                                    <segue destination="UVe-6h-0uz" kind="embed" id="VTL-93-9qx"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X1M-UG-Zau"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Mna-DC-6nF" firstAttribute="top" secondItem="dEt-JE-rps" secondAttribute="bottom" constant="31" id="13G-QD-oal"/>
+                            <constraint firstItem="Mna-DC-6nF" firstAttribute="top" secondItem="dEt-JE-rps" secondAttribute="bottom" constant="8" id="13G-QD-oal"/>
                             <constraint firstItem="83L-Qj-yXb" firstAttribute="top" secondItem="dkx-0P-P4n" secondAttribute="bottom" constant="9" id="2nW-kq-egX"/>
                             <constraint firstItem="83L-Qj-yXb" firstAttribute="top" secondItem="Mna-DC-6nF" secondAttribute="bottom" constant="9" id="3N6-99-4LP"/>
                             <constraint firstItem="dEt-JE-rps" firstAttribute="top" secondItem="X1M-UG-Zau" secondAttribute="top" constant="17" id="7R2-Ag-jnT"/>
@@ -126,6 +128,7 @@
                         <barButtonItem key="backBarButtonItem" title="Menu" id="L6z-KV-FG8"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="addTaskButton" destination="83L-Qj-yXb" id="Up1-WN-BLD"/>
                         <outlet property="dayView" destination="Mna-DC-6nF" id="JCR-hq-ieb"/>
                         <outlet property="monthView" destination="eve-gh-Jcz" id="pgL-mi-6fI"/>
                         <outlet property="viewSegment" destination="dEt-JE-rps" id="IAn-CC-P7W"/>
@@ -174,27 +177,19 @@
             <objects>
                 <viewController id="UVe-6h-0uz" customClass="day_CalendarViewConroller" customModule="The_Time_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2mS-WD-sYM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="631"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="654"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouz-aC-340">
-                                <rect key="frame" x="0.0" y="0.0" width="101" height="63"/>
+                                <rect key="frame" x="0.0" y="0.0" width="101" height="62"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="arrow.left" catalog="system"/>
                                 <connections>
                                     <action selector="leftArrowPress:" destination="UVe-6h-0uz" eventType="touchUpInside" id="o0R-wI-NUP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqh-5V-zik">
-                                <rect key="frame" x="314" y="0.0" width="100" height="63"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system"/>
-                                <connections>
-                                    <action selector="rightArrowPress:" destination="UVe-6h-0uz" eventType="touchUpInside" id="sFB-JM-PaX"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n0j-Mo-vnB">
-                                <rect key="frame" x="0.0" y="61" width="414" height="570"/>
+                                <rect key="frame" x="0.0" y="61" width="414" height="593"/>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lPs-09-rrP">
                                     <size key="itemSize" width="386" height="63"/>
@@ -204,7 +199,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dayCell" id="ALB-lZ-lW5" customClass="CalendarViewControllerCell" customModule="The_Time_Project" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dayCell" id="ALB-lZ-lW5" customClass="day_CalendarCollectionViewCell" customModule="The_Time_Project" customModuleProvider="target">
                                         <rect key="frame" x="14" y="0.0" width="386" height="63"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ev6-3W-y0N">
@@ -260,25 +255,34 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, 27 Mar. 2022" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Paz-UI-Bnm">
-                                <rect key="frame" x="101" y="0.0" width="213" height="63"/>
+                                <rect key="frame" x="101" y="0.0" width="213" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqh-5V-zik">
+                                <rect key="frame" x="314" y="1" width="100" height="62"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="arrow.right" catalog="system"/>
+                                <connections>
+                                    <action selector="rightArrowPress:" destination="UVe-6h-0uz" eventType="touchUpInside" id="sFB-JM-PaX"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="eae-gd-01Y"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Paz-UI-Bnm" secondAttribute="trailing" constant="100" id="9GP-rT-3yX"/>
-                            <constraint firstAttribute="bottom" secondItem="Ouz-aC-340" secondAttribute="bottom" constant="568" id="ADQ-9y-uW2"/>
+                            <constraint firstAttribute="bottom" secondItem="Ouz-aC-340" secondAttribute="bottom" constant="592" id="ADQ-9y-uW2"/>
                             <constraint firstAttribute="trailing" secondItem="Oqh-5V-zik" secondAttribute="trailing" id="Bnf-zy-fOl"/>
                             <constraint firstAttribute="trailing" secondItem="n0j-Mo-vnB" secondAttribute="trailing" id="QYV-Ib-2YN"/>
                             <constraint firstItem="Oqh-5V-zik" firstAttribute="leading" secondItem="Paz-UI-Bnm" secondAttribute="trailing" id="UTI-Uf-DnN"/>
                             <constraint firstAttribute="bottom" secondItem="n0j-Mo-vnB" secondAttribute="bottom" id="Uyr-MS-859"/>
                             <constraint firstItem="Ouz-aC-340" firstAttribute="leading" secondItem="2mS-WD-sYM" secondAttribute="leading" id="bge-AE-mk6"/>
                             <constraint firstItem="Paz-UI-Bnm" firstAttribute="leading" secondItem="2mS-WD-sYM" secondAttribute="leading" constant="101" id="c7o-lO-KXd"/>
-                            <constraint firstAttribute="bottom" secondItem="Oqh-5V-zik" secondAttribute="bottom" constant="568" id="e34-JP-mSi"/>
-                            <constraint firstItem="Oqh-5V-zik" firstAttribute="top" secondItem="2mS-WD-sYM" secondAttribute="top" id="kaO-X7-kLe"/>
+                            <constraint firstAttribute="bottom" secondItem="Oqh-5V-zik" secondAttribute="bottom" constant="591" id="e34-JP-mSi"/>
+                            <constraint firstItem="Oqh-5V-zik" firstAttribute="top" secondItem="2mS-WD-sYM" secondAttribute="top" constant="1" id="kaO-X7-kLe"/>
                             <constraint firstItem="Ouz-aC-340" firstAttribute="top" secondItem="2mS-WD-sYM" secondAttribute="top" id="ppi-hu-4CW"/>
                             <constraint firstItem="n0j-Mo-vnB" firstAttribute="top" secondItem="2mS-WD-sYM" secondAttribute="top" constant="61" id="xbx-S8-pbW"/>
                             <constraint firstItem="n0j-Mo-vnB" firstAttribute="leading" secondItem="2mS-WD-sYM" secondAttribute="leading" id="yy7-Oj-yHH"/>
@@ -294,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AjG-h2-wdW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1657" y="727"/>
+            <point key="canvasLocation" x="1656.521739130435" y="726.5625"/>
         </scene>
         <!--Week Calendar View Conroller-->
         <scene sceneID="9q4-tA-3SS">
@@ -303,6 +307,7 @@
                     <view key="view" contentMode="scaleToFill" id="APW-hY-1xm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="631"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="p2a-p4-3Be"/>
                         <color key="backgroundColor" red="0.63359249750000002" green="0.76942896839999997" blue="0.19959969850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                 </viewController>
@@ -317,6 +322,7 @@
                     <view key="view" contentMode="scaleToFill" id="fa2-PP-MQF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="631"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uLZ-ec-3Bg"/>
                         <color key="backgroundColor" red="0.1843137255" green="0.40000000000000002" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>

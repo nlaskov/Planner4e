@@ -12,8 +12,8 @@ class day_CalendarViewConroller: UIViewController{
     
     var counter = 0
     var date: Date = Date()
-    
-    
+    //var used_date: Date = Date()
+
     @IBOutlet var day_dateLabel: UILabel!
     @IBOutlet var day_leftButton: UIButton!
     @IBOutlet var day_rightButton: UIButton!
@@ -21,13 +21,9 @@ class day_CalendarViewConroller: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+
         day_CollectionView.dataSource = self
         day_CollectionView.delegate = self
-        
-        
         
         day_dateLabel.text = day_setLabelDay(date: date)
     }
@@ -115,7 +111,7 @@ extension day_CalendarViewConroller: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as! CalendarViewControllerCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as! day_CalendarCollectionViewCell
         
         cell.title.text = database[indexPath.row][0] as? String
         cell.setSwitch(value: database[indexPath.row][3] as! Bool)

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CalendarViewControllerCell: UICollectionViewCell{
+class day_CalendarCollectionViewCell: UICollectionViewCell{
     
     
     

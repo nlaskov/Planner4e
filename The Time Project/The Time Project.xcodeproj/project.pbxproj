@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */; };
-		B09C88B027F1CC6B00F808DD /* CalendarViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* CalendarViewControllerCell.swift */; };
+		B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */; };
 		B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B127F241F800F808DD /* day_CalendarViewController.swift */; };
 		B09C88B427F2482300F808DD /* week_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B327F2482300F808DD /* week_CalendarViewController.swift */; };
 		B09C88B627F2483400F808DD /* month_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B527F2483400F808DD /* month_CalendarViewController.swift */; };
@@ -22,7 +22,7 @@
 
 /* Begin PBXFileReference section */
 		B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		B09C88AF27F1CC6B00F808DD /* CalendarViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewControllerCell.swift; sourceTree = "<group>"; };
+		B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88B127F241F800F808DD /* day_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88B327F2482300F808DD /* week_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = week_CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88B527F2483400F808DD /* month_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = month_CalendarViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B09C88B727F24C2900F808DD /* Day Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */,
+				B09C88B127F241F800F808DD /* day_CalendarViewController.swift */,
+			);
+			path = "Day Calendar";
+			sourceTree = "<group>";
+		};
 		B09E0C1327F1BFC5003F38B2 = {
 			isa = PBXGroup;
 			children = (
@@ -66,11 +75,10 @@
 		B09E0C1E27F1BFC5003F38B2 /* The Time Project */ = {
 			isa = PBXGroup;
 			children = (
+				B09C88B727F24C2900F808DD /* Day Calendar */,
 				B09C88B327F2482300F808DD /* week_CalendarViewController.swift */,
 				B09C88B527F2483400F808DD /* month_CalendarViewController.swift */,
-				B09C88B127F241F800F808DD /* day_CalendarViewController.swift */,
 				B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */,
-				B09C88AF27F1CC6B00F808DD /* CalendarViewControllerCell.swift */,
 				B09E0C1F27F1BFC5003F38B2 /* AppDelegate.swift */,
 				B09E0C2127F1BFC5003F38B2 /* SceneDelegate.swift */,
 				B09E0C2327F1BFC5003F38B2 /* ViewController.swift */,
@@ -158,7 +166,7 @@
 				B09E0C2427F1BFC5003F38B2 /* ViewController.swift in Sources */,
 				B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */,
 				B09E0C2027F1BFC5003F38B2 /* AppDelegate.swift in Sources */,
-				B09C88B027F1CC6B00F808DD /* CalendarViewControllerCell.swift in Sources */,
+				B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
 				B09C88B627F2483400F808DD /* month_CalendarViewController.swift in Sources */,
 			);
