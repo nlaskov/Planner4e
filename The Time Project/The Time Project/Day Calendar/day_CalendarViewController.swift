@@ -10,9 +10,9 @@ import UIKit
 
 class day_CalendarViewConroller: UIViewController{
     
-    var counter = 0
+    
     var date: Date = Date()
-    //var used_date: Date = Date()
+    var used_date: Date = Date()
 
     @IBOutlet var day_dateLabel: UILabel!
     @IBOutlet var day_leftButton: UIButton!
@@ -26,23 +26,37 @@ class day_CalendarViewConroller: UIViewController{
         day_CollectionView.delegate = self
         
         day_dateLabel.text = day_setLabelDay(date: date)
+        used_date = date
+        
     }
     
     var database:[[Any]] = [["Task_1",1,0,false],["Task_2",1,1,false],["Task_3",1,2,false]]
     
     @IBAction func leftArrowPress(_ sender: Any) {
-        counter-=1
-        date = Calendar.current.date(byAdding: .day, value: -1, to: date)!
-        day_dateLabel.text = day_setLabelDay(date: date)
+        
+        used_date = Calendar.current.date(byAdding: .day, value: -1, to: used_date)!
+        if dateCheck(date: date, used_date: used_date){
+            day_dateLabel.text = day_setLabelDay(date: used_date)
+        }
+        else{
+            used_date = Calendar.current.date(byAdding: .day, value: 1, to: used_date)!
+        }
+        
         
     }
     @IBAction func rightArrowPress(_ sender: Any) {
-        counter+=1
-        date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-        day_dateLabel.text = day_setLabelDay(date: date)
+        
+        used_date = Calendar.current.date(byAdding: .day, value: 1, to: used_date)!
+        if dateCheck(date: date, used_date: used_date){
+            day_dateLabel.text = day_setLabelDay(date: used_date)
+        }
+        else{
+            used_date = Calendar.current.date(byAdding: .day, value: -1, to: used_date)!
+        }
+        
     }
     
-    func day_setLabelDay(date:Date) -> String{
+    private func day_setLabelDay(date:Date) -> String{
         
         var temp = ""
         
@@ -99,6 +113,24 @@ class day_CalendarViewConroller: UIViewController{
         temp += String(Calendar.current.component(.year, from: date))
         
         return temp
+    }
+    
+    private func dateCheck(date:Date,used_date:Date) ->Bool {
+        let used_month = Calendar.current.component(.month, from: used_date)
+        let month = Calendar.current.component(.month, from: date)
+        
+        if(month != 12 && month != 1){
+            if(used_month-month > 1 || used_month-month < -1){
+                return false
+            }
+            else {return true}
+        }
+        else{
+            if((month == 12 && (used_month == 1 || used_month == 11)) || (month == 1 && (used_month == 12 || used_month == 2)) ){
+                return true
+            }
+        }
+        return false
     }
     
     
