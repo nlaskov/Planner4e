@@ -18,6 +18,8 @@
 		B09E0C2727F1BFC5003F38B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2527F1BFC5003F38B2 /* Main.storyboard */; };
 		B09E0C2927F1BFC6003F38B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */; };
 		B09E0C2C27F1BFC6003F38B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */; };
+		B0B0F74927F271A900B7448B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0F74827F271A900B7448B /* Task.swift */; };
+		B0B0F74B27F271B400B7448B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0F74A27F271B400B7448B /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B09E0C2B27F1BFC6003F38B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B09E0C2D27F1BFC6003F38B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0B0F74827F271A900B7448B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		B0B0F74A27F271B400B7448B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +86,22 @@
 				B09E0C1F27F1BFC5003F38B2 /* AppDelegate.swift */,
 				B09E0C2127F1BFC5003F38B2 /* SceneDelegate.swift */,
 				B09E0C2327F1BFC5003F38B2 /* ViewController.swift */,
+				B0B0F74727F2719700B7448B /* Models */,
 				B09E0C2527F1BFC5003F38B2 /* Main.storyboard */,
 				B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */,
 				B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */,
 				B09E0C2D27F1BFC6003F38B2 /* Info.plist */,
 			);
 			path = "The Time Project";
+			sourceTree = "<group>";
+		};
+		B0B0F74727F2719700B7448B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B0B0F74827F271A900B7448B /* Task.swift */,
+				B0B0F74A27F271B400B7448B /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +182,7 @@
 				B09E0C2027F1BFC5003F38B2 /* AppDelegate.swift in Sources */,
 				B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
-				B09C88B627F2483400F808DD /* month_CalendarViewController.swift in Sources */,
+				B0B0F74B27F271B400B7448B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
