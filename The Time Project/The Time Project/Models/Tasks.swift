@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Tasks{
+class Task{
     var name:String = ""
     var priority:Int = -1
     var category:Int = -1
@@ -17,13 +17,13 @@ class Tasks{
     var done:Bool = false
     
     init(_name:String, _priority:Int, _category:Int, _day:Int, _month:Int, _year:Int, _done:Bool) {
-        self.name = _name
-        self.priority = _priority
-        self.category = _category
-        self.day = _day
-        self.month = _month
-        self.year = _year
-        self.done = _done
+        self.name = name
+        self.priority = priority
+        self.category = category
+        self.day = day
+        self.month = month
+        self.year = year
+        self.done = done
     }
     /* Имената на файловете да са Тask Book Film Recepie ect. и всеки клас да е наследник на класа Тask за да можем да ги извикваме така от базата дани firebaseFirestore */
     

@@ -33,13 +33,15 @@ class CalendarViewController: UIViewController{
     
     
     
-    
+    //Change between dayView, weekView and monthView
     @IBAction func segmentChange(_ sender: Any) {
         if viewSegment.selectedSegmentIndex == 0{
             UIView.animate(withDuration: 0.5) {
                 self.weekView.alpha = CGFloat(0)
                 self.monthView.alpha = CGFloat(0)
                 self.dayView.alpha = CGFloat(1)
+                
+                
             }
             
         }else if viewSegment.selectedSegmentIndex == 1{

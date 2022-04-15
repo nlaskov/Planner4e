@@ -12,4 +12,5 @@ class week_CalendarViewConroller: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    @IBOutlet var week_CollectionView: UICollectionView!
 }
