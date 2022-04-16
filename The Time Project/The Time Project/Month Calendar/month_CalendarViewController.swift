@@ -8,34 +8,8 @@
 import Foundation
 import UIKit
 
-class month_CalendarViewConroller: UIViewController{
+extension CalendarViewController{
     
-    @IBOutlet var month_LeftButton: UIButton!
-    @IBOutlet var month_RightButton: UIButton!
-    @IBOutlet var month_collectionView: UICollectionView!
-    @IBOutlet var month_label: UILabel!
-    var weeks = 0
-    var monthCounter = 0
-    var yearCounter = 0
-    var items = [[Date]]()
-    
-    
-    lazy var dateFormatter: DateFormatter = {
-        let formatter  = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        formatter.locale = Locale(identifier: "en_US")
-        return formatter
-    }()
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setCalendar()
-        
-        month_collectionView.delegate = self
-        month_collectionView.dataSource = self
-        
-    }
     
     func setCalendar() {
         let cal = Calendar.current
@@ -66,6 +40,8 @@ class month_CalendarViewConroller: UIViewController{
         firstDate = (cal as NSCalendar).date(byAdding: [.day], value: -(componentsFromFirstDate.weekday!-1), to: firstDate, options: [])!
 
         for _ in 1 ... totalMonthList {
+            
+            
             dates.append(firstDate)
             firstDate = (cal as NSCalendar).date(byAdding: [.day], value: +1, to: firstDate, options: [])!
         }
@@ -89,46 +65,41 @@ class month_CalendarViewConroller: UIViewController{
     @IBAction func leftButtonPressed(_ sender: Any) {
         if monthCounter == 0 || monthCounter == 1{
             monthCounter-=1
+            
+            UIView.animate(withDuration: 0.3) {
+                self.month_collectionView.alpha = CGFloat(0)
+                self.month_label.alpha = CGFloat(0)
+            }
+            let secondsToDelay = 0.4
+            DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay) {
+                self.setCalendar()
+                UIView.animate(withDuration: 0.3) {
+                    self.month_label.alpha = CGFloat(1)
+                    self.month_collectionView.alpha = CGFloat(1)
+                }
+            }
         }
-        setCalendar()
+        
+        
+        
     }
     @IBAction func rightButtoonPress(_ sender: Any) {
         if monthCounter == 0 || monthCounter == -1{
             monthCounter+=1
+            
+            UIView.animate(withDuration: 0.3) {
+                self.month_collectionView.alpha = CGFloat(0)
+                self.month_label.alpha = CGFloat(0)
+            }
+            let secondsToDelay = 0.4
+            DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay) {
+                self.setCalendar()
+                UIView.animate(withDuration: 0.3) {
+                    self.month_label.alpha = CGFloat(1)
+                    self.month_collectionView.alpha = CGFloat(1)
+                }
+            }
         }
-        setCalendar()
-        
-        
     }
     
 }
-
-extension month_CalendarViewConroller: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return weeks
-}
-
-func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 7
-}
-
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "monthCell", for: indexPath) as! month_CalendarCollectionViewCell
-    cell.layer.borderColor = UIColor.black.cgColor
-    cell.layer.borderWidth = 0.5
-    cell.configureCell(date: items[indexPath.section][indexPath.row])
-    return cell
-}
-
-func collectionView(_ collectionView: UICollectionView,
-                    layout collectionViewLayout: UICollectionViewLayout,
-                    minimumInteritemSpacingForSectionAt section: Int) -> CGFloat{
-    return 0.0
-}
-
-func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: collectionView.frame.size.width / 7.0, height: collectionView.frame.size.height / 7)
-}
-}
-

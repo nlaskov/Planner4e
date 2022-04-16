@@ -18,7 +18,7 @@ class month_CalendarCollectionViewCell: UICollectionViewCell {
         let cal = Calendar.current
         let components = (cal as NSCalendar).components([.day], from: date)
         let day = components.day!
-
+        
         self.lblDate.text = "\(String(describing: day))"
     }
 }
