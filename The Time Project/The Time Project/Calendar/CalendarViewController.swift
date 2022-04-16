@@ -20,14 +20,14 @@ class CalendarViewController: UIViewController{
     //DAY
     var date: Date = Date()
     var used_date: Date = Date()
-    var dayTasks: [Tasks] = []
+    var dayTasks: [Task] = []
 
     @IBOutlet var day_dateLabel: UILabel!
     @IBOutlet var day_leftButton: UIButton!
     @IBOutlet var day_rightButton: UIButton!
     @IBOutlet var day_CollectionView: UICollectionView!
     
-    var database:[Tasks] = [Tasks.init(_name: "Task_1", _priority: 0, _category: 1, _day: 15, _month: 4, _year: 2022, _done: false),Tasks.init(_name: "Task_2", _priority: 1, _category: 1, _day: 29, _month: 3, _year: 2022, _done: false),Tasks.init(_name: "Task_3", _priority: 2, _category: 1, _day: 30, _month: 3, _year: 2022, _done: true),Tasks.init(_name: "Task_4", _priority: 2, _category: 1, _day: 29, _month: 3, _year: 2022, _done: true)]
+    var database:[Task] = [Task.init(_name: "Task_1", _priority: 0, _category: 1, _day: 15, _month: 4, _year: 2022, _done: false),Task.init(_name: "Task_2", _priority: 1, _category: 1, _day: 29, _month: 3, _year: 2022, _done: false),Task.init(_name: "Task_3", _priority: 2, _category: 1, _day: 30, _month: 3, _year: 2022, _done: true),Task.init(_name: "Task_4", _priority: 2, _category: 1, _day: 29, _month: 3, _year: 2022, _done: true)]
     
     
     
@@ -128,7 +128,7 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as! day_CalendarCollectionViewCell
             
             cell.task = dayTasks[indexPath.row]
-            cell.setTask()
+            cell.setCell()
             
             return cell
         }else{

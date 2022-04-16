@@ -13,6 +13,24 @@
 		B06E5909280B06FA003777EB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5908280B06FA003777EB /* Book.swift */; };
 		B06E590C280B090E003777EB /* bookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590B280B090E003777EB /* bookTableViewCell.swift */; };
 		B06E590E280B11DE003777EB /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590D280B11DE003777EB /* tabBarController.swift */; };
+		B06E5910280B239F003777EB /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590F280B239F003777EB /* Film.swift */; };
+		B06E5912280B23BA003777EB /* Resolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5911280B23BA003777EB /* Resolution.swift */; };
+		B06E5914280B5699003777EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B06E5913280B5699003777EB /* GoogleService-Info.plist */; };
+		B06E5917280B5745003777EB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B06E5916280B5745003777EB /* FirebaseAnalytics */; };
+		B06E5919280B5745003777EB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B06E5918280B5745003777EB /* FirebaseAuth */; };
+		B06E591B280B5745003777EB /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = B06E591A280B5745003777EB /* FirebaseCrashlytics */; };
+		B06E591D280B5745003777EB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B06E591C280B5745003777EB /* FirebaseDatabase */; };
+		B06E591F280B5745003777EB /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B06E591E280B5745003777EB /* FirebaseDatabaseSwift */; };
+		B06E5921280B5745003777EB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B06E5920280B5745003777EB /* FirebaseFirestore */; };
+		B06E5923280B5745003777EB /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B06E5922280B5745003777EB /* FirebaseFirestoreSwift */; };
+		B06E5925280B5745003777EB /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = B06E5924280B5745003777EB /* FirebaseFunctions */; };
+		B06E5927280B5745003777EB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B06E5926280B5745003777EB /* FirebaseStorage */; };
+		B06E592C280B5ABD003777EB /* DatabaseBookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E592B280B5ABD003777EB /* DatabaseBookManager.swift */; };
+		B06E592E280B5B6E003777EB /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E592D280B5B6E003777EB /* AuthManager.swift */; };
+		B06E5930280B5D38003777EB /* DatabaseUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E592F280B5D38003777EB /* DatabaseUserManager.swift */; };
+		B06E5933280B7379003777EB /* filmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5932280B7379003777EB /* filmsViewController.swift */; };
+		B06E5935280B751B003777EB /* filmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5934280B751B003777EB /* filmTableViewCell.swift */; };
+		B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */; };
 		B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */; };
 		B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */; };
 		B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B127F241F800F808DD /* day_CalendarViewController.swift */; };
@@ -33,6 +51,15 @@
 		B06E5908280B06FA003777EB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B06E590B280B090E003777EB /* bookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookTableViewCell.swift; sourceTree = "<group>"; };
 		B06E590D280B11DE003777EB /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
+		B06E590F280B239F003777EB /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		B06E5911280B23BA003777EB /* Resolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolution.swift; sourceTree = "<group>"; };
+		B06E5913280B5699003777EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B06E592B280B5ABD003777EB /* DatabaseBookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseBookManager.swift; sourceTree = "<group>"; };
+		B06E592D280B5B6E003777EB /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		B06E592F280B5D38003777EB /* DatabaseUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUserManager.swift; sourceTree = "<group>"; };
+		B06E5932280B7379003777EB /* filmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filmsViewController.swift; sourceTree = "<group>"; };
+		B06E5934280B751B003777EB /* filmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filmTableViewCell.swift; sourceTree = "<group>"; };
+		B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFilmManager.swift; sourceTree = "<group>"; };
 		B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88B127F241F800F808DD /* day_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +82,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B06E591F280B5745003777EB /* FirebaseDatabaseSwift in Frameworks */,
+				B06E591B280B5745003777EB /* FirebaseCrashlytics in Frameworks */,
+				B06E5927280B5745003777EB /* FirebaseStorage in Frameworks */,
+				B06E5917280B5745003777EB /* FirebaseAnalytics in Frameworks */,
+				B06E5925280B5745003777EB /* FirebaseFunctions in Frameworks */,
+				B06E5923280B5745003777EB /* FirebaseFirestoreSwift in Frameworks */,
+				B06E591D280B5745003777EB /* FirebaseDatabase in Frameworks */,
+				B06E5919280B5745003777EB /* FirebaseAuth in Frameworks */,
+				B06E5921280B5745003777EB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +113,47 @@
 				B06E590B280B090E003777EB /* bookTableViewCell.swift */,
 			);
 			path = Books;
+			sourceTree = "<group>";
+		};
+		B06E5928280B5A51003777EB /* SystemFiles */ = {
+			isa = PBXGroup;
+			children = (
+				B09E0C1F27F1BFC5003F38B2 /* AppDelegate.swift */,
+				B09E0C2127F1BFC5003F38B2 /* SceneDelegate.swift */,
+				B09E0C2327F1BFC5003F38B2 /* ViewController.swift */,
+			);
+			path = SystemFiles;
+			sourceTree = "<group>";
+		};
+		B06E5929280B5A6D003777EB /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				B09C88B327F2482300F808DD /* week_CalendarViewController.swift */,
+				B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */,
+				B06E590428091A99003777EB /* Month Calendar */,
+				B09C88B727F24C2900F808DD /* Day Calendar */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		B06E592A280B5A89003777EB /* FireBaseManagers */ = {
+			isa = PBXGroup;
+			children = (
+				B06E592B280B5ABD003777EB /* DatabaseBookManager.swift */,
+				B06E592D280B5B6E003777EB /* AuthManager.swift */,
+				B06E592F280B5D38003777EB /* DatabaseUserManager.swift */,
+				B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */,
+			);
+			path = FireBaseManagers;
+			sourceTree = "<group>";
+		};
+		B06E5931280B7361003777EB /* Films */ = {
+			isa = PBXGroup;
+			children = (
+				B06E5932280B7379003777EB /* filmsViewController.swift */,
+				B06E5934280B751B003777EB /* filmTableViewCell.swift */,
+			);
+			path = Films;
 			sourceTree = "<group>";
 		};
 		B09C88B727F24C2900F808DD /* Day Calendar */ = {
@@ -107,19 +184,17 @@
 		B09E0C1E27F1BFC5003F38B2 /* The Time Project */ = {
 			isa = PBXGroup;
 			children = (
-				B09C88B727F24C2900F808DD /* Day Calendar */,
-				B09C88B327F2482300F808DD /* week_CalendarViewController.swift */,
-				B06E590428091A99003777EB /* Month Calendar */,
-				B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */,
+				B06E592A280B5A89003777EB /* FireBaseManagers */,
+				B06E5929280B5A6D003777EB /* Calendar */,
 				B06E590A280B08F9003777EB /* Books */,
-				B09E0C1F27F1BFC5003F38B2 /* AppDelegate.swift */,
-				B09E0C2127F1BFC5003F38B2 /* SceneDelegate.swift */,
-				B09E0C2327F1BFC5003F38B2 /* ViewController.swift */,
+				B06E5931280B7361003777EB /* Films */,
+				B06E5928280B5A51003777EB /* SystemFiles */,
 				B0B0F74727F2719700B7448B /* Models */,
 				B09E0C2527F1BFC5003F38B2 /* Main.storyboard */,
 				B06E590D280B11DE003777EB /* tabBarController.swift */,
 				B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */,
 				B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */,
+				B06E5913280B5699003777EB /* GoogleService-Info.plist */,
 				B09E0C2D27F1BFC6003F38B2 /* Info.plist */,
 			);
 			path = "The Time Project";
@@ -131,6 +206,8 @@
 				B0B0F74F27F30B6100B7448B /* Task.swift */,
 				B0B0F74A27F271B400B7448B /* User.swift */,
 				B06E5908280B06FA003777EB /* Book.swift */,
+				B06E590F280B239F003777EB /* Film.swift */,
+				B06E5911280B23BA003777EB /* Resolution.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,6 +228,17 @@
 			dependencies = (
 			);
 			name = "The Time Project";
+			packageProductDependencies = (
+				B06E5916280B5745003777EB /* FirebaseAnalytics */,
+				B06E5918280B5745003777EB /* FirebaseAuth */,
+				B06E591A280B5745003777EB /* FirebaseCrashlytics */,
+				B06E591C280B5745003777EB /* FirebaseDatabase */,
+				B06E591E280B5745003777EB /* FirebaseDatabaseSwift */,
+				B06E5920280B5745003777EB /* FirebaseFirestore */,
+				B06E5922280B5745003777EB /* FirebaseFirestoreSwift */,
+				B06E5924280B5745003777EB /* FirebaseFunctions */,
+				B06E5926280B5745003777EB /* FirebaseStorage */,
+			);
 			productName = "The Time Project";
 			productReference = B09E0C1C27F1BFC5003F38B2 /* The Time Project.app */;
 			productType = "com.apple.product-type.application";
@@ -179,6 +267,9 @@
 				Base,
 			);
 			mainGroup = B09E0C1327F1BFC5003F38B2;
+			packageReferences = (
+				B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = B09E0C1D27F1BFC5003F38B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -194,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B09E0C2C27F1BFC6003F38B2 /* LaunchScreen.storyboard in Resources */,
+				B06E5914280B5699003777EB /* GoogleService-Info.plist in Resources */,
 				B09E0C2927F1BFC6003F38B2 /* Assets.xcassets in Resources */,
 				B09E0C2727F1BFC5003F38B2 /* Main.storyboard in Resources */,
 			);
@@ -207,19 +299,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */,
+				B06E592C280B5ABD003777EB /* DatabaseBookManager.swift in Sources */,
 				B06E5907280B05B8003777EB /* booksViewController.swift in Sources */,
 				B09C88B427F2482300F808DD /* week_CalendarViewController.swift in Sources */,
 				B09E0C2427F1BFC5003F38B2 /* ViewController.swift in Sources */,
+				B06E5935280B751B003777EB /* filmTableViewCell.swift in Sources */,
 				B06E590328091A93003777EB /* month_CalendarCollectionViewCell.swift in Sources */,
 				B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */,
+				B06E5930280B5D38003777EB /* DatabaseUserManager.swift in Sources */,
 				B09E0C2027F1BFC5003F38B2 /* AppDelegate.swift in Sources */,
 				B06E590E280B11DE003777EB /* tabBarController.swift in Sources */,
 				B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */,
+				B06E5912280B23BA003777EB /* Resolution.swift in Sources */,
 				B06E590C280B090E003777EB /* bookTableViewCell.swift in Sources */,
+				B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,
+				B06E592E280B5B6E003777EB /* AuthManager.swift in Sources */,
 				B0B0F74B27F271B400B7448B /* User.swift in Sources */,
+				B06E5910280B239F003777EB /* Film.swift in Sources */,
 				B06E5909280B06FA003777EB /* Book.swift in Sources */,
+				B06E5933280B7379003777EB /* filmsViewController.swift in Sources */,
 				B06E590528091AA9003777EB /* month_CalendarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +538,65 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B06E5916280B5745003777EB /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		B06E5918280B5745003777EB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		B06E591A280B5745003777EB /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		B06E591C280B5745003777EB /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		B06E591E280B5745003777EB /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		B06E5920280B5745003777EB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		B06E5922280B5745003777EB /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		B06E5924280B5745003777EB /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		B06E5926280B5745003777EB /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B06E5915280B5745003777EB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B09E0C1427F1BFC5003F38B2 /* Project object */;
 }

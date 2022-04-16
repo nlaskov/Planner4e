@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>456856466815-sjitkhgi2hjt1kqa7vlnrmifo76hnqlu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.456856466815-sjitkhgi2hjt1kqa7vlnrmifo76hnqlu</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCNs9XX61p4LfeTXuqBDwDZoG3MEqKNErg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>456856466815</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.fmi.Laskov.The-Time-Project</string>
+	<key>PROJECT_ID</key>
+	<string>the-time-project</string>
+	<key>STORAGE_BUCKET</key>
+	<string>the-time-project.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:456856466815:ios:7926d5d51fcfa3ba25964a</string>
+</dict>
+</plist>

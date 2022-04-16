@@ -1,16 +1,17 @@
 //
-//  bookTableViewCell.swift
+//  filmTableViewCell.swift
 //  The Time Project
 //
-//  Created by Nikola Laskov on 16.04.22.
+//  Created by Nikola Laskov on 17.04.22.
 //
+
+import Foundation
 
 import Foundation
 import UIKit
 
-class bookTableViewCell:UITableViewCell{
-    var book:Book? = nil
-    
+class filmTableViewCell:UITableViewCell{
+    var film:Film? = nil
     
     @IBOutlet var importance: UIImageView!
     @IBOutlet var title: UILabel!
@@ -18,7 +19,7 @@ class bookTableViewCell:UITableViewCell{
     
     func setCell(){
         
-        switch book?.priority{
+        switch film?.priority{
         case 0:
             importance.tintColor = UIColor.init(red: CGFloat(175 as Double/225), green: CGFloat(227 as Double/225), blue: CGFloat(120 as Double/225), alpha: CGFloat(1))
             break
@@ -32,20 +33,23 @@ class bookTableViewCell:UITableViewCell{
             break
         }
         
-        title.text = book?.name
-        if book?.done ?? false{
+        title.text = film?.name
+        if film?.done ?? false{
             done.isOn = true
         }
         else {
             done.isOn = false
         }
     }
-    @IBAction func doneSwitch(_ sender: Any) {
+    
+    
+    @IBAction func changeSwitch(_ sender: Any) {
         if done.isOn == true{
-            book?.done = true
+            film?.done = true
         }
         else {
-            book?.done = false
+            film?.done = false
         }
     }
+    
 }

@@ -1,5 +1,5 @@
 //
-//  Book.swift
+//  Film.swift
 //  The Time Project
 //
 //  Created by Nikola Laskov on 16.04.22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Book: Codable{
+class Film: Codable{
     var name:String
     var priority:Int
     var done:Bool

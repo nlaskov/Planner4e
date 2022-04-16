@@ -10,7 +10,7 @@ import UIKit
 
 class day_CalendarCollectionViewCell: UICollectionViewCell{
     
-    var task:Tasks? = nil
+    var task:Task? = nil
     
     @IBOutlet var category: UIImageView!
     @IBOutlet var title: UILabel!
@@ -19,7 +19,7 @@ class day_CalendarCollectionViewCell: UICollectionViewCell{
     @IBOutlet var comment: UITextView!
     
     //Like init
-    func setTask(){
+    func setCell(){
         title.text = task?.name
         setSwitch(value: (task?.done ?? false))
         setImportanse(importanse: task?.priority ?? 2)

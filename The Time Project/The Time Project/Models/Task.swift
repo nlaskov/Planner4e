@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Tasks{
+class Task{
     var name:String = ""
     var priority:Int = -1
     var category:Int = -1
