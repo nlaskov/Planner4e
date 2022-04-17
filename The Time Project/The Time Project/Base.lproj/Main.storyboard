@@ -96,6 +96,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Vz-Ox-l5f"/>
                     <connections>
+                        <outlet property="addButton" destination="cGV-sd-kgk" id="JWn-dN-wDn"/>
                         <outlet property="bookTable" destination="4PE-VY-QtQ" id="vLO-DZ-ChD"/>
                         <outlet property="viewSegment" destination="vWk-hh-wQz" id="XNc-49-Y5e"/>
                     </connections>
@@ -129,10 +130,10 @@
             </objects>
             <point key="canvasLocation" x="1658" y="1533"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="The_Time_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="menuViewController" customModule="The_Time_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,7 +182,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="3Rn-H6-gwM" kind="show" id="76s-Zw-gAa"/>
+                                    <segue destination="3Rn-H6-gwM" kind="show" id="IBK-7L-gfJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1a2-eO-Bxs">
@@ -274,6 +275,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="vMJ-L3-Hy1" kind="show" id="yk0-we-o8G"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg9-gy-mX3">
                                 <rect key="frame" x="20" y="671" width="374" height="44"/>
@@ -770,6 +774,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="656-ds-V1h"/>
                     <connections>
+                        <outlet property="addButton" destination="nTS-UT-Hox" id="XvD-22-RBX"/>
                         <outlet property="filmTable" destination="Sma-vy-MjW" id="JdN-24-oGy"/>
                         <outlet property="viewSegment" destination="RIs-yW-9fp" id="EYX-iT-PR8"/>
                     </connections>
@@ -802,6 +807,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rq6-tm-wJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="932" y="1533"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sPh-0q-21q">
+            <objects>
+                <viewController id="vMJ-L3-Hy1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="duP-Ci-uIg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="L87-vI-lBk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="THe-tf-fUR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QPc-Ig-Qf3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507" y="808"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="VS1-NM-plK">

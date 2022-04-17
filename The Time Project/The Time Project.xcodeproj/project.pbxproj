@@ -31,6 +31,8 @@
 		B06E5933280B7379003777EB /* filmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5932280B7379003777EB /* filmsViewController.swift */; };
 		B06E5935280B751B003777EB /* filmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5934280B751B003777EB /* filmTableViewCell.swift */; };
 		B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */; };
+		B06E5939280BF749003777EB /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5938280BF749003777EB /* menuViewController.swift */; };
+		B06E593B280BFB6C003777EB /* DatabaseTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */; };
 		B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */; };
 		B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */; };
 		B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B127F241F800F808DD /* day_CalendarViewController.swift */; };
@@ -60,6 +62,8 @@
 		B06E5932280B7379003777EB /* filmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filmsViewController.swift; sourceTree = "<group>"; };
 		B06E5934280B751B003777EB /* filmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filmTableViewCell.swift; sourceTree = "<group>"; };
 		B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFilmManager.swift; sourceTree = "<group>"; };
+		B06E5938280BF749003777EB /* menuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
+		B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTaskManager.swift; sourceTree = "<group>"; };
 		B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88B127F241F800F808DD /* day_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 				B06E592D280B5B6E003777EB /* AuthManager.swift */,
 				B06E592F280B5D38003777EB /* DatabaseUserManager.swift */,
 				B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */,
+				B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */,
 			);
 			path = FireBaseManagers;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				B06E5928280B5A51003777EB /* SystemFiles */,
 				B0B0F74727F2719700B7448B /* Models */,
 				B09E0C2527F1BFC5003F38B2 /* Main.storyboard */,
+				B06E5938280BF749003777EB /* menuViewController.swift */,
 				B06E590D280B11DE003777EB /* tabBarController.swift */,
 				B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */,
 				B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */,
@@ -313,6 +319,7 @@
 				B06E5912280B23BA003777EB /* Resolution.swift in Sources */,
 				B06E590C280B090E003777EB /* bookTableViewCell.swift in Sources */,
 				B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */,
+				B06E5939280BF749003777EB /* menuViewController.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,
 				B06E592E280B5B6E003777EB /* AuthManager.swift in Sources */,
@@ -321,6 +328,7 @@
 				B06E5909280B06FA003777EB /* Book.swift in Sources */,
 				B06E5933280B7379003777EB /* filmsViewController.swift in Sources */,
 				B06E590528091AA9003777EB /* month_CalendarViewController.swift in Sources */,
+				B06E593B280BFB6C003777EB /* DatabaseTaskManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

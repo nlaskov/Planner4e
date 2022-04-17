@@ -156,7 +156,7 @@ extension CalendarViewController{
         let month = Calendar.current.component(.month, from: used_date)
         let year = Calendar.current.component(.year, from: used_date)
         
-        for item in database{
+        for item in DatabaseTaskManager.shared.tasks{
             if(item.day == day) && (item.month == month) && (item.year == year){
                 dayTasks.append(item)
             }

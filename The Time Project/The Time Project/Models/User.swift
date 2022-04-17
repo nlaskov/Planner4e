@@ -13,20 +13,13 @@ class User: Codable{
     var email:String = ""
     var image:String = ""
     
-    /*init(_ name:String,_ UID:String,_ email:String,_ image:String) {
+    init(_ name:String,_ UID:String,_ email:String,_ image:String) {
         self.name = name
         self.UID = UID
         self.email = email
         self.image = image
-    }*/
-    
-    init(){
-        name = ""
-        UID = ""
-        email = ""
-        image = ""
     }
-    
+
     enum CodingKeys: String, CodingKey {
             case name
             case email

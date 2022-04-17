@@ -15,6 +15,7 @@ class DatabaseBookManager:NSObject{
     
     static let shared = DatabaseBookManager()
     let ref = Firestore.firestore()
+    
     var books_unread:[Book]=[]
     var books_read:[Book]=[]
     
@@ -29,9 +30,11 @@ class DatabaseBookManager:NSObject{
                         case .success(let book):
                             if book.done{
                                 self.books_read.append(book)
+                                
                             }
                             else{
                                 self.books_unread.append(book)
+                                
                             }
                         case .failure(let error):
                             print("Error decoding city: \(error)")
