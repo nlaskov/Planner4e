@@ -18,37 +18,46 @@ class DatabaseFilmManager:NSObject{
     var films_unwatched:[Film]=[]
     var films_watched:[Film]=[]
     
-    func getFilms(){
-        ref.collection("\(AuthManager.shared.currentUser.UID)_Films").getDocuments(){ (querySnapshot, err) in
+    func getFilms(completion: @escaping () -> ()){
+        ref.collection("\(DatabaseUserManager.shared.user.UID)_Films").getDocuments(){ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    document.reference.getDocument(as: Film.self) { result in
-                        switch result {
-                        case .success(let film):
-                            if film.done{
-                                self.films_watched.append(film)
-                            }
-                            else{
-                                self.films_unwatched.append(film)
-                            }
-                        case .failure(let error):
-                            print("Error decoding city: \(error)")
-                        }
+                    var film = Film(_name: document["name"] as! String, _priority: document["priority"] as! Int, _done: document["done"] as! Bool)
+                    
+                    if film.done{
+                        self.films_watched.append(film)
+                    }
+                    else{
+                        self.films_unwatched.append(film)
                     }
                 }
+                completion()
             }
         }
     }
     
-    func addFilm(_ film:Film){
-        ref.collection("\(AuthManager.shared.currentUser.UID)_Films").document(UUID().uuidString).setData([
-            "name": film.name,
-            "priority": film.priority,
+    func addFilm(name:String?,priority:Int ,completion: @escaping (_ success: Bool, _ error: Error?) -> ()){
+        
+        guard let name = name, !name.isEmpty else {
+            completion(false, FilmError.noName)
+            return
+        }
+        
+        ref.collection("\(DatabaseUserManager.shared.user.UID)_Films").document(UUID().uuidString).setData([
+            "name": name,
+            "priority": priority,
             "done": false,
             ])
-        films_unwatched.append(film)
+        
+        films_unwatched.append(Film(_name: name, _priority: priority, _done: false))
+        
+        completion(true, nil)
+    }
+    
+    enum FilmError: Error{
+        case noName
     }
     
 }

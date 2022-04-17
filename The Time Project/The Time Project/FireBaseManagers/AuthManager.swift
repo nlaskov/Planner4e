@@ -11,7 +11,6 @@ import FirebaseAuth
 class AuthManager: NSObject{
     static let shared = AuthManager()
     var logInWithEmail:Bool = false
-    var currentUser:User = User("", "", "", "")
     
     func login(email: String?, password: String? , completion: @escaping (_ success: Bool, _ error: Error?) -> () ){
         
@@ -46,7 +45,7 @@ class AuthManager: NSObject{
             
             //If there isn`t error
             self.logInWithEmail = true;
-            self.currentUser = DatabaseUserManager.shared.getUser(UID: Auth.auth().currentUser!.uid)
+            
             completion(true, nil)
         }
     }
@@ -102,8 +101,8 @@ class AuthManager: NSObject{
             
             //If there isn`t error
             let uid = Auth.auth().currentUser?.uid
-            AuthManager.shared.currentUser = User(fullname, uid!,email, "")
-            DatabaseUserManager.shared.addUser(user:AuthManager.shared.currentUser)
+            DatabaseUserManager.shared.user = User(fullname, uid!,email, "")
+            DatabaseUserManager.shared.addUser(user:DatabaseUserManager.shared.user)
             
             completion(true, nil)
             

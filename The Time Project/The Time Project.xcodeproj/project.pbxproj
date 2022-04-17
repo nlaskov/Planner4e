@@ -37,6 +37,8 @@
 		B06E5942280C0676003777EB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593E280C0676003777EB /* ForgotPasswordViewController.swift */; };
 		B06E5943280C0676003777EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593F280C0676003777EB /* SignUpViewController.swift */; };
 		B06E5944280C0676003777EB /* LoginMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5940280C0676003777EB /* LoginMenuViewController.swift */; };
+		B06E5946280C9502003777EB /* addBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5945280C9501003777EB /* addBookViewController.swift */; };
+		B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5947280C9BE7003777EB /* addFilmViewController.swift */; };
 		B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */; };
 		B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */; };
 		B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B127F241F800F808DD /* day_CalendarViewController.swift */; };
@@ -72,6 +74,8 @@
 		B06E593E280C0676003777EB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/ForgotPasswordViewController.swift"; sourceTree = "<group>"; };
 		B06E593F280C0676003777EB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/SignUpViewController.swift"; sourceTree = "<group>"; };
 		B06E5940280C0676003777EB /* LoginMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginMenuViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/LoginMenuViewController.swift"; sourceTree = "<group>"; };
+		B06E5945280C9501003777EB /* addBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBookViewController.swift; sourceTree = "<group>"; };
+		B06E5947280C9BE7003777EB /* addFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFilmViewController.swift; sourceTree = "<group>"; };
 		B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88B127F241F800F808DD /* day_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 			children = (
 				B06E5906280B05B8003777EB /* booksViewController.swift */,
 				B06E590B280B090E003777EB /* bookTableViewCell.swift */,
+				B06E5945280C9501003777EB /* addBookViewController.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			children = (
 				B06E5932280B7379003777EB /* filmsViewController.swift */,
 				B06E5934280B751B003777EB /* filmTableViewCell.swift */,
+				B06E5947280C9BE7003777EB /* addFilmViewController.swift */,
 			);
 			path = Films;
 			sourceTree = "<group>";
@@ -326,6 +332,7 @@
 			files = (
 				B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */,
 				B06E592C280B5ABD003777EB /* DatabaseBookManager.swift in Sources */,
+				B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */,
 				B06E5907280B05B8003777EB /* booksViewController.swift in Sources */,
 				B09C88B427F2482300F808DD /* week_CalendarViewController.swift in Sources */,
 				B09E0C2427F1BFC5003F38B2 /* ViewController.swift in Sources */,
@@ -337,6 +344,7 @@
 				B06E590E280B11DE003777EB /* tabBarController.swift in Sources */,
 				B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */,
 				B06E5912280B23BA003777EB /* Resolution.swift in Sources */,
+				B06E5946280C9502003777EB /* addBookViewController.swift in Sources */,
 				B06E590C280B090E003777EB /* bookTableViewCell.swift in Sources */,
 				B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */,
 				B06E5939280BF749003777EB /* menuViewController.swift in Sources */,

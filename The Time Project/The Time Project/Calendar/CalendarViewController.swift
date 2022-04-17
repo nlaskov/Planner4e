@@ -64,12 +64,18 @@ class CalendarViewController: UIViewController{
         day_dateLabel.text = day_setLabelDay(date: date)
         used_date = date
         
-        self.getDayTasks();
-        
         //Month
         month_collectionView.delegate = self
         month_collectionView.dataSource = self
         setCalendar()
+        
+        if DatabaseTaskManager.shared.tasks.isEmpty{
+            DatabaseTaskManager.shared.getTasks(){
+                self.getDayTasks();
+                self.day_CollectionView.reloadData()
+            }
+        }
+        
         
     }
     //Change between dayView, weekView and monthView

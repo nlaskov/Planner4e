@@ -16,11 +16,25 @@ class booksViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         viewSegment.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
         addButton.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
+        addButton.layer.cornerRadius=25
         
         bookTable.dataSource = self
         bookTable.delegate = self
+        
+        if DatabaseBookManager.shared.books_read.isEmpty && DatabaseBookManager.shared.books_unread.isEmpty{
+            DatabaseBookManager.shared.getBooks(){
+                self.bookTable.reloadData()
+            }
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        bookTable.reloadData();
     }
     
     @IBAction func changeSegment(_ sender: Any) {

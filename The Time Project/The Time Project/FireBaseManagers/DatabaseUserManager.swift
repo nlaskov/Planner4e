@@ -12,10 +12,10 @@ class DatabaseUserManager:NSObject{
     
     static let shared = DatabaseUserManager()
     let ref = Firestore.firestore()
-    var user:User = User()
+    var user = User()
     
     func getUser(UID:String) -> User{
-        
+
         ref.collection("Users").document(UID).getDocument(as: User.self){result in
             switch result {
                 case .success(let result):

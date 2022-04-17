@@ -19,39 +19,46 @@ class DatabaseBookManager:NSObject{
     var books_unread:[Book]=[]
     var books_read:[Book]=[]
     
-    func getBooks(){
-        ref.collection("\(AuthManager.shared.currentUser.UID)_Books").getDocuments(){ (querySnapshot, err) in
+    func getBooks(completion: @escaping () -> () ){
+        
+        ref.collection("\(DatabaseUserManager.shared.user.UID)_Books").getDocuments(){ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    document.reference.getDocument(as: Book.self) { result in
-                        switch result {
-                        case .success(let book):
-                            if book.done{
-                                self.books_read.append(book)
-                                
-                            }
-                            else{
-                                self.books_unread.append(book)
-                                
-                            }
-                        case .failure(let error):
-                            print("Error decoding city: \(error)")
-                        }
+                    var book = Book(_name: document["name"] as! String, _priority: document["priority"] as! Int, _done: document["done"] as! Bool)
+                    if book.done{
+                        self.books_read.append(book)
+                    }
+                    else{
+                        self.books_unread.append(book)
                     }
                 }
+                completion()
             }
         }
     }
     
-    func addBook(_ book:Book){
-        ref.collection("\(AuthManager.shared.currentUser.UID)_Books").document(UUID().uuidString).setData([
-            "name": book.name,
-            "priority": book.priority,
+    func addBook(name:String?,priority:Int ,completion: @escaping (_ success: Bool, _ error: Error?) -> ()){
+        
+        guard let name = name, !name.isEmpty else {
+            completion(false, BookError.noName)
+            return
+        }
+        
+        ref.collection("\(DatabaseUserManager.shared.user.UID)_Books").document(UUID().uuidString).setData([
+            "name": name,
+            "priority": priority,
             "done": false,
             ])
-        books_unread.append(book)
+        
+        books_unread.append(Book(_name: name, _priority: priority, _done: false))
+        
+        completion(true, nil)
+    }
+    
+    enum BookError: Error{
+        case noName
     }
     
 }

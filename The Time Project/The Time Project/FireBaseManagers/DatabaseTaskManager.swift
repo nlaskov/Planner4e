@@ -18,23 +18,18 @@ class DatabaseTaskManager:NSObject{
     var user:User? = nil
     
    
-    func getTasks(){
-        ref.collection("\(AuthManager.shared.currentUser.UID)_Tasks").getDocuments() { (querySnapshot, err) in
+    func getTasks(completion: @escaping () -> ()){
+        ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    document.reference.getDocument(as: Task.self){result in
-                        
-                        switch result {
-                            case .success(let result):
-                                self.tasks.append(result)
-                            case .failure(let error):
-                                print("Error decoding city: \(error)")
-                        }
-                    }
+                    var task = Task(_name: document["name"] as! String, _priority: document["priority"] as! Int, _category: document["category"] as! Int, _day: document["day"] as! Int, _month: document["month"] as! Int, _year: document["year"] as! Int, _done: document["done"] as! Bool)
+                    
+                    self.tasks.append(task)
                 }
+                completion()
             }
         }
     }
