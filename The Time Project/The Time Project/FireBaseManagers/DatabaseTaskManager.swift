@@ -19,7 +19,7 @@ class DatabaseTaskManager:NSObject{
     
    
     func getTasks(){
-        ref.collection("USER_ID_Tasks").getDocuments() { (querySnapshot, err) in
+        ref.collection("\(AuthManager.shared.currentUser.UID)_Tasks").getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting documents: \(err)")

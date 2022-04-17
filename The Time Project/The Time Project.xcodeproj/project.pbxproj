@@ -33,6 +33,10 @@
 		B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */; };
 		B06E5939280BF749003777EB /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5938280BF749003777EB /* menuViewController.swift */; };
 		B06E593B280BFB6C003777EB /* DatabaseTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */; };
+		B06E5941280C0676003777EB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593D280C0676003777EB /* SignInViewController.swift */; };
+		B06E5942280C0676003777EB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593E280C0676003777EB /* ForgotPasswordViewController.swift */; };
+		B06E5943280C0676003777EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593F280C0676003777EB /* SignUpViewController.swift */; };
+		B06E5944280C0676003777EB /* LoginMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5940280C0676003777EB /* LoginMenuViewController.swift */; };
 		B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */; };
 		B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */; };
 		B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B127F241F800F808DD /* day_CalendarViewController.swift */; };
@@ -64,6 +68,10 @@
 		B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFilmManager.swift; sourceTree = "<group>"; };
 		B06E5938280BF749003777EB /* menuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
 		B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTaskManager.swift; sourceTree = "<group>"; };
+		B06E593D280C0676003777EB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/SignInViewController.swift"; sourceTree = "<group>"; };
+		B06E593E280C0676003777EB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/ForgotPasswordViewController.swift"; sourceTree = "<group>"; };
+		B06E593F280C0676003777EB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/SignUpViewController.swift"; sourceTree = "<group>"; };
+		B06E5940280C0676003777EB /* LoginMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginMenuViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/LoginMenuViewController.swift"; sourceTree = "<group>"; };
 		B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88B127F241F800F808DD /* day_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +169,17 @@
 			path = Films;
 			sourceTree = "<group>";
 		};
+		B06E593C280C0649003777EB /* Login and Registration */ = {
+			isa = PBXGroup;
+			children = (
+				B06E593E280C0676003777EB /* ForgotPasswordViewController.swift */,
+				B06E5940280C0676003777EB /* LoginMenuViewController.swift */,
+				B06E593D280C0676003777EB /* SignInViewController.swift */,
+				B06E593F280C0676003777EB /* SignUpViewController.swift */,
+			);
+			path = "Login and Registration";
+			sourceTree = "<group>";
+		};
 		B09C88B727F24C2900F808DD /* Day Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +208,7 @@
 		B09E0C1E27F1BFC5003F38B2 /* The Time Project */ = {
 			isa = PBXGroup;
 			children = (
+				B06E593C280C0649003777EB /* Login and Registration */,
 				B06E592A280B5A89003777EB /* FireBaseManagers */,
 				B06E5929280B5A6D003777EB /* Calendar */,
 				B06E590A280B08F9003777EB /* Books */,
@@ -322,10 +342,14 @@
 				B06E5939280BF749003777EB /* menuViewController.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,
+				B06E5941280C0676003777EB /* SignInViewController.swift in Sources */,
 				B06E592E280B5B6E003777EB /* AuthManager.swift in Sources */,
 				B0B0F74B27F271B400B7448B /* User.swift in Sources */,
 				B06E5910280B239F003777EB /* Film.swift in Sources */,
+				B06E5943280C0676003777EB /* SignUpViewController.swift in Sources */,
 				B06E5909280B06FA003777EB /* Book.swift in Sources */,
+				B06E5944280C0676003777EB /* LoginMenuViewController.swift in Sources */,
+				B06E5942280C0676003777EB /* ForgotPasswordViewController.swift in Sources */,
 				B06E5933280B7379003777EB /* filmsViewController.swift in Sources */,
 				B06E590528091AA9003777EB /* month_CalendarViewController.swift in Sources */,
 				B06E593B280BFB6C003777EB /* DatabaseTaskManager.swift in Sources */,

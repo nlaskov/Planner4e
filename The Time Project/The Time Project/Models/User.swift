@@ -19,7 +19,14 @@ class User: Codable{
         self.email = email
         self.image = image
     }
-
+    
+    init(){
+        name = ""
+        UID = ""
+        email = ""
+        image = ""
+    }
+    
     enum CodingKeys: String, CodingKey {
             case name
             case email

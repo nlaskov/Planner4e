@@ -20,7 +20,7 @@ class DatabaseBookManager:NSObject{
     var books_read:[Book]=[]
     
     func getBooks(){
-        ref.collection("USER_ID_Books").getDocuments(){ (querySnapshot, err) in
+        ref.collection("\(AuthManager.shared.currentUser.UID)_Books").getDocuments(){ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -46,7 +46,7 @@ class DatabaseBookManager:NSObject{
     }
     
     func addBook(_ book:Book){
-        ref.collection("USER_ID_Books").document(UUID().uuidString).setData([
+        ref.collection("\(AuthManager.shared.currentUser.UID)_Books").document(UUID().uuidString).setData([
             "name": book.name,
             "priority": book.priority,
             "done": false,

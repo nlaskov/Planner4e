@@ -19,7 +19,7 @@ class DatabaseFilmManager:NSObject{
     var films_watched:[Film]=[]
     
     func getFilms(){
-        ref.collection("USER_ID_Films").getDocuments(){ (querySnapshot, err) in
+        ref.collection("\(AuthManager.shared.currentUser.UID)_Films").getDocuments(){ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -43,7 +43,7 @@ class DatabaseFilmManager:NSObject{
     }
     
     func addFilm(_ film:Film){
-        ref.collection("USER_ID_Films").document(UUID().uuidString).setData([
+        ref.collection("\(AuthManager.shared.currentUser.UID)_Films").document(UUID().uuidString).setData([
             "name": film.name,
             "priority": film.priority,
             "done": false,

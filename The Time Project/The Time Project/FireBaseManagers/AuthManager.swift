@@ -11,7 +11,7 @@ import FirebaseAuth
 class AuthManager: NSObject{
     static let shared = AuthManager()
     var logInWithEmail:Bool = false
-    var currentUser:User = User()
+    var currentUser:User = User("", "", "", "")
     
     func login(email: String?, password: String? , completion: @escaping (_ success: Bool, _ error: Error?) -> () ){
         
@@ -63,7 +63,7 @@ class AuthManager: NSObject{
         }
     }
     
-    func singUp(email: String?, password: String? , completion: @escaping (_ success: Bool, _ error: Error?) -> () ) {
+    func singUp(email: String?, password: String?, fullname:String?, completion: @escaping (_ success: Bool, _ error: Error?) -> () ) {
         //Check for email
         guard let email = email, !email.isEmpty else {
             completion(false, AuthError.noEmail)
@@ -72,6 +72,11 @@ class AuthManager: NSObject{
         //Check for password
         guard let password = password, !password.isEmpty else {
             completion(false, AuthError.noPassword)
+            return
+        }
+        
+        guard let fullname = fullname, !fullname.isEmpty else {
+            completion(false, AuthError.noName)
             return
         }
         
@@ -96,6 +101,10 @@ class AuthManager: NSObject{
             }
             
             //If there isn`t error
+            let uid = Auth.auth().currentUser?.uid
+            AuthManager.shared.currentUser = User(fullname, uid!,email, "")
+            DatabaseUserManager.shared.addUser(user:AuthManager.shared.currentUser)
+            
             completion(true, nil)
             
         }
@@ -241,4 +250,5 @@ enum AuthError: Error {
     case incorrectPassword
     case noOldPassword
     case noNewPassword
+    case noName
 }

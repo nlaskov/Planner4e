@@ -13,10 +13,11 @@ class menuViewController:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if Auth.auth().currentUser?.uid != nil {
-            /*let loginVC = storyboard?.instantiateViewController(withIdentifier: "loginMenu") as! UINavigationController
+        
+        if Auth.auth().currentUser == nil {
+            let loginVC = storyboard?.instantiateViewController(withIdentifier: "loginMenu") as! UINavigationController
             loginVC.modalPresentationStyle = .fullScreen
-            present(loginVC, animated: false)*/
+            present(loginVC, animated: false)
         }
         else{
             

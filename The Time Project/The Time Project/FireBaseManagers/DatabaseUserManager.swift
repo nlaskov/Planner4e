@@ -28,6 +28,15 @@ class DatabaseUserManager:NSObject{
         return user
     }
     
+    func addUser(user:User){
+        print(user.name,user.email,user.image,user.UID)
+        ref.collection("Users").document(user.UID).setData([
+            "name": user.name,
+            "email":user.email,
+            "image":user.image
+        ])
+    }
+    
     func changeEmail(){
         
     }
