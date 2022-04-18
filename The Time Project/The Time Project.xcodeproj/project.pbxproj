@@ -39,6 +39,7 @@
 		B06E5944280C0676003777EB /* LoginMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5940280C0676003777EB /* LoginMenuViewController.swift */; };
 		B06E5946280C9502003777EB /* addBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5945280C9501003777EB /* addBookViewController.swift */; };
 		B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5947280C9BE7003777EB /* addFilmViewController.swift */; };
+		B06E594B280CA823003777EB /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E594A280CA823003777EB /* addTaskViewController.swift */; };
 		B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */; };
 		B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */; };
 		B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B127F241F800F808DD /* day_CalendarViewController.swift */; };
@@ -76,6 +77,7 @@
 		B06E5940280C0676003777EB /* LoginMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginMenuViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/LoginMenuViewController.swift"; sourceTree = "<group>"; };
 		B06E5945280C9501003777EB /* addBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBookViewController.swift; sourceTree = "<group>"; };
 		B06E5947280C9BE7003777EB /* addFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFilmViewController.swift; sourceTree = "<group>"; };
+		B06E594A280CA823003777EB /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
 		B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88B127F241F800F808DD /* day_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarViewController.swift; sourceTree = "<group>"; };
@@ -145,9 +147,10 @@
 		B06E5929280B5A6D003777EB /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				B09C88B327F2482300F808DD /* week_CalendarViewController.swift */,
 				B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */,
+				B06E594A280CA823003777EB /* addTaskViewController.swift */,
 				B06E590428091A99003777EB /* Month Calendar */,
+				B06E5949280CA801003777EB /* Week_Calendar */,
 				B09C88B727F24C2900F808DD /* Day Calendar */,
 			);
 			path = Calendar;
@@ -184,6 +187,14 @@
 				B06E593F280C0676003777EB /* SignUpViewController.swift */,
 			);
 			path = "Login and Registration";
+			sourceTree = "<group>";
+		};
+		B06E5949280CA801003777EB /* Week_Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				B09C88B327F2482300F808DD /* week_CalendarViewController.swift */,
+			);
+			path = Week_Calendar;
 			sourceTree = "<group>";
 		};
 		B09C88B727F24C2900F808DD /* Day Calendar */ = {
@@ -347,6 +358,7 @@
 				B06E5946280C9502003777EB /* addBookViewController.swift in Sources */,
 				B06E590C280B090E003777EB /* bookTableViewCell.swift in Sources */,
 				B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */,
+				B06E594B280CA823003777EB /* addTaskViewController.swift in Sources */,
 				B06E5939280BF749003777EB /* menuViewController.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,

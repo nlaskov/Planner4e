@@ -78,6 +78,12 @@ class CalendarViewController: UIViewController{
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getDayTasks()
+        day_CollectionView.reloadData()
+    }
+    
     //Change between dayView, weekView and monthView
     @IBAction func segmentChange(_ sender: Any) {
         changeSegment(viewSegment.selectedSegmentIndex)
