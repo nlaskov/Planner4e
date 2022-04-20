@@ -19,15 +19,19 @@ class profileMenuViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         setUser()
-        
     }
     
     func setUser(){
         nameLabel.text = "Name: " + DatabaseUserManager.shared.user.name
         emailLabel.text = "Email: " + DatabaseUserManager.shared.user.email
-        //setImage
+        
+        if DatabaseUserManager.shared.user.image != ""{
+            
+        }
     }
     
     @IBAction func loguot(_ sender: Any) {
@@ -51,7 +55,6 @@ class profileMenuViewController:UIViewController{
         
         present(alert, animated: true)
     }
-    
     private func goToLogoutScene() {
         
             let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginMenu") as! UINavigationController

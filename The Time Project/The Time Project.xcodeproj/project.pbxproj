@@ -53,6 +53,9 @@
 		B0DC32032810634200AB10FB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC31FF2810634200AB10FB /* SignInViewController.swift */; };
 		B0DC32042810634200AB10FB /* LoginMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32002810634200AB10FB /* LoginMenuViewController.swift */; };
 		B0DC32052810634200AB10FB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32012810634200AB10FB /* ForgotPasswordViewController.swift */; };
+		B0DC32072810756300AB10FB /* changeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32062810756300AB10FB /* changeEmailViewController.swift */; };
+		B0DC32092810758700AB10FB /* changePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32082810758700AB10FB /* changePasswordViewController.swift */; };
+		B0DC320B281084C200AB10FB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC320A281084C200AB10FB /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +98,9 @@
 		B0DC31FF2810634200AB10FB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		B0DC32002810634200AB10FB /* LoginMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMenuViewController.swift; sourceTree = "<group>"; };
 		B0DC32012810634200AB10FB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		B0DC32062810756300AB10FB /* changeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeEmailViewController.swift; sourceTree = "<group>"; };
+		B0DC32082810758700AB10FB /* changePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordViewController.swift; sourceTree = "<group>"; };
+		B0DC320A281084C200AB10FB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,7 @@
 				B06E592F280B5D38003777EB /* DatabaseUserManager.swift */,
 				B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */,
 				B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */,
+				B0DC320A281084C200AB10FB /* StorageManager.swift */,
 			);
 			path = FireBaseManagers;
 			sourceTree = "<group>";
@@ -270,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				B0DC31F428105ACE00AB10FB /* profileMenuViewController.swift */,
+				B0DC32062810756300AB10FB /* changeEmailViewController.swift */,
+				B0DC32082810758700AB10FB /* changePasswordViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -363,6 +372,7 @@
 				B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */,
 				B06E592C280B5ABD003777EB /* DatabaseBookManager.swift in Sources */,
 				B0DC32052810634200AB10FB /* ForgotPasswordViewController.swift in Sources */,
+				B0DC320B281084C200AB10FB /* StorageManager.swift in Sources */,
 				B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */,
 				B06E5907280B05B8003777EB /* booksViewController.swift in Sources */,
 				B09C88B427F2482300F808DD /* week_CalendarViewController.swift in Sources */,
@@ -382,7 +392,9 @@
 				B06E594B280CA823003777EB /* addTaskViewController.swift in Sources */,
 				B06E5939280BF749003777EB /* menuViewController.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
+				B0DC32072810756300AB10FB /* changeEmailViewController.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,
+				B0DC32092810758700AB10FB /* changePasswordViewController.swift in Sources */,
 				B06E592E280B5B6E003777EB /* AuthManager.swift in Sources */,
 				B0B0F74B27F271B400B7448B /* User.swift in Sources */,
 				B0DC31F528105ACE00AB10FB /* profileMenuViewController.swift in Sources */,

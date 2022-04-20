@@ -14,7 +14,7 @@ import FirebaseFirestoreSwift
 class DatabaseFilmManager:NSObject{
     
     static let shared = DatabaseFilmManager()
-    let ref = Firestore.firestore()
+    private let ref = Firestore.firestore()
     var films_unwatched:[Film]=[]
     var films_watched:[Film]=[]
     
@@ -24,7 +24,7 @@ class DatabaseFilmManager:NSObject{
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    var film = Film(_name: document["name"] as! String, _priority: document["priority"] as! Int, _done: document["done"] as! Bool)
+                    let film = Film(_name: document["name"] as! String, _priority: document["priority"] as! Int, _done: document["done"] as! Bool)
                     
                     if film.done{
                         self.films_watched.append(film)
