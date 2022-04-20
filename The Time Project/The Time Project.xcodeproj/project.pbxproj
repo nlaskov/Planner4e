@@ -33,10 +33,6 @@
 		B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */; };
 		B06E5939280BF749003777EB /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5938280BF749003777EB /* menuViewController.swift */; };
 		B06E593B280BFB6C003777EB /* DatabaseTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */; };
-		B06E5941280C0676003777EB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593D280C0676003777EB /* SignInViewController.swift */; };
-		B06E5942280C0676003777EB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593E280C0676003777EB /* ForgotPasswordViewController.swift */; };
-		B06E5943280C0676003777EB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E593F280C0676003777EB /* SignUpViewController.swift */; };
-		B06E5944280C0676003777EB /* LoginMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5940280C0676003777EB /* LoginMenuViewController.swift */; };
 		B06E5946280C9502003777EB /* addBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5945280C9501003777EB /* addBookViewController.swift */; };
 		B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5947280C9BE7003777EB /* addFilmViewController.swift */; };
 		B06E594B280CA823003777EB /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E594A280CA823003777EB /* addTaskViewController.swift */; };
@@ -52,6 +48,11 @@
 		B09E0C2C27F1BFC6003F38B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */; };
 		B0B0F74B27F271B400B7448B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0F74A27F271B400B7448B /* User.swift */; };
 		B0B0F75027F30B6100B7448B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0F74F27F30B6100B7448B /* Task.swift */; };
+		B0DC31F528105ACE00AB10FB /* profileMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC31F428105ACE00AB10FB /* profileMenuViewController.swift */; };
+		B0DC32022810634200AB10FB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC31FE2810634200AB10FB /* SignUpViewController.swift */; };
+		B0DC32032810634200AB10FB /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC31FF2810634200AB10FB /* SignInViewController.swift */; };
+		B0DC32042810634200AB10FB /* LoginMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32002810634200AB10FB /* LoginMenuViewController.swift */; };
+		B0DC32052810634200AB10FB /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32012810634200AB10FB /* ForgotPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,10 +72,6 @@
 		B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFilmManager.swift; sourceTree = "<group>"; };
 		B06E5938280BF749003777EB /* menuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
 		B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTaskManager.swift; sourceTree = "<group>"; };
-		B06E593D280C0676003777EB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/SignInViewController.swift"; sourceTree = "<group>"; };
-		B06E593E280C0676003777EB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/ForgotPasswordViewController.swift"; sourceTree = "<group>"; };
-		B06E593F280C0676003777EB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/SignUpViewController.swift"; sourceTree = "<group>"; };
-		B06E5940280C0676003777EB /* LoginMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginMenuViewController.swift; path = "../../../../Time_Project/Time_Project/Time_Project/Login-Registration Views/LoginMenuViewController.swift"; sourceTree = "<group>"; };
 		B06E5945280C9501003777EB /* addBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBookViewController.swift; sourceTree = "<group>"; };
 		B06E5947280C9BE7003777EB /* addFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFilmViewController.swift; sourceTree = "<group>"; };
 		B06E594A280CA823003777EB /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +90,11 @@
 		B09E0C2D27F1BFC6003F38B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0B0F74A27F271B400B7448B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B0B0F74F27F30B6100B7448B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		B0DC31F428105ACE00AB10FB /* profileMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileMenuViewController.swift; sourceTree = "<group>"; };
+		B0DC31FE2810634200AB10FB /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B0DC31FF2810634200AB10FB /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B0DC32002810634200AB10FB /* LoginMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginMenuViewController.swift; sourceTree = "<group>"; };
+		B0DC32012810634200AB10FB /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,10 +183,10 @@
 		B06E593C280C0649003777EB /* Login and Registration */ = {
 			isa = PBXGroup;
 			children = (
-				B06E593E280C0676003777EB /* ForgotPasswordViewController.swift */,
-				B06E5940280C0676003777EB /* LoginMenuViewController.swift */,
-				B06E593D280C0676003777EB /* SignInViewController.swift */,
-				B06E593F280C0676003777EB /* SignUpViewController.swift */,
+				B0DC32012810634200AB10FB /* ForgotPasswordViewController.swift */,
+				B0DC32002810634200AB10FB /* LoginMenuViewController.swift */,
+				B0DC31FF2810634200AB10FB /* SignInViewController.swift */,
+				B0DC31FE2810634200AB10FB /* SignUpViewController.swift */,
 			);
 			path = "Login and Registration";
 			sourceTree = "<group>";
@@ -225,11 +227,8 @@
 		B09E0C1E27F1BFC5003F38B2 /* The Time Project */ = {
 			isa = PBXGroup;
 			children = (
-				B06E593C280C0649003777EB /* Login and Registration */,
+				B0DC31F228105A8100AB10FB /* Views */,
 				B06E592A280B5A89003777EB /* FireBaseManagers */,
-				B06E5929280B5A6D003777EB /* Calendar */,
-				B06E590A280B08F9003777EB /* Books */,
-				B06E5931280B7361003777EB /* Films */,
 				B06E5928280B5A51003777EB /* SystemFiles */,
 				B0B0F74727F2719700B7448B /* Models */,
 				B09E0C2527F1BFC5003F38B2 /* Main.storyboard */,
@@ -253,6 +252,26 @@
 				B06E5911280B23BA003777EB /* Resolution.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B0DC31F228105A8100AB10FB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B0DC31F328105AAD00AB10FB /* Profile */,
+				B06E593C280C0649003777EB /* Login and Registration */,
+				B06E5929280B5A6D003777EB /* Calendar */,
+				B06E590A280B08F9003777EB /* Books */,
+				B06E5931280B7361003777EB /* Films */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B0DC31F328105AAD00AB10FB /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B0DC31F428105ACE00AB10FB /* profileMenuViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,9 +362,11 @@
 			files = (
 				B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */,
 				B06E592C280B5ABD003777EB /* DatabaseBookManager.swift in Sources */,
+				B0DC32052810634200AB10FB /* ForgotPasswordViewController.swift in Sources */,
 				B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */,
 				B06E5907280B05B8003777EB /* booksViewController.swift in Sources */,
 				B09C88B427F2482300F808DD /* week_CalendarViewController.swift in Sources */,
+				B0DC32042810634200AB10FB /* LoginMenuViewController.swift in Sources */,
 				B09E0C2427F1BFC5003F38B2 /* ViewController.swift in Sources */,
 				B06E5935280B751B003777EB /* filmTableViewCell.swift in Sources */,
 				B06E590328091A93003777EB /* month_CalendarCollectionViewCell.swift in Sources */,
@@ -362,14 +383,13 @@
 				B06E5939280BF749003777EB /* menuViewController.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,
-				B06E5941280C0676003777EB /* SignInViewController.swift in Sources */,
 				B06E592E280B5B6E003777EB /* AuthManager.swift in Sources */,
 				B0B0F74B27F271B400B7448B /* User.swift in Sources */,
+				B0DC31F528105ACE00AB10FB /* profileMenuViewController.swift in Sources */,
+				B0DC32032810634200AB10FB /* SignInViewController.swift in Sources */,
+				B0DC32022810634200AB10FB /* SignUpViewController.swift in Sources */,
 				B06E5910280B239F003777EB /* Film.swift in Sources */,
-				B06E5943280C0676003777EB /* SignUpViewController.swift in Sources */,
 				B06E5909280B06FA003777EB /* Book.swift in Sources */,
-				B06E5944280C0676003777EB /* LoginMenuViewController.swift in Sources */,
-				B06E5942280C0676003777EB /* ForgotPasswordViewController.swift in Sources */,
 				B06E5933280B7379003777EB /* filmsViewController.swift in Sources */,
 				B06E590528091AA9003777EB /* month_CalendarViewController.swift in Sources */,
 				B06E593B280BFB6C003777EB /* DatabaseTaskManager.swift in Sources */,

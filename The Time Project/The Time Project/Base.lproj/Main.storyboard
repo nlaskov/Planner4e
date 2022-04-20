@@ -206,7 +206,7 @@
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="menuViewController" customModule="The_Time_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" id="BYZ-38-t0r" customClass="menuViewController" customModule="The_Time_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,9 +361,6 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="vMJ-L3-Hy1" kind="show" id="yk0-we-o8G"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bg9-gy-mX3">
                                 <rect key="frame" x="20" y="664" width="374" height="44"/>
@@ -384,7 +381,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="profilePress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ub-DD-GSt"/>
+                                    <segue destination="8Ed-PC-mHn" kind="show" id="CZY-M6-vLi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1087,22 +1084,6 @@
             <point key="canvasLocation" x="931.88405797101461" y="1532.8125"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="sPh-0q-21q">
-            <objects>
-                <viewController id="vMJ-L3-Hy1" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="duP-Ci-uIg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="L87-vI-lBk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="THe-tf-fUR"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QPc-Ig-Qf3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-507" y="808"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="VS1-NM-plK">
             <objects>
                 <viewController id="RId-Hi-8eD" sceneMemberID="viewController">
@@ -1233,7 +1214,7 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="VTe-gG-UPu" kind="push" id="Nmk-Dw-Mpz"/>
+                                            <segue destination="VTe-gG-UPu" kind="show" id="sgV-5g-Cbb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1243,7 +1224,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="C5L-de-oCR">
-                                <rect key="frame" x="97" y="449" width="224" height="43"/>
+                                <rect key="frame" x="97" y="311" width="224" height="181"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihn-De-XNo">
                                         <rect key="frame" x="0.0" y="0.0" width="224" height="43"/>
@@ -1264,11 +1245,11 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="4pk-j4-6iN" kind="push" id="mmq-Dz-Mcb"/>
+                                            <segue destination="4pk-j4-6iN" kind="show" id="kwo-NZ-9JY"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiY-hq-AF2">
-                                        <rect key="frame" x="0.0" y="0.0" width="224" height="43"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiY-hq-AF2">
+                                        <rect key="frame" x="0.0" y="69" width="224" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="5Cf-uX-nIt"/>
                                             <constraint firstAttribute="width" constant="224" id="Zr6-Xp-3SB"/>
@@ -1286,8 +1267,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pof-OE-kxh">
-                                        <rect key="frame" x="0.0" y="0.0" width="224" height="43"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pof-OE-kxh">
+                                        <rect key="frame" x="0.0" y="138" width="224" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="224" id="3Ig-I9-aRd"/>
                                             <constraint firstAttribute="height" constant="43" id="igY-Vi-MIc"/>
@@ -1370,9 +1351,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
-                                        <connections>
-                                            <action selector="fullName:" destination="YYS-XH-A92" eventType="editingDidEnd" id="zFw-0P-tCH"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38n-5W-Igo">
                                         <rect key="frame" x="0.0" y="68" width="268" height="43"/>
@@ -1412,7 +1390,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="signUpButtonPressed:" destination="VTe-gG-UPu" eventType="touchUpInside" id="zWv-hz-LQE"/>
+                                            <action selector="signUpButtonPressed:" destination="VTe-gG-UPu" eventType="touchUpInside" id="Urw-Zu-Lcb"/>
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong email!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6t-lM-fCz">
@@ -1439,7 +1417,7 @@
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <segue destination="4pk-j4-6iN" kind="push" id="qtT-1X-Dmz"/>
+                                                    <segue destination="4pk-j4-6iN" kind="show" id="KEJ-k3-ZG1"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1459,15 +1437,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="WQ8-rV-tea"/>
                     <connections>
-                        <outlet property="email" destination="38n-5W-Igo" id="PYv-sY-oHL"/>
-                        <outlet property="errorLabel" destination="x6t-lM-fCz" id="Wfc-Rv-hsp"/>
-                        <outlet property="fullName" destination="qzS-Qb-2We" id="67T-bQ-4Iy"/>
-                        <outlet property="password" destination="ibn-LY-iN9" id="8Yq-26-GXi"/>
-                        <outlet property="signUpButton" destination="ASx-th-Apq" id="WnT-Q7-zZB"/>
+                        <outlet property="email" destination="38n-5W-Igo" id="8rz-5f-Lpw"/>
+                        <outlet property="errorLabel" destination="x6t-lM-fCz" id="cUB-VS-MtV"/>
+                        <outlet property="fullName" destination="qzS-Qb-2We" id="7sV-gA-GT7"/>
+                        <outlet property="password" destination="ibn-LY-iN9" id="8O5-BT-aGM"/>
+                        <outlet property="signUpButton" destination="ASx-th-Apq" id="6NE-mx-34n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfu-cT-ZFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="YYS-XH-A92" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1526" y="-1192"/>
         </scene>
@@ -1530,7 +1507,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="signInButtonPressed:" destination="4pk-j4-6iN" eventType="touchUpInside" id="p50-HI-LRJ"/>
+                                            <action selector="signInButtonPressed:" destination="4pk-j4-6iN" eventType="touchUpInside" id="ePs-U7-86t"/>
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong email!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQz-Mm-sgc">
@@ -1548,7 +1525,7 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="yOf-sk-V6B" kind="push" id="LmB-9q-k5D"/>
+                                            <segue destination="yOf-sk-V6B" kind="show" id="7Em-ST-N5U"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1566,10 +1543,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="uoa-jm-nj3"/>
                     <connections>
-                        <outlet property="email" destination="OcS-8T-iEa" id="dIR-Kj-hGh"/>
-                        <outlet property="errorLabel" destination="xQz-Mm-sgc" id="zCf-pu-Q4T"/>
-                        <outlet property="password" destination="t6Y-tf-Xj6" id="25P-j6-RpO"/>
-                        <outlet property="signInButton" destination="GUd-6I-FQ9" id="2Y8-gX-vOq"/>
+                        <outlet property="email" destination="OcS-8T-iEa" id="429-rY-fss"/>
+                        <outlet property="errorLabel" destination="xQz-Mm-sgc" id="Bbj-js-bun"/>
+                        <outlet property="password" destination="t6Y-tf-Xj6" id="uRf-Uq-MQF"/>
+                        <outlet property="signInButton" destination="GUd-6I-FQ9" id="mEe-8X-jTa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egT-PG-0mW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1595,9 +1572,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
-                                        <connections>
-                                            <action selector="email:" destination="R0I-Dy-bAw" eventType="editingDidEnd" id="Zas-vG-Ije"/>
-                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4y-pa-5AB">
                                         <rect key="frame" x="0.0" y="68" width="268" height="43"/>
@@ -1619,7 +1593,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="sentEmailButtonPressed:" destination="yOf-sk-V6B" eventType="touchUpInside" id="y89-xs-RJO"/>
+                                            <action selector="sentEmailButtonPressed:" destination="yOf-sk-V6B" eventType="touchUpInside" id="pyY-IT-Ffi"/>
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Email!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1h-H0-QQS">
@@ -1652,19 +1626,185 @@
                     </view>
                     <navigationItem key="navigationItem" id="6CY-Ka-HRd"/>
                     <connections>
-                        <outlet property="email" destination="VSM-Z7-Gty" id="bwv-Lz-bez"/>
-                        <outlet property="errorLabel" destination="h1h-H0-QQS" id="8ZA-1i-Jhs"/>
-                        <outlet property="sentEmailButton" destination="N4y-pa-5AB" id="djg-1V-XA6"/>
+                        <outlet property="email" destination="VSM-Z7-Gty" id="vZH-Jf-irJ"/>
+                        <outlet property="errorLabel" destination="h1h-H0-QQS" id="vxm-a5-HPn"/>
+                        <outlet property="sentEmailButton" destination="N4y-pa-5AB" id="IUw-3f-pT4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rub-9D-BLo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="R0I-Dy-bAw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1526" y="-468"/>
         </scene>
+        <!--profileMenu-->
+        <scene sceneID="Qlg-Yn-cfe">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="profileMenu" id="8Ed-PC-mHn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8L4-rO-vnZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gac-cr-0BP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-346" y="494"/>
+        </scene>
+        <!--Profile Menu View Controller-->
+        <scene sceneID="CL9-XS-3zJ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qKy-YJ-Jba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="profileMenu" id="9UZ-jP-4Ul" customClass="profileMenuViewController" customModule="The_Time_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FkR-bv-Dg4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UP2-90-5L8">
+                                <rect key="frame" x="20" y="57" width="150" height="207"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="7OH-l5-284"/>
+                                    <constraint firstAttribute="height" constant="210" id="RDf-jU-A0e"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6D-WG-gEo">
+                                <rect key="frame" x="20" y="298" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LA2-He-Ua9"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Change your name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCh-Mo-2gp">
+                                <rect key="frame" x="20" y="362" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7Hf-bC-VS0"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Change your email"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyV-ah-g5f">
+                                <rect key="frame" x="20" y="426" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GAy-u1-FUt"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Change your password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJA-8F-9BA">
+                                <rect key="frame" x="20" y="490" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cwg-a0-oog"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Change your photo"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UH1-7g-pky">
+                                <rect key="frame" x="20" y="554" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Nd9-E3-ADC"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Log out"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loguot:" destination="9UZ-jP-4Ul" eventType="touchUpInside" id="tth-iB-0va"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: Ivan Voksal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rS7-Nv-ITh">
+                                <rect key="frame" x="186" y="132" width="208" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3jH-tv-mTH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email: voksal@mail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbn-kz-cum">
+                                <rect key="frame" x="186" y="167" width="208" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5Ou-eU-yYz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MmD-h9-RaT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MmD-h9-RaT" firstAttribute="trailing" secondItem="yJA-8F-9BA" secondAttribute="trailing" constant="20" id="4fE-Ag-eW0"/>
+                            <constraint firstItem="UP2-90-5L8" firstAttribute="top" secondItem="MmD-h9-RaT" secondAttribute="top" constant="11.5" id="5dl-Sb-dSB"/>
+                            <constraint firstItem="zbn-kz-cum" firstAttribute="leading" secondItem="UP2-90-5L8" secondAttribute="trailing" constant="16" id="6ww-HK-8eU"/>
+                            <constraint firstItem="MmD-h9-RaT" firstAttribute="trailing" secondItem="Q6D-WG-gEo" secondAttribute="trailing" constant="20" id="6xe-22-KhG"/>
+                            <constraint firstItem="MmD-h9-RaT" firstAttribute="trailing" secondItem="zbn-kz-cum" secondAttribute="trailing" constant="20" id="99P-bj-sWa"/>
+                            <constraint firstItem="MmD-h9-RaT" firstAttribute="trailing" secondItem="rS7-Nv-ITh" secondAttribute="trailing" constant="20" id="ARk-UE-J2f"/>
+                            <constraint firstItem="YyV-ah-g5f" firstAttribute="leading" secondItem="MmD-h9-RaT" secondAttribute="leading" constant="20" id="FeO-aH-LcP"/>
+                            <constraint firstItem="UH1-7g-pky" firstAttribute="top" secondItem="yJA-8F-9BA" secondAttribute="bottom" constant="20" id="IWs-ov-hMM"/>
+                            <constraint firstItem="MmD-h9-RaT" firstAttribute="trailing" secondItem="OCh-Mo-2gp" secondAttribute="trailing" constant="20" id="JTF-SK-Ze1"/>
+                            <constraint firstItem="UH1-7g-pky" firstAttribute="leading" secondItem="MmD-h9-RaT" secondAttribute="leading" constant="20" id="KUT-NX-pbb"/>
+                            <constraint firstItem="MmD-h9-RaT" firstAttribute="trailing" secondItem="YyV-ah-g5f" secondAttribute="trailing" constant="20" id="PpK-xm-vuC"/>
+                            <constraint firstItem="zbn-kz-cum" firstAttribute="top" secondItem="rS7-Nv-ITh" secondAttribute="bottom" constant="14" id="VM1-7l-L7n"/>
+                            <constraint firstItem="OCh-Mo-2gp" firstAttribute="top" secondItem="Q6D-WG-gEo" secondAttribute="bottom" constant="20" id="Whb-i5-eRt"/>
+                            <constraint firstItem="rS7-Nv-ITh" firstAttribute="top" secondItem="MmD-h9-RaT" secondAttribute="top" constant="88" id="YjI-oN-jva"/>
+                            <constraint firstItem="yJA-8F-9BA" firstAttribute="top" secondItem="YyV-ah-g5f" secondAttribute="bottom" constant="20" id="ZBd-py-32F"/>
+                            <constraint firstItem="OCh-Mo-2gp" firstAttribute="leading" secondItem="MmD-h9-RaT" secondAttribute="leading" constant="20" id="bPJ-cS-sgW"/>
+                            <constraint firstItem="YyV-ah-g5f" firstAttribute="top" secondItem="OCh-Mo-2gp" secondAttribute="bottom" constant="20" id="dJa-hk-wjK"/>
+                            <constraint firstItem="rS7-Nv-ITh" firstAttribute="leading" secondItem="UP2-90-5L8" secondAttribute="trailing" constant="16" id="dWl-Pt-fD9"/>
+                            <constraint firstItem="yJA-8F-9BA" firstAttribute="leading" secondItem="MmD-h9-RaT" secondAttribute="leading" constant="20" id="ghb-W6-mQf"/>
+                            <constraint firstItem="UP2-90-5L8" firstAttribute="leading" secondItem="MmD-h9-RaT" secondAttribute="leading" constant="20" id="mwf-yw-PE0"/>
+                            <constraint firstItem="Q6D-WG-gEo" firstAttribute="top" secondItem="UP2-90-5L8" secondAttribute="bottom" constant="32.5" id="p6k-Yd-dQv"/>
+                            <constraint firstItem="MmD-h9-RaT" firstAttribute="trailing" secondItem="UH1-7g-pky" secondAttribute="trailing" constant="20" id="ufT-QW-EK6"/>
+                            <constraint firstItem="Q6D-WG-gEo" firstAttribute="leading" secondItem="MmD-h9-RaT" secondAttribute="leading" constant="20" id="xoj-XW-WFU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pl9-rm-J1y"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="zbn-kz-cum" id="kF5-TU-zVS"/>
+                        <outlet property="logoutButton" destination="UH1-7g-pky" id="LeJ-He-hnY"/>
+                        <outlet property="nameLabel" destination="rS7-Nv-ITh" id="gQh-J3-1v3"/>
+                        <outlet property="profileImage" destination="UP2-90-5L8" id="GID-FR-4br"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3235" y="84"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mmq-Dz-Mcb"/>
+        <segue reference="kwo-NZ-9JY"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
@@ -1675,6 +1815,7 @@
         <image name="goforward" catalog="system" width="121" height="128"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
