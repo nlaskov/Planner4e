@@ -33,7 +33,12 @@ class bookTableViewCell:UITableViewCell{
         }
         
         title.text = book?.name
-        done.isOn = ((book?.done) != nil)
+        if book?.done ?? false{
+            done.isOn = true
+        }
+        else {
+            done.isOn = false
+        }
     }
     @IBAction func doneSwitch(_ sender: Any) {
         if done.isOn == true{
