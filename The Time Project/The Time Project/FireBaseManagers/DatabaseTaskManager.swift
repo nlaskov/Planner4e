@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 class DatabaseTaskManager:NSObject{
     
     static let shared = DatabaseTaskManager()
-    let ref = Firestore.firestore()
+    private let ref = Firestore.firestore()
     
     var tasks:[Task] = []
     
@@ -24,7 +24,7 @@ class DatabaseTaskManager:NSObject{
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    var task = Task(_name: document["name"] as! String, _priority: document["priority"] as! Int, _category: document["category"] as! Int, _day: document["day"] as! Int, _month: document["month"] as! Int, _year: document["year"] as! Int, _done: document["done"] as! Bool)
+                    let task = Task(_name: document["name"] as! String, _priority: document["priority"] as! Int, _category: document["category"] as! Int, _day: document["day"] as! Int, _month: document["month"] as! Int, _year: document["year"] as! Int, _done: document["done"] as! Bool)
                     
                     self.tasks.append(task)
                 }
@@ -54,9 +54,9 @@ class DatabaseTaskManager:NSObject{
             return
         }
 
-        var IntDate = getDate(date:date)
+        let IntDate = getDate(date:date)
         
-        guard var comment = comment else {
+        guard let comment = comment else {
             ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(UUID().uuidString).setData([
                 "name":name,
                 "priority":priority,

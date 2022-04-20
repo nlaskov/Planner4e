@@ -14,7 +14,7 @@ import FirebaseFirestoreSwift
 class DatabaseBookManager:NSObject{
     
     static let shared = DatabaseBookManager()
-    let ref = Firestore.firestore()
+    private let ref = Firestore.firestore()
     
     var books_unread:[Book]=[]
     var books_read:[Book]=[]
@@ -26,7 +26,7 @@ class DatabaseBookManager:NSObject{
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    var book = Book(_name: document["name"] as! String, _priority: document["priority"] as! Int, _done: document["done"] as! Bool)
+                    let book = Book(_name: document["name"] as! String, _priority: document["priority"] as! Int, _done: document["done"] as! Bool)
                     if book.done{
                         self.books_read.append(book)
                     }
