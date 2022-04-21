@@ -56,6 +56,10 @@
 		B0DC32072810756300AB10FB /* changeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32062810756300AB10FB /* changeEmailViewController.swift */; };
 		B0DC32092810758700AB10FB /* changePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32082810758700AB10FB /* changePasswordViewController.swift */; };
 		B0DC320B281084C200AB10FB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC320A281084C200AB10FB /* StorageManager.swift */; };
+		B0FA483E281128AF00CDCE26 /* singleBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA483D281128AF00CDCE26 /* singleBookViewController.swift */; };
+		B0FA484028115CD200CDCE26 /* singleFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA483F28115CD200CDCE26 /* singleFilmViewController.swift */; };
+		B0FA48422811649300CDCE26 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA48412811649300CDCE26 /* Recipe.swift */; };
+		B0FA48442811669500CDCE26 /* DatabaseRecipesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA48432811669500CDCE26 /* DatabaseRecipesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +105,10 @@
 		B0DC32062810756300AB10FB /* changeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeEmailViewController.swift; sourceTree = "<group>"; };
 		B0DC32082810758700AB10FB /* changePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordViewController.swift; sourceTree = "<group>"; };
 		B0DC320A281084C200AB10FB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		B0FA483D281128AF00CDCE26 /* singleBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleBookViewController.swift; sourceTree = "<group>"; };
+		B0FA483F28115CD200CDCE26 /* singleFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleFilmViewController.swift; sourceTree = "<group>"; };
+		B0FA48412811649300CDCE26 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		B0FA48432811669500CDCE26 /* DatabaseRecipesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRecipesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +146,7 @@
 				B06E5906280B05B8003777EB /* booksViewController.swift */,
 				B06E590B280B090E003777EB /* bookTableViewCell.swift */,
 				B06E5945280C9501003777EB /* addBookViewController.swift */,
+				B0FA483D281128AF00CDCE26 /* singleBookViewController.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 				B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */,
 				B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */,
 				B0DC320A281084C200AB10FB /* StorageManager.swift */,
+				B0FA48432811669500CDCE26 /* DatabaseRecipesManager.swift */,
 			);
 			path = FireBaseManagers;
 			sourceTree = "<group>";
@@ -183,6 +193,7 @@
 				B06E5932280B7379003777EB /* filmsViewController.swift */,
 				B06E5934280B751B003777EB /* filmTableViewCell.swift */,
 				B06E5947280C9BE7003777EB /* addFilmViewController.swift */,
+				B0FA483F28115CD200CDCE26 /* singleFilmViewController.swift */,
 			);
 			path = Films;
 			sourceTree = "<group>";
@@ -257,6 +268,7 @@
 				B06E5908280B06FA003777EB /* Book.swift */,
 				B06E590F280B239F003777EB /* Film.swift */,
 				B06E5911280B23BA003777EB /* Resolution.swift */,
+				B0FA48412811649300CDCE26 /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -383,13 +395,17 @@
 				B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */,
 				B06E5930280B5D38003777EB /* DatabaseUserManager.swift in Sources */,
 				B09E0C2027F1BFC5003F38B2 /* AppDelegate.swift in Sources */,
+				B0FA483E281128AF00CDCE26 /* singleBookViewController.swift in Sources */,
 				B06E590E280B11DE003777EB /* tabBarController.swift in Sources */,
 				B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */,
 				B06E5912280B23BA003777EB /* Resolution.swift in Sources */,
+				B0FA48442811669500CDCE26 /* DatabaseRecipesManager.swift in Sources */,
 				B06E5946280C9502003777EB /* addBookViewController.swift in Sources */,
 				B06E590C280B090E003777EB /* bookTableViewCell.swift in Sources */,
 				B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */,
 				B06E594B280CA823003777EB /* addTaskViewController.swift in Sources */,
+				B0FA48422811649300CDCE26 /* Recipe.swift in Sources */,
+				B0FA484028115CD200CDCE26 /* singleFilmViewController.swift in Sources */,
 				B06E5939280BF749003777EB /* menuViewController.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
 				B0DC32072810756300AB10FB /* changeEmailViewController.swift in Sources */,

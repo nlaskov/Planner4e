@@ -97,4 +97,15 @@ extension filmsViewController:UITableViewDelegate,UITableViewDataSource{
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if viewSegment.selectedSegmentIndex == 0{
+            DatabaseFilmManager.shared.chosenFilm = DatabaseFilmManager.shared.films_unwatched[indexPath.row]
+        }
+        else{
+            DatabaseFilmManager.shared.chosenFilm = DatabaseFilmManager.shared.films_watched[indexPath.row]
+        }
+        
+        performSegue(withIdentifier: "toSingleFilm", sender: self)
+    }
 }

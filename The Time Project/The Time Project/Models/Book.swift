@@ -7,20 +7,30 @@
 
 import Foundation
 
-class Book: Codable{
+class Book{
     var name:String
     var priority:Int
     var done:Bool
+    var author:String
+    var comment:String
+    var id:String
     
-    init(_name:String, _priority:Int, _done:Bool) {
-        self.name = _name
-        self.priority = _priority
-        self.done = _done
+    init(_ name:String,_ priority:Int,_ done:Bool,_ author:String,_ comment:String,_ id:String) {
+        self.name = name
+        self.priority = priority
+        self.done = done
+        self.author = author
+        self.comment = comment
+        self.id = id
+        
     }
     
-    enum CodingKeys: String, CodingKey {
-        case name
-        case priority
-        case done
+    init (){
+        name = ""
+        priority = -1
+        done = false
+        author = ""
+        comment = ""
+        id = "0"
     }
 }
