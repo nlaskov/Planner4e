@@ -18,6 +18,7 @@ class menuViewController:UIViewController{
             let loginVC = storyboard?.instantiateViewController(withIdentifier: "loginMenu") as! UINavigationController
             loginVC.modalPresentationStyle = .fullScreen
             present(loginVC, animated: false)
+            
         }
         else{
             let uid = Auth.auth().currentUser?.uid

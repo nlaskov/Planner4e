@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class bookTableViewCell:UITableViewCell{
-    var book:Book? = nil
+    var book:Book = Book()
     
     
     @IBOutlet var importance: UIImageView!
@@ -18,7 +18,7 @@ class bookTableViewCell:UITableViewCell{
     
     func setCell(){
         
-        switch book?.priority{
+        switch book.priority{
         case 0:
             importance.tintColor = UIColor.init(red: CGFloat(175 as Double/225), green: CGFloat(227 as Double/225), blue: CGFloat(120 as Double/225), alpha: CGFloat(1))
             break
@@ -32,8 +32,8 @@ class bookTableViewCell:UITableViewCell{
             break
         }
         
-        title.text = book?.name
-        if book?.done ?? false{
+        title.text = book.name
+        if book.done{
             done.isOn = true
         }
         else {
@@ -42,10 +42,11 @@ class bookTableViewCell:UITableViewCell{
     }
     @IBAction func doneSwitch(_ sender: Any) {
         if done.isOn == true{
-            book?.done = true
+            book.done = true
         }
         else {
-            book?.done = false
+            book.done = false
         }
+        DatabaseBookManager.shared.EditBook(book: book)
     }
 }
