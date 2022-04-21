@@ -30,7 +30,7 @@ class profileMenuViewController:UIViewController{
         emailLabel.text = "Email: " + DatabaseUserManager.shared.user.email
         
         if DatabaseUserManager.shared.user.image != ""{
-            
+            //getImage
         }
     }
     
