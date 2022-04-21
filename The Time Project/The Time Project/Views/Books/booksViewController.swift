@@ -34,7 +34,32 @@ class booksViewController: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        bookCheck()
         bookTable.reloadData();
+    }
+    
+    func bookCheck(){
+        var count=0
+        
+        for item in DatabaseBookManager.shared.books_read{
+            if item.done == false{
+                DatabaseBookManager.shared.books_unread.append(item)
+                DatabaseBookManager.shared.books_read.remove(at: count)
+            }
+            else{
+                count+=1
+            }
+        }
+        
+        for item in DatabaseBookManager.shared.books_unread{
+            if item.done == true{
+                DatabaseBookManager.shared.books_read.append(item)
+                DatabaseBookManager.shared.books_unread.remove(at: count)
+            }
+            else{
+                count+=1
+            }
+        }
     }
     
     @IBAction func changeSegment(_ sender: Any) {
@@ -42,29 +67,7 @@ class booksViewController: UIViewController{
             self.bookTable.alpha = CGFloat(0)
         }
         
-        var count=0
-        if viewSegment.selectedSegmentIndex == 0{
-            for item in DatabaseBookManager.shared.books_read{
-                if item.done == false{
-                    DatabaseBookManager.shared.books_unread.append(item)
-                    DatabaseBookManager.shared.books_read.remove(at: count)
-                }
-                else{
-                    count+=1
-                }
-            }
-        }
-        else{
-            for item in DatabaseBookManager.shared.books_unread{
-                if item.done == true{
-                    DatabaseBookManager.shared.books_read.append(item)
-                    DatabaseBookManager.shared.books_unread.remove(at: count)
-                }
-                else{
-                    count+=1
-                }
-            }
-        }
+        bookCheck()
         
         bookTable.reloadData()
         
@@ -72,8 +75,6 @@ class booksViewController: UIViewController{
             self.bookTable.alpha = CGFloat(1)
         }
     }
-    
-    
     
     
 }
@@ -105,6 +106,17 @@ extension booksViewController:UITableViewDelegate,UITableViewDataSource{
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if viewSegment.selectedSegmentIndex == 0{
+            DatabaseBookManager.shared.chosenBook = DatabaseBookManager.shared.books_unread[indexPath.row]
+        }
+        else{
+            DatabaseBookManager.shared.chosenBook = DatabaseBookManager.shared.books_read[indexPath.row]
+        }
+        
+        performSegue(withIdentifier: "toSingleBook", sender: self)
     }
     
     
