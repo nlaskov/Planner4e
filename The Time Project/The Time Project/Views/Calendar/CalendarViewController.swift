@@ -189,7 +189,8 @@ extension CalendarViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
         if collectionView == day_CollectionView{
-            
+            DatabaseTaskManager.shared.chosenTask = dayTasks[indexPath.row]
+            performSegue(withIdentifier: "toSingleTask", sender: self)
         }else{
             let cell = collectionView.cellForItem(at: indexPath) as! month_CalendarCollectionViewCell
             let cal = Calendar.current

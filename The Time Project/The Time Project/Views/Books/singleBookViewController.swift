@@ -28,11 +28,20 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
         book = DatabaseBookManager.shared.chosenBook
         
         setBook()
+    }
+    
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
     }
     
     
@@ -48,6 +57,7 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         commentField.isEditable = false
         
         safeButton.isHidden = true
+        errorLabel.isHidden = true
         
         selectedPriority = book.priority
     }
@@ -133,10 +143,11 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         book.author = author
         book.priority = selectedPriority
         
-        DatabaseBookManager.shared.EditBook(book:book)
+        DatabaseBookManager.shared.editBook(book:book)
         self.alertSuccess(sender,true)
         setBook()
     }
+    
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         DatabaseBookManager.shared.deleteBook(book:book){ success in
             if success{

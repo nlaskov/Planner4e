@@ -23,10 +23,20 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet var errorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         createPriorityPicker()
         
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
+    }
+    
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
     }
     
     @IBAction func addButtonPressed(_ sender: Any) {

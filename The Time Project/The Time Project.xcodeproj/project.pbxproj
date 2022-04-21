@@ -46,6 +46,13 @@
 		B09E0C2727F1BFC5003F38B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2527F1BFC5003F38B2 /* Main.storyboard */; };
 		B09E0C2927F1BFC6003F38B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */; };
 		B09E0C2C27F1BFC6003F38B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */; };
+		B0B075BA2811E3190024BAEE /* changeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075B92811E3190024BAEE /* changeNameViewController.swift */; };
+		B0B075BC2811EC410024BAEE /* singleTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075BB2811EC410024BAEE /* singleTaskViewController.swift */; };
+		B0B075BF2811F7ED0024BAEE /* resolutionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075BE2811F7ED0024BAEE /* resolutionsViewController.swift */; };
+		B0B075C12811F80E0024BAEE /* resolutionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075C02811F80E0024BAEE /* resolutionTableViewCell.swift */; };
+		B0B075C32811F8260024BAEE /* addResolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075C22811F8260024BAEE /* addResolutionViewController.swift */; };
+		B0B075C52811F83C0024BAEE /* singleResolutionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075C42811F83C0024BAEE /* singleResolutionViewController.swift */; };
+		B0B075C72811F85E0024BAEE /* DatabaseResolutionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075C62811F85E0024BAEE /* DatabaseResolutionManager.swift */; };
 		B0B0F74B27F271B400B7448B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0F74A27F271B400B7448B /* User.swift */; };
 		B0B0F75027F30B6100B7448B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0F74F27F30B6100B7448B /* Task.swift */; };
 		B0DC31F528105ACE00AB10FB /* profileMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC31F428105ACE00AB10FB /* profileMenuViewController.swift */; };
@@ -95,6 +102,13 @@
 		B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B09E0C2B27F1BFC6003F38B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B09E0C2D27F1BFC6003F38B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0B075B92811E3190024BAEE /* changeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeNameViewController.swift; sourceTree = "<group>"; };
+		B0B075BB2811EC410024BAEE /* singleTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleTaskViewController.swift; sourceTree = "<group>"; };
+		B0B075BE2811F7ED0024BAEE /* resolutionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resolutionsViewController.swift; sourceTree = "<group>"; };
+		B0B075C02811F80E0024BAEE /* resolutionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resolutionTableViewCell.swift; sourceTree = "<group>"; };
+		B0B075C22811F8260024BAEE /* addResolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addResolutionViewController.swift; sourceTree = "<group>"; };
+		B0B075C42811F83C0024BAEE /* singleResolutionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleResolutionViewController.swift; sourceTree = "<group>"; };
+		B0B075C62811F85E0024BAEE /* DatabaseResolutionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseResolutionManager.swift; sourceTree = "<group>"; };
 		B0B0F74A27F271B400B7448B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B0B0F74F27F30B6100B7448B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		B0DC31F428105ACE00AB10FB /* profileMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileMenuViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +183,7 @@
 				B06E590428091A99003777EB /* Month Calendar */,
 				B06E5949280CA801003777EB /* Week_Calendar */,
 				B09C88B727F24C2900F808DD /* Day Calendar */,
+				B0B075BB2811EC410024BAEE /* singleTaskViewController.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -183,6 +198,7 @@
 				B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */,
 				B0DC320A281084C200AB10FB /* StorageManager.swift */,
 				B0FA48432811669500CDCE26 /* DatabaseRecipesManager.swift */,
+				B0B075C62811F85E0024BAEE /* DatabaseResolutionManager.swift */,
 			);
 			path = FireBaseManagers;
 			sourceTree = "<group>";
@@ -260,6 +276,17 @@
 			path = "The Time Project";
 			sourceTree = "<group>";
 		};
+		B0B075BD2811F7B60024BAEE /* Resolutions */ = {
+			isa = PBXGroup;
+			children = (
+				B0B075BE2811F7ED0024BAEE /* resolutionsViewController.swift */,
+				B0B075C02811F80E0024BAEE /* resolutionTableViewCell.swift */,
+				B0B075C22811F8260024BAEE /* addResolutionViewController.swift */,
+				B0B075C42811F83C0024BAEE /* singleResolutionViewController.swift */,
+			);
+			path = Resolutions;
+			sourceTree = "<group>";
+		};
 		B0B0F74727F2719700B7448B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +303,7 @@
 		B0DC31F228105A8100AB10FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B0B075BD2811F7B60024BAEE /* Resolutions */,
 				B0DC31F328105AAD00AB10FB /* Profile */,
 				B06E593C280C0649003777EB /* Login and Registration */,
 				B06E5929280B5A6D003777EB /* Calendar */,
@@ -291,6 +319,7 @@
 				B0DC31F428105ACE00AB10FB /* profileMenuViewController.swift */,
 				B0DC32062810756300AB10FB /* changeEmailViewController.swift */,
 				B0DC32082810758700AB10FB /* changePasswordViewController.swift */,
+				B0B075B92811E3190024BAEE /* changeNameViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -384,13 +413,17 @@
 				B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */,
 				B06E592C280B5ABD003777EB /* DatabaseBookManager.swift in Sources */,
 				B0DC32052810634200AB10FB /* ForgotPasswordViewController.swift in Sources */,
+				B0B075C72811F85E0024BAEE /* DatabaseResolutionManager.swift in Sources */,
+				B0B075BF2811F7ED0024BAEE /* resolutionsViewController.swift in Sources */,
 				B0DC320B281084C200AB10FB /* StorageManager.swift in Sources */,
 				B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */,
 				B06E5907280B05B8003777EB /* booksViewController.swift in Sources */,
 				B09C88B427F2482300F808DD /* week_CalendarViewController.swift in Sources */,
+				B0B075BA2811E3190024BAEE /* changeNameViewController.swift in Sources */,
 				B0DC32042810634200AB10FB /* LoginMenuViewController.swift in Sources */,
 				B09E0C2427F1BFC5003F38B2 /* ViewController.swift in Sources */,
 				B06E5935280B751B003777EB /* filmTableViewCell.swift in Sources */,
+				B0B075C32811F8260024BAEE /* addResolutionViewController.swift in Sources */,
 				B06E590328091A93003777EB /* month_CalendarCollectionViewCell.swift in Sources */,
 				B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */,
 				B06E5930280B5D38003777EB /* DatabaseUserManager.swift in Sources */,
@@ -407,8 +440,10 @@
 				B0FA48422811649300CDCE26 /* Recipe.swift in Sources */,
 				B0FA484028115CD200CDCE26 /* singleFilmViewController.swift in Sources */,
 				B06E5939280BF749003777EB /* menuViewController.swift in Sources */,
+				B0B075BC2811EC410024BAEE /* singleTaskViewController.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
 				B0DC32072810756300AB10FB /* changeEmailViewController.swift in Sources */,
+				B0B075C12811F80E0024BAEE /* resolutionTableViewCell.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,
 				B0DC32092810758700AB10FB /* changePasswordViewController.swift in Sources */,
 				B06E592E280B5B6E003777EB /* AuthManager.swift in Sources */,
@@ -416,6 +451,7 @@
 				B0DC31F528105ACE00AB10FB /* profileMenuViewController.swift in Sources */,
 				B0DC32032810634200AB10FB /* SignInViewController.swift in Sources */,
 				B0DC32022810634200AB10FB /* SignUpViewController.swift in Sources */,
+				B0B075C52811F83C0024BAEE /* singleResolutionViewController.swift in Sources */,
 				B06E5910280B239F003777EB /* Film.swift in Sources */,
 				B06E5909280B06FA003777EB /* Book.swift in Sources */,
 				B06E5933280B7379003777EB /* filmsViewController.swift in Sources */,

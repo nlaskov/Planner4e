@@ -88,7 +88,7 @@ class DatabaseBookManager:NSObject{
         completion(true, nil)
     }
     
-    func EditBook(book:Book){
+    func editBook(book:Book){
         ref.collection("\(DatabaseUserManager.shared.user.UID)_Books").document(book.id).setData([
             "name": book.name,
             "priority": book.priority,

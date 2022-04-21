@@ -13,6 +13,7 @@ class DatabaseTaskManager:NSObject{
     
     static let shared = DatabaseTaskManager()
     private let ref = Firestore.firestore()
+    var chosenTask:Task = Task()
     
     var tasks:[Task] = []
     
@@ -24,7 +25,7 @@ class DatabaseTaskManager:NSObject{
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    let task = Task(_name: document["name"] as! String, _priority: document["priority"] as! Int, _category: document["category"] as! Int, _day: document["day"] as! Int, _month: document["month"] as! Int, _year: document["year"] as! Int, _done: document["done"] as! Bool)
+                    let task = Task(document["name"] as! String, document["priority"] as! Int, document["category"] as! Int, document["day"] as! Int, document["month"] as! Int, document["year"] as! Int, document["done"] as! Bool, document["comment"] as! String, document["id"] as! String)
                     
                     self.tasks.append(task)
                 }
@@ -57,30 +58,37 @@ class DatabaseTaskManager:NSObject{
         let IntDate = getDate(date:date)
         
         guard let comment = comment else {
-            ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(UUID().uuidString).setData([
+            let temp = UUID().uuidString
+            ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(temp).setData([
                 "name":name,
                 "priority":priority,
                 "category":category,
                 "day":IntDate[0],
                 "month":IntDate[1],
                 "year":IntDate[2],
-                "done":false
+                "done":false,
+                "comment":"",
+                "id":temp
             ])
-            tasks.append(Task(_name: name, _priority: priority, _category: category, _day: IntDate[0], _month: IntDate[1], _year: IntDate[2], _done: false))
+            
+            tasks.append(Task(name, priority, category, IntDate[0], IntDate[1], IntDate[2], false,"",temp))
             completion(true,nil)
             return
         }
         
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(UUID().uuidString).setData([
+        let temp = UUID().uuidString
+        ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(temp).setData([
             "name":name,
             "priority":priority,
             "category":category,
             "day":IntDate[0],
             "month":IntDate[1],
             "year":IntDate[2],
-            "done":false
+            "done":false,
+            "comment":comment,
+            "id":temp
         ])
-        tasks.append(Task(_name: name, _priority: priority, _category: category, _day: IntDate[0], _month: IntDate[1], _year: IntDate[2], _done: false))
+        tasks.append(Task(name, priority, category, IntDate[0], IntDate[1], IntDate[2], false, comment, temp))
         completion(true,nil)
         return
     }
@@ -93,6 +101,37 @@ class DatabaseTaskManager:NSObject{
         intDate.append(Int(split[0])!)
         intDate.append(Int(split[2])!+2000)
         return intDate
+    }
+    
+    func deleteTask(task:Task,completion: @escaping (_ success: Bool) -> ()){
+        ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(task.id).delete(){ error in
+            if let _ = error{
+                completion(false)
+                return
+            }
+            var count=0
+            for item in self.tasks{
+                if item.id == task.id{
+                    self.tasks.remove(at: count)
+                }
+                else{
+                    count+=1
+                }
+            }
+        }
+    }
+    
+    func editTask(task:Task){
+        ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(task.id).setData([
+            "name":task.name,
+            "priority":task.priority,
+            "category":task.category,
+            "day":task.day,
+            "month":task.month,
+            "year":task.year,
+            "done":task.done,
+            "comment":task.comment,
+            "id":task.id])
     }
     
     enum TaskError:Error{

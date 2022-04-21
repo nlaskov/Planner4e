@@ -28,11 +28,20 @@ class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
         film = DatabaseFilmManager.shared.chosenFilm
         
         setFilm()
+    }
+    
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
     }
     
     func setFilm(){
