@@ -64,9 +64,9 @@ class DatabaseUserManager:NSObject{
             return
         }
         user.image = newImageName
-        ref.collection("Users").document(user.UID).setData(["image":user.image])
+        ref.collection("Users").document(user.UID).setData(["image":user.image],merge: true)
         
-        
+        //StorageManager.shared.changeProfileImage
     }
     
     

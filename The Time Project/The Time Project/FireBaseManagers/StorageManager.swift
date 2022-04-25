@@ -57,7 +57,23 @@ class StorageManager: NSObject{
                     }
                 }
             }
+        }
     }
+    
+    func changePrifilePicture(oldImageName:String, newImageName:String, newImage:UIImage){
+        
+    }
+    
+    func changeRecipePicture(oldImageName:String, newImageName:String, newImage:UIImage){
+        
+    }
+    
+    func setProfileImage(imageName:String, image:UIImage){
+        
+    }
+    
+    func setRecipeImage(imagename:String, image:UIImage){
+        
     }
     
     
