@@ -47,6 +47,6 @@ class bookTableViewCell:UITableViewCell{
         else {
             book.done = false
         }
-        DatabaseBookManager.shared.EditBook(book: book)
+        DatabaseBookManager.shared.editBook(book: book)
     }
 }

@@ -191,14 +191,11 @@
 		B06E592A280B5A89003777EB /* FireBaseManagers */ = {
 			isa = PBXGroup;
 			children = (
-				B06E592B280B5ABD003777EB /* DatabaseBookManager.swift */,
+				B07E2ED32816CED900C584B9 /* Done */,
 				B06E592D280B5B6E003777EB /* AuthManager.swift */,
 				B06E592F280B5D38003777EB /* DatabaseUserManager.swift */,
-				B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */,
-				B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */,
 				B0DC320A281084C200AB10FB /* StorageManager.swift */,
 				B0FA48432811669500CDCE26 /* DatabaseRecipesManager.swift */,
-				B0B075C62811F85E0024BAEE /* DatabaseResolutionManager.swift */,
 			);
 			path = FireBaseManagers;
 			sourceTree = "<group>";
@@ -231,6 +228,17 @@
 				B09C88B327F2482300F808DD /* week_CalendarViewController.swift */,
 			);
 			path = Week_Calendar;
+			sourceTree = "<group>";
+		};
+		B07E2ED32816CED900C584B9 /* Done */ = {
+			isa = PBXGroup;
+			children = (
+				B06E592B280B5ABD003777EB /* DatabaseBookManager.swift */,
+				B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */,
+				B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */,
+				B0B075C62811F85E0024BAEE /* DatabaseResolutionManager.swift */,
+			);
+			path = Done;
 			sourceTree = "<group>";
 		};
 		B09C88B727F24C2900F808DD /* Day Calendar */ = {

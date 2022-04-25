@@ -6,3 +6,93 @@
 //
 
 import Foundation
+import UIKit
+
+class addResolutionViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+    
+    let priority = ["Low","Middle", "High"]
+    let priorityPicker = UIPickerView()
+    var selectedPriority:Int? = nil
+    
+    @IBOutlet var titleField: UITextField!
+    
+    @IBOutlet var priorityField: UITextField!
+    @IBOutlet var commentField: UITextView!
+    
+    @IBOutlet var safeButton: UIButton!
+    @IBOutlet var errorLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        createPriorityPicker()
+        
+        priorityPicker.delegate = self
+        priorityPicker.dataSource = self
+        
+    }
+    
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
+    }
+    
+    @IBAction func safeButtonPressed(_ sender: Any) {
+        self.errorLabel.isHidden = true
+        DatabaseResolutionManager.shared.addResolution(name: titleField.text, priority: selectedPriority, comment: commentField.text){ success, error in
+            
+            if success{
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+            else{
+                self.setErrorLabel(error: error!)
+                self.errorLabel.isHidden = false
+            }
+        }
+    }
+    
+    
+    func createPriorityPicker(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action:#selector(donePriorityPressed))
+        toolbar.setItems([doneButton], animated: true)
+        
+        priorityField.inputAccessoryView = toolbar
+        priorityField.inputView = priorityPicker
+    }
+    
+    @objc func donePriorityPressed(){
+        priorityField.text = priority[priorityPicker.selectedRow(inComponent: 0)]
+        selectedPriority = priorityPicker.selectedRow(inComponent: 0)
+        self.view.endEditing(true)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return priority[row]
+    }
+    
+    func setErrorLabel(error:DatabaseResolutionManager.ResolutionError){
+        switch error {
+        case .noName:
+            errorLabel.text = "Name requred"
+            break
+        case .noPriority:
+            errorLabel.text = "Priority requred"
+            break
+        }
+    }
+}
