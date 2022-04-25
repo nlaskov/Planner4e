@@ -150,16 +150,29 @@ extension CalendarViewController{
     
     //Get array of the tasks for given day
     func getDayTasks(){
+        
         dayTasks.removeAll()
         
         let day = Calendar.current.component(.day, from: used_date)
         let month = Calendar.current.component(.month, from: used_date)
         let year = Calendar.current.component(.year, from: used_date)
         
+        var counter=0
         for item in DatabaseTaskManager.shared.tasks{
-            if(item.day == day) && (item.month == month) && (item.year == year){
-                dayTasks.append(item)
+            if DatabaseTaskManager.shared.dateCheck(date: date, task: item){
+                if(item.day == day) && (item.month == month) && (item.year == year){
+                    dayTasks.append(item)
+                }
+                counter+=1
             }
+            else{
+                DatabaseTaskManager.shared.deleteTask(task: item){ success in
+                    if success{
+                        DatabaseTaskManager.shared.tasks.remove(at: counter)
+                    }
+                }
+            }
+            
         }
     }
     

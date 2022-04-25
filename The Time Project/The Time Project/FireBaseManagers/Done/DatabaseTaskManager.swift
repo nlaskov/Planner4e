@@ -34,6 +34,24 @@ class DatabaseTaskManager:NSObject{
         }
     }
     
+    func dateCheck(date:Date,task:Task) ->Bool {
+        let used_month = task.month
+        let month = Calendar.current.component(.month, from: date)
+        
+        if(month != 12 && month != 1){
+            if(used_month - month > 1 || used_month - month < -1){
+                return false
+            }
+            else {return true}
+        }
+        else{
+            if((month == 12 && (used_month == 1 || used_month == 11)) || (month == 1 && (used_month == 12 || used_month == 2)) ){
+                return true
+            }
+        }
+        return false
+    }
+    
     func addTask(name:String?, priority:Int?, category:Int?, date:String?, comment:String?,completion: @escaping (_ success: Bool, _ error: TaskError?) -> ()){
         
         guard let name = name else {

@@ -36,6 +36,8 @@
 		B06E5946280C9502003777EB /* addBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5945280C9501003777EB /* addBookViewController.swift */; };
 		B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5947280C9BE7003777EB /* addFilmViewController.swift */; };
 		B06E594B280CA823003777EB /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E594A280CA823003777EB /* addTaskViewController.swift */; };
+		B07E2ED6281701B900C584B9 /* recipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E2ED5281701B900C584B9 /* recipesViewController.swift */; };
+		B07E2ED8281702DC00C584B9 /* recipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E2ED7281702DC00C584B9 /* recipesCollectionViewCell.swift */; };
 		B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */; };
 		B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */; };
 		B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B127F241F800F808DD /* day_CalendarViewController.swift */; };
@@ -89,6 +91,8 @@
 		B06E5945280C9501003777EB /* addBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBookViewController.swift; sourceTree = "<group>"; };
 		B06E5947280C9BE7003777EB /* addFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addFilmViewController.swift; sourceTree = "<group>"; };
 		B06E594A280CA823003777EB /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
+		B07E2ED5281701B900C584B9 /* recipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipesViewController.swift; sourceTree = "<group>"; };
+		B07E2ED7281702DC00C584B9 /* recipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipesCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88B127F241F800F808DD /* day_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarViewController.swift; sourceTree = "<group>"; };
@@ -183,7 +187,6 @@
 				B06E590428091A99003777EB /* Month Calendar */,
 				B06E5949280CA801003777EB /* Week_Calendar */,
 				B09C88B727F24C2900F808DD /* Day Calendar */,
-				B0B075BB2811EC410024BAEE /* singleTaskViewController.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -241,11 +244,21 @@
 			path = Done;
 			sourceTree = "<group>";
 		};
+		B07E2ED4281700F600C584B9 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				B07E2ED5281701B900C584B9 /* recipesViewController.swift */,
+				B07E2ED7281702DC00C584B9 /* recipesCollectionViewCell.swift */,
+			);
+			path = Recipes;
+			sourceTree = "<group>";
+		};
 		B09C88B727F24C2900F808DD /* Day Calendar */ = {
 			isa = PBXGroup;
 			children = (
 				B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */,
 				B09C88B127F241F800F808DD /* day_CalendarViewController.swift */,
+				B0B075BB2811EC410024BAEE /* singleTaskViewController.swift */,
 			);
 			path = "Day Calendar";
 			sourceTree = "<group>";
@@ -311,6 +324,7 @@
 		B0DC31F228105A8100AB10FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B07E2ED4281700F600C584B9 /* Recipes */,
 				B0B075BD2811F7B60024BAEE /* Resolutions */,
 				B0DC31F328105AAD00AB10FB /* Profile */,
 				B06E593C280C0649003777EB /* Login and Registration */,
@@ -424,6 +438,7 @@
 				B0B075C72811F85E0024BAEE /* DatabaseResolutionManager.swift in Sources */,
 				B0B075BF2811F7ED0024BAEE /* resolutionsViewController.swift in Sources */,
 				B0DC320B281084C200AB10FB /* StorageManager.swift in Sources */,
+				B07E2ED8281702DC00C584B9 /* recipesCollectionViewCell.swift in Sources */,
 				B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */,
 				B06E5907280B05B8003777EB /* booksViewController.swift in Sources */,
 				B09C88B427F2482300F808DD /* week_CalendarViewController.swift in Sources */,
@@ -434,6 +449,7 @@
 				B0B075C32811F8260024BAEE /* addResolutionViewController.swift in Sources */,
 				B06E590328091A93003777EB /* month_CalendarCollectionViewCell.swift in Sources */,
 				B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */,
+				B07E2ED6281701B900C584B9 /* recipesViewController.swift in Sources */,
 				B06E5930280B5D38003777EB /* DatabaseUserManager.swift in Sources */,
 				B09E0C2027F1BFC5003F38B2 /* AppDelegate.swift in Sources */,
 				B0FA483E281128AF00CDCE26 /* singleBookViewController.swift in Sources */,
