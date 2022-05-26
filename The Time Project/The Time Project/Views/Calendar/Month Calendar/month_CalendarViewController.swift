@@ -29,9 +29,9 @@ extension CalendarViewController{
         month_label.text = "\(monthSymbol) \(year)"
 
         let weekRange = (cal as NSCalendar).range(of: .weekOfMonth, in: .month, for: Date())
-        let dateRange = (cal as NSCalendar).range(of: .day, in: .month, for: Date())
+        //let dateRange = (cal as NSCalendar).range(of: .day, in: .month, for: Date())
         weeks = weekRange.length
-        var totalDaysInMonth = dateRange.length
+        //var totalDaysInMonth = dateRange.length
         
         let totalMonthList = weeks * 7
         var dates = [Date]()
@@ -79,8 +79,6 @@ extension CalendarViewController{
                 }
             }
         }
-        
-        
         
     }
     @IBAction func rightButtoonPress(_ sender: Any) {

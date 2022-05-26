@@ -27,7 +27,7 @@ class DatabaseBookManager:NSObject{
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    let book = Book(document["name"] as! String, document["priority"] as! Int, document["done"] as! Bool, document["author"] as! String, document["comment"] as! String, document["id"] as! String)
+                    let book = Book(document["name"] as! String, document["priority"] as! Int, document["done"] as! Bool, document["comment"] as! String, document["id"] as! String)
                     if book.done{
                         self.books_read.append(book)
                     }
@@ -40,7 +40,7 @@ class DatabaseBookManager:NSObject{
         }
     }
     
-    func addBook(name:String?,priority:Int? ,author:String?,comment:String?,completion: @escaping (_ success: Bool, _ error: BookError?) -> ()){
+    func addBook(name:String?,priority:Int? ,comment:String?,completion: @escaping (_ success: Bool, _ error: BookError?) -> ()){
         
         guard let name = name, !name.isEmpty else {
             completion(false, BookError.noName)
@@ -51,11 +51,6 @@ class DatabaseBookManager:NSObject{
             completion(false, BookError.noPriority)
             return
         }
-        
-        guard let author = author else {
-            completion(false, BookError.noAuthor)
-            return
-        }
 
         guard let comment = comment else {
             let temp = UUID().uuidString
@@ -63,12 +58,11 @@ class DatabaseBookManager:NSObject{
                 "name": name,
                 "priority": priority,
                 "done": false,
-                "author": author,
                 "comment": "",
                 "id":temp
                 ])
             
-            books_unread.append(Book(name, priority, false, author,"",temp))
+            books_unread.append(Book(name, priority, false,"",temp))
             completion(true, nil)
             return
         }
@@ -78,22 +72,20 @@ class DatabaseBookManager:NSObject{
             "name": name,
             "priority": priority,
             "done": false,
-            "author": author,
             "comment": comment,
             "id": temp
             ])
         
-        books_unread.append(Book(name, priority, false,author,comment,temp))
+        books_unread.append(Book(name, priority, false,comment,temp))
         
         completion(true, nil)
     }
     
-    func EditBook(book:Book){
+    func editBook(book:Book){
         ref.collection("\(DatabaseUserManager.shared.user.UID)_Books").document(book.id).setData([
             "name": book.name,
             "priority": book.priority,
             "done": book.done,
-            "author": book.author,
             "comment": book.comment,
             "id": book.id])
     }
@@ -133,7 +125,6 @@ class DatabaseBookManager:NSObject{
     enum BookError: Error{
         case noName
         case noPriority
-        case noAuthor
     }
     
 }

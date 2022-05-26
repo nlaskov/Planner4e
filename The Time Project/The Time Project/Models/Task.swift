@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Task: Codable{
+class Task{
     var name:String = ""
     var priority:Int = -1
     var category:Int = -1
@@ -15,26 +15,30 @@ class Task: Codable{
     var month:Int = -1
     var year:Int = -1
     var done:Bool = false
+    var comment:String = ""
+    var id:String = ""
     
-    init(_name:String, _priority:Int, _category:Int, _day:Int, _month:Int, _year:Int, _done:Bool) {
-        self.name = _name
-        self.priority = _priority
-        self.category = _category
-        self.day = _day
-        self.month = _month
-        self.year = _year
-        self.done = _done
+    init(_ name:String,_ priority:Int,_ category:Int,_ day:Int, _ month:Int,_ year:Int,_ done:Bool,_ comment:String,_ id:String) {
+        self.name = name
+        self.priority = priority
+        self.category = category
+        self.day = day
+        self.month = month
+        self.year = year
+        self.done = done
+        self.comment = comment
+        self.id = id
     }
     
-    enum CodingKeys: String, CodingKey {
-        case name
-        case priority
-        case category
-        case day
-        case month
-        case year
-        case done
+    init(){
+         name = ""
+         priority = -1
+         category = -1
+         day = -1
+         month = -1
+         year = -1
+         done = false
+         comment = ""
+         id = ""
     }
-    /* Имената на файловете да са Тask Book Film Recepie ect. и всеки клас да е наследник на класа Тask за да можем да ги извикваме така от базата дани firebaseFirestore */
-    
 }
