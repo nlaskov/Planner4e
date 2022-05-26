@@ -9,7 +9,7 @@ import Foundation
 import FirebaseDatabase
 import Firebase
 import FirebaseFirestoreSwift
-
+import FirebaseAuth
 
 class DatabaseBookManager:NSObject{
     
@@ -22,7 +22,7 @@ class DatabaseBookManager:NSObject{
     
     func getBooks(completion: @escaping () -> () ){
         
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Books").getDocuments(){ (querySnapshot, err) in
+        ref.collection("\(Auth.auth().currentUser!.uid)_Books").getDocuments(){ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -51,10 +51,10 @@ class DatabaseBookManager:NSObject{
             completion(false, BookError.noPriority)
             return
         }
-
+        
         guard let comment = comment else {
             let temp = UUID().uuidString
-            ref.collection("\(DatabaseUserManager.shared.user.UID)_Books").document(temp).setData([
+            ref.collection("\(Auth.auth().currentUser!.uid)_Books").document(temp).setData([
                 "name": name,
                 "priority": priority,
                 "done": false,
@@ -68,7 +68,7 @@ class DatabaseBookManager:NSObject{
         }
 
         let temp = UUID().uuidString
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Books").document(temp).setData([
+        ref.collection("\(Auth.auth().currentUser!.uid)_Books").document(temp).setData([
             "name": name,
             "priority": priority,
             "done": false,
@@ -82,7 +82,7 @@ class DatabaseBookManager:NSObject{
     }
     
     func editBook(book:Book){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Books").document(book.id).setData([
+        ref.collection("\(Auth.auth().currentUser!.uid)_Books").document(book.id).setData([
             "name": book.name,
             "priority": book.priority,
             "done": book.done,
@@ -91,7 +91,7 @@ class DatabaseBookManager:NSObject{
     }
     
     func deleteBook(book:Book,completion: @escaping (_ success: Bool) -> ()){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Books").document(book.id).delete(){ error in
+        ref.collection("\(Auth.auth().currentUser!.uid)_Books").document(book.id).delete(){ error in
             if let _ = error{
                 completion(false)
                 return

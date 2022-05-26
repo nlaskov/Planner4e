@@ -9,7 +9,7 @@ import Foundation
 import FirebaseDatabase
 import Firebase
 import FirebaseFirestoreSwift
-
+import FirebaseAuth
 
 class DatabaseResolutionManager:NSObject{
     
@@ -22,7 +22,7 @@ class DatabaseResolutionManager:NSObject{
     
     func getResolution(completion: @escaping () -> ()){
         
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Resolutions").getDocuments(){ (querySnapshot, err) in
+        ref.collection("\(Auth.auth().currentUser!.uid)_Resolutions").getDocuments(){ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -54,7 +54,7 @@ class DatabaseResolutionManager:NSObject{
 
         guard let comment = comment else {
             let temp = UUID().uuidString
-            ref.collection("\(DatabaseUserManager.shared.user.UID)_Resolutions").document(temp).setData([
+            ref.collection("\(Auth.auth().currentUser!.uid)_Resolutions").document(temp).setData([
                 "name":name,
                 "priority":priority,
                 "done":false,
@@ -67,7 +67,7 @@ class DatabaseResolutionManager:NSObject{
         }
         
         let temp = UUID().uuidString
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Resolutions").document(temp).setData([
+        ref.collection("\(Auth.auth().currentUser!.uid)_Resolutions").document(temp).setData([
             "name":name,
             "priority":priority,
             "done":false,
@@ -80,7 +80,7 @@ class DatabaseResolutionManager:NSObject{
     }
     
     func editResolution(resolution:Resolution){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Resolutions").document(resolution.id).setData([
+        ref.collection("\(Auth.auth().currentUser!.uid)_Resolutions").document(resolution.id).setData([
             "name": resolution.name,
             "priority": resolution.priority,
             "done": resolution.done,
@@ -89,7 +89,7 @@ class DatabaseResolutionManager:NSObject{
     }
     
     func deleteResolution(resolution:Resolution,completion: @escaping (_ success: Bool) -> ()){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Resolutions").document(resolution.id).delete(){ error in
+        ref.collection("\(Auth.auth().currentUser!.uid)_Resolutions").document(resolution.id).delete(){ error in
             if let _ = error{
                 completion(false)
                 return

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class singleRecipeViewController:UIViewController{
     
@@ -46,6 +47,10 @@ class singleRecipeViewController:UIViewController{
     func setRecipe(){
         titleField.text = recipe.name
         commentField.text = recipe.recipe
+        StorageManager.shared.getRecepiePicture(imageName: recipe.image){urlString in
+            let url=URL(string: urlString)
+            self.recipeImage.kf.setImage(with:url)
+        }
         
         titleField.isEnabled = false
         commentField.isEditable = false

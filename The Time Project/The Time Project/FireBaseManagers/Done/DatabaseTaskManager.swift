@@ -9,6 +9,8 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseAuth
+
 class DatabaseTaskManager:NSObject{
     
     static let shared = DatabaseTaskManager()
@@ -19,7 +21,7 @@ class DatabaseTaskManager:NSObject{
     
    
     func getTasks(completion: @escaping () -> ()){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").getDocuments() { (querySnapshot, err) in
+        ref.collection("\(Auth.auth().currentUser!.uid)_Tasks").getDocuments() { (querySnapshot, err) in
             
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -77,7 +79,7 @@ class DatabaseTaskManager:NSObject{
         
         guard let comment = comment else {
             let temp = UUID().uuidString
-            ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(temp).setData([
+            ref.collection("\(Auth.auth().currentUser!.uid)_Tasks").document(temp).setData([
                 "name":name,
                 "priority":priority,
                 "category":category,
@@ -95,7 +97,7 @@ class DatabaseTaskManager:NSObject{
         }
         
         let temp = UUID().uuidString
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(temp).setData([
+        ref.collection("\(Auth.auth().currentUser!.uid)_Tasks").document(temp).setData([
             "name":name,
             "priority":priority,
             "category":category,
@@ -122,7 +124,7 @@ class DatabaseTaskManager:NSObject{
     }
     
     func deleteTask(task:Task,completion: @escaping (_ success: Bool) -> ()){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(task.id).delete(){ error in
+        ref.collection("\(Auth.auth().currentUser!.uid)_Tasks").document(task.id).delete(){ error in
             if let _ = error{
                 completion(false)
                 return
@@ -141,7 +143,7 @@ class DatabaseTaskManager:NSObject{
     }
     
     func editTask(task:Task){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Tasks").document(task.id).setData([
+        ref.collection("\(Auth.auth().currentUser!.uid)_Tasks").document(task.id).setData([
             "name":task.name,
             "priority":task.priority,
             "category":task.category,

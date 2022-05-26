@@ -45,6 +45,7 @@ class SignUpViewController: UIViewController{
             if success {
                 //If registration successful return to TemplateViewController
                 //DatabaseUserManager.shared.addUser(fullName: self.fullName.text)
+                
                 self.dismiss(animated: true, completion: nil)
             }
             else {

@@ -22,7 +22,35 @@ class addRecipeViewController:UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
     }
+    
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
+    }
+    
+    @IBAction func safeButtonPressed(_ sender: Any) {
+        self.errorLabel.isHidden = true
+        DatabaseRecipesManager.shared.addRecipes(name: nameField.text, image: imageField.text, recipe: commentField.text){ success, error in
+            if success{
+                if self.imageField.text != "Image "{
+                    StorageManager.shared.setRecipeImage(imageName: self.imageField.text, image: self.chosenImage)
+                }
+                
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+            else{
+                self.setErrorLabel(error: error!)
+                self.errorLabel.isHidden = false
+            }
+        }
+    }
+    
     
     @IBAction func imageButtonPressed(_ sender:Any){
         let vc = UIImagePickerController();
@@ -49,4 +77,14 @@ class addRecipeViewController:UIViewController, UIImagePickerControllerDelegate,
         picker.dismiss(animated: true, completion: nil)
     }
     
+    func setErrorLabel(error:DatabaseRecipesManager.RecipesError){
+        switch error {
+        case .noName:
+            errorLabel.text = "Name requred"
+            break
+        case .noRecipe:
+            errorLabel.text = "Recipe requred"
+            break
+        }
+    }
 }

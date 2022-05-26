@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1192D1879380DE9DCE8AAADB /* Pods_The_Time_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1691A10437F0825F6CB4971E /* Pods_The_Time_Project.framework */; };
 		B030806B28172967002A734D /* addRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030806A28172967002A734D /* addRecipeViewController.swift */; };
 		B06E590328091A93003777EB /* month_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590228091A93003777EB /* month_CalendarCollectionViewCell.swift */; };
 		B06E590528091AA9003777EB /* month_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B527F2483400F808DD /* month_CalendarViewController.swift */; };
@@ -67,6 +68,7 @@
 		B0DC32092810758700AB10FB /* changePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32082810758700AB10FB /* changePasswordViewController.swift */; };
 		B0DC320B281084C200AB10FB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC320A281084C200AB10FB /* StorageManager.swift */; };
 		B0F98DEF283FA25D00A4FF91 /* SingleRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F98DEE283FA25D00A4FF91 /* SingleRecipeViewController.swift */; };
+		B0F98DF3283FAA5700A4FF91 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B0F98DF2283FAA5700A4FF91 /* Podfile */; };
 		B0FA483E281128AF00CDCE26 /* singleBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA483D281128AF00CDCE26 /* singleBookViewController.swift */; };
 		B0FA484028115CD200CDCE26 /* singleFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA483F28115CD200CDCE26 /* singleFilmViewController.swift */; };
 		B0FA48422811649300CDCE26 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA48412811649300CDCE26 /* Recipe.swift */; };
@@ -74,6 +76,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0557BA24DA785D157097F536 /* Pods-The Time Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Time Project.release.xcconfig"; path = "Target Support Files/Pods-The Time Project/Pods-The Time Project.release.xcconfig"; sourceTree = "<group>"; };
+		1691A10437F0825F6CB4971E /* Pods_The_Time_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Time_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A562DDE6A5AC6EA87B220E48 /* Pods-The Time Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Time Project.debug.xcconfig"; path = "Target Support Files/Pods-The Time Project/Pods-The Time Project.debug.xcconfig"; sourceTree = "<group>"; };
 		B030806A28172967002A734D /* addRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRecipeViewController.swift; sourceTree = "<group>"; };
 		B06E590228091A93003777EB /* month_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = month_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B06E5906280B05B8003777EB /* booksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +132,7 @@
 		B0DC32082810758700AB10FB /* changePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordViewController.swift; sourceTree = "<group>"; };
 		B0DC320A281084C200AB10FB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B0F98DEE283FA25D00A4FF91 /* SingleRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecipeViewController.swift; sourceTree = "<group>"; };
+		B0F98DF2283FAA5700A4FF91 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B0FA483D281128AF00CDCE26 /* singleBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleBookViewController.swift; sourceTree = "<group>"; };
 		B0FA483F28115CD200CDCE26 /* singleFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleFilmViewController.swift; sourceTree = "<group>"; };
 		B0FA48412811649300CDCE26 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -147,12 +153,30 @@
 				B06E591D280B5745003777EB /* FirebaseDatabase in Frameworks */,
 				B06E5919280B5745003777EB /* FirebaseAuth in Frameworks */,
 				B06E5921280B5745003777EB /* FirebaseFirestore in Frameworks */,
+				1192D1879380DE9DCE8AAADB /* Pods_The_Time_Project.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08AAFD243C4E6B6757843BDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A562DDE6A5AC6EA87B220E48 /* Pods-The Time Project.debug.xcconfig */,
+				0557BA24DA785D157097F536 /* Pods-The Time Project.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		76B31BDF9828370A8B59E4EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1691A10437F0825F6CB4971E /* Pods_The_Time_Project.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B06E590428091A99003777EB /* Month Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,7 +297,10 @@
 			isa = PBXGroup;
 			children = (
 				B09E0C1E27F1BFC5003F38B2 /* The Time Project */,
+				B0F98DF2283FAA5700A4FF91 /* Podfile */,
 				B09E0C1D27F1BFC5003F38B2 /* Products */,
+				08AAFD243C4E6B6757843BDE /* Pods */,
+				76B31BDF9828370A8B59E4EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -359,9 +386,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B09E0C3027F1BFC6003F38B2 /* Build configuration list for PBXNativeTarget "The Time Project" */;
 			buildPhases = (
+				12699C4EDCB2ADE0B4A57C03 /* [CP] Check Pods Manifest.lock */,
 				B09E0C1827F1BFC5003F38B2 /* Sources */,
 				B09E0C1927F1BFC5003F38B2 /* Frameworks */,
 				B09E0C1A27F1BFC5003F38B2 /* Resources */,
+				42830758005E1AA3068BFA54 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -424,6 +453,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F98DF3283FAA5700A4FF91 /* Podfile in Resources */,
 				B09E0C2C27F1BFC6003F38B2 /* LaunchScreen.storyboard in Resources */,
 				B06E5914280B5699003777EB /* GoogleService-Info.plist in Resources */,
 				B09E0C2927F1BFC6003F38B2 /* Assets.xcassets in Resources */,
@@ -432,6 +462,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12699C4EDCB2ADE0B4A57C03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-The Time Project-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42830758005E1AA3068BFA54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-The Time Project/Pods-The Time Project-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-The Time Project/Pods-The Time Project-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-The Time Project/Pods-The Time Project-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B09E0C1827F1BFC5003F38B2 /* Sources */ = {
@@ -630,6 +702,7 @@
 		};
 		B09E0C3127F1BFC6003F38B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A562DDE6A5AC6EA87B220E48 /* Pods-The Time Project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -658,6 +731,7 @@
 		};
 		B09E0C3227F1BFC6003F38B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0557BA24DA785D157097F536 /* Pods-The Time Project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

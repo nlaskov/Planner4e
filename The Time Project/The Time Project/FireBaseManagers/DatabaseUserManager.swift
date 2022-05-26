@@ -15,18 +15,13 @@ class DatabaseUserManager:NSObject{
     private let ref = Firestore.firestore()
     var user = User()
     
-    func getUser(UID:String) -> User{
+    func getUser(UID:String){
 
-        ref.collection("Users").document(UID).getDocument(as: User.self){result in
-            switch result {
-                case .success(let result):
-                self.user = result
-
-                case .failure:
-                self.user = User()
+        ref.collection("Users").document(UID).getDocument(){ (document, error) in
+            if let document = document, document.exists {
+                self.user = User(document["name"] as! String, UID, document["email"] as! String, document["image"] as! String)
             }
         }
-        return user
     }
     
     func addUser(user:User){
@@ -43,7 +38,7 @@ class DatabaseUserManager:NSObject{
         guard let newEmail = newEmail else {
             return
         }
-        user.email = newEmail
+        //user.email = newEmail
         ref.collection("Users").document(user.UID).setData(["email":user.email],merge: true)
         
     }
@@ -53,7 +48,7 @@ class DatabaseUserManager:NSObject{
         guard let newName = newName else {
             return
         }
-        user.name = newName
+        //user.name = newName
         ref.collection("Users").document(user.UID).setData(["name":user.name],merge: true)
         
     }
@@ -63,7 +58,7 @@ class DatabaseUserManager:NSObject{
         guard let newImageName = newImageName else {
             return
         }
-        user.image = newImageName
+        //user.image = newImageName
         ref.collection("Users").document(user.UID).setData(["image":user.image],merge: true)
         
         //StorageManager.shared.changeProfileImage

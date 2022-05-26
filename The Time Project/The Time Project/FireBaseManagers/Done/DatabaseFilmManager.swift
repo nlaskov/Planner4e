@@ -9,7 +9,7 @@ import Foundation
 import FirebaseDatabase
 import Firebase
 import FirebaseFirestoreSwift
-
+import FirebaseAuth
 
 class DatabaseFilmManager:NSObject{
     
@@ -21,7 +21,7 @@ class DatabaseFilmManager:NSObject{
     var chosenFilm:Film = Film()
     
     func getFilms(completion: @escaping () -> ()){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Films").getDocuments(){ (querySnapshot, err) in
+        ref.collection("\(Auth.auth().currentUser!.uid)_Films").getDocuments(){ (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -54,7 +54,7 @@ class DatabaseFilmManager:NSObject{
         
         guard let comment = comment else {
             let temp = UUID().uuidString
-            ref.collection("\(DatabaseUserManager.shared.user.UID)_Films").document(temp).setData([
+            ref.collection("\(Auth.auth().currentUser!.uid)_Films").document(temp).setData([
                 "name": name,
                 "priority": priority,
                 "done": false,
@@ -69,7 +69,7 @@ class DatabaseFilmManager:NSObject{
         }
 
         let temp = UUID().uuidString
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Films").document(temp).setData([
+        ref.collection("\(Auth.auth().currentUser!.uid)_Films").document(temp).setData([
             "name": name,
             "priority": priority,
             "done": false,
@@ -83,7 +83,7 @@ class DatabaseFilmManager:NSObject{
     }
     
     func editFilm(film:Film){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Films").document(film.id).setData([
+        ref.collection("\(Auth.auth().currentUser!.uid)_Films").document(film.id).setData([
             "name": film.name,
             "priority": film.priority,
             "done": film.done,
@@ -92,7 +92,7 @@ class DatabaseFilmManager:NSObject{
     }
     
     func deleteFilm(film:Film, completion: @escaping (_ success: Bool) -> ()){
-        ref.collection("\(DatabaseUserManager.shared.user.UID)_Films").document(film.id).delete(){ error in
+        ref.collection("\(Auth.auth().currentUser!.uid)_Films").document(film.id).delete(){ error in
             if let _ = error{
                 completion(false)
                 return

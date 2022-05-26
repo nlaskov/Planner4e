@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class profileMenuViewController:UIViewController{
     
@@ -31,6 +32,10 @@ class profileMenuViewController:UIViewController{
         
         if DatabaseUserManager.shared.user.image != ""{
             //getImage
+            StorageManager.shared.getProfilePicture(imageName:DatabaseUserManager.shared.user.image){urlString in
+                let url = URL(string: urlString)
+                self.profileImage.kf.setImage(with:url)
+            }
         }
     }
     
@@ -61,6 +66,5 @@ class profileMenuViewController:UIViewController{
             loginVC.modalPresentationStyle = .fullScreen
             self.present(loginVC, animated: true)
     }
-    
     
 }

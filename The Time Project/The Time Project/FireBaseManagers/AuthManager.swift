@@ -44,6 +44,8 @@ class AuthManager: NSObject{
             }
             
             //If there isn`t error
+            let uid = Auth.auth().currentUser!.uid
+            let _ = DatabaseUserManager.shared.getUser(UID: uid)
             self.logInWithEmail = true;
             
             completion(true, nil)

@@ -21,8 +21,9 @@ class menuViewController:UIViewController{
             
         }
         else{
-            let uid = Auth.auth().currentUser?.uid
-            let _ = DatabaseUserManager.shared.getUser(UID:uid!)
+            
+            let uid = Auth.auth().currentUser!.uid
+            let _ = DatabaseUserManager.shared.getUser(UID: uid)
         }
         
         

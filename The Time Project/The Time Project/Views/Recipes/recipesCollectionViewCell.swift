@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class recipesCollectionViewCell:UICollectionViewCell{
     
@@ -18,6 +19,14 @@ class recipesCollectionViewCell:UICollectionViewCell{
     func setCell(recipe:Recipe){
         self.recipe = recipe
         name.text = recipe.name
-        
+        if recipe.image != "Image "{
+            StorageManager.shared.getRecepiePicture(imageName: recipe.image){ urlString in
+                let url = URL(string: urlString)
+                self.image.kf.setImage(with:url)
+            }
+        }
+        else {
+            image.image = UIImage(named: "eclair")
+        }
     }
 }
