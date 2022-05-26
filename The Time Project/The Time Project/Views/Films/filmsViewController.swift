@@ -36,11 +36,7 @@ class filmsViewController: UIViewController{
         self.filmTable.reloadData()
     }
     
-    @IBAction func changeSegment(_ sender: Any) {
-        UIView.animate(withDuration: 0.5) {
-            self.filmTable.alpha = CGFloat(0)
-        }
-        
+    func filmCheck(){
         var count=0
         if viewSegment.selectedSegmentIndex == 0{
             for item in DatabaseFilmManager.shared.films_watched{
@@ -64,6 +60,15 @@ class filmsViewController: UIViewController{
                 }
             }
         }
+    }
+    
+    @IBAction func changeSegment(_ sender: Any) {
+        UIView.animate(withDuration: 0.5) {
+            self.filmTable.alpha = CGFloat(0)
+        }
+        
+        
+        filmCheck()
         
         filmTable.reloadData()
         

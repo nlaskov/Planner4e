@@ -1,25 +1,25 @@
 //
-//  addTaskViewController.swift
+//  singleTaskViewController.swift
 //  The Time Project
 //
-//  Created by Nikola Laskov on 17.04.22.
+//  Created by Nikola Laskov on 21.04.22.
 //
 
 import Foundation
 import UIKit
 
-class addTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
-    
-    
-    
+class singleTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     @IBOutlet var nameField: UITextField!
     @IBOutlet var priorityField: UITextField!
     @IBOutlet var categoryField: UITextField!
     @IBOutlet var dateField: UITextField!
     @IBOutlet var commentField: UITextView!
+    @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
     
+    var edit = false
+    var task = Task()
     let datePicker = UIDatePicker()
     let priorityPicker = UIPickerView()
     let categoryPicker = UIPickerView()
@@ -46,11 +46,108 @@ class addTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerView
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
         
+        task = DatabaseTaskManager.shared.chosenTask
+        
+        setTask()
+        
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             self.view.endEditing(true)
             return false
+    }
+    
+    func setTask(){
+        nameField.text = task.name
+        priorityField.text = priority[task.priority]
+        categoryField.text = category[task.category]
+        dateField.text = "\(task.month)/\(task.day)/\(task.year)"
+        commentField.text = task.comment
+        
+        nameField.isEnabled = false
+        priorityField.isEnabled = false
+        categoryField.isEnabled = false
+        dateField.isEnabled = false
+        commentField.isEditable = false
+        
+        safeButton.isHidden = true
+        errorLabel.isHidden = true
+        
+        selectedPriority = task.priority
+        selectedCategory = task.category
+    }
+    
+    func editTask(){
+        nameField.isEnabled = true
+        priorityField.isEnabled = true
+        categoryField.isEnabled = true
+        dateField.isEnabled = true
+        commentField.isEditable = true
+        
+        safeButton.isHidden = false
+    }
+    
+    @IBAction func editButtonPressed(_ sender: Any) {
+        if edit{
+            edit = false
+            setTask()
+        }
+        else{
+            edit = true
+            editTask()
+        }
+    }
+    
+    @IBAction func safeButtonPressed(_ sender: UIButton) {
+        errorLabel.isHidden = true
+        guard let name = nameField.text else{
+            setErrorLabel(error: .noName)
+            return
+        }
+        
+        guard let comment = commentField.text else{
+            return
+        }
+        
+        guard let selectedPriority = selectedPriority else{
+            setErrorLabel(error: .noPriority)
+            errorLabel.isHidden = false
+            return
+        }
+        
+        guard let selectedCategory = selectedCategory else{
+            setErrorLabel(error: .noCategory)
+            errorLabel.isHidden = false
+            return
+        }
+        
+        guard let date = dateField.text else{
+            setErrorLabel(error: .noDate)
+            errorLabel.isHidden = false
+            return
+        }
+        let intDate = DatabaseTaskManager.shared.getDate(date: date)
+        
+        task.name = name
+        task.priority = selectedPriority
+        task.category = selectedCategory
+        task.comment = comment
+        task.day = intDate[0]
+        task.month = intDate[1]
+        task.year = intDate[2]
+        
+        DatabaseTaskManager.shared.editTask(task: task)
+        self.alertSuccess(sender, true)
+        setTask()
+    }
+    
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        DatabaseTaskManager.shared.deleteTask(task: task){success in
+            if success{
+                self.alertSuccess(sender, false)
+            }
+            
+        }
     }
     
     func createDatePicker(){
@@ -113,7 +210,6 @@ class addTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerView
         self.view.endEditing(true)
     }
     
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -137,22 +233,6 @@ class addTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerView
         else {
             return category[row]
         }
-        
-    }
-    
-    @IBAction func addButtonPressed(_ sender: Any) {
-        self.errorLabel.isHidden = true
-        DatabaseTaskManager.shared.addTask(name: nameField.text, priority: selectedPriority, category: selectedCategory, date: dateField.text, comment: commentField.text){success,error in
-            
-            if success{
-                _ = self.navigationController?.popViewController(animated: true)
-                
-            }
-            else{
-                self.setErrorLabel(error: error!)
-                self.errorLabel.isHidden = false
-            }
-        }
     }
     
     func setErrorLabel(error:DatabaseTaskManager.TaskError){
@@ -172,5 +252,26 @@ class addTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    
+    func alertSuccess(_ sender: UIButton,_ edit:Bool) {
+        
+        var title="",message=""
+        if edit{
+            title = "Task Edited"
+            message = "You have successfully edited this book!"
+        }
+        else{
+            title = "Task Deleted"
+            message = "You have successfully deleted this book!"
+        }
+        let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: { _ in _ = self.navigationController?.popViewController(animated: true)}))
+        
+        if let popoverPresentationController = alert.popoverPresentationController {
+            popoverPresentationController.sourceView = self.view
+            popoverPresentationController.sourceRect = sender.bounds
+        }
+        
+        present(alert, animated: true)
+    }
 }

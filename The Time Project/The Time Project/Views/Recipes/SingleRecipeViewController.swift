@@ -1,28 +1,29 @@
 //
-//  singleFilmViewController.swift
+//  SingleRecipeViewController.swift
 //  The Time Project
 //
-//  Created by Nikola Laskov on 21.04.22.
+//  Created by Nikola Laskov on 26.05.22.
 //
 
 import Foundation
 import UIKit
 
-class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class singleRecipeViewController:UIViewController{
     
     var edit = false
-    var film = Film()
+    var recipe = Recipe()
     let priority = ["Low","Middle", "High"]
     let priorityPicker = UIPickerView()
     var selectedPriority:Int? = nil
     
-    @IBOutlet var deleteButton: UIButton!
-    @IBOutlet var editButton: UIBarButtonItem!
     @IBOutlet var titleField: UITextField!
-    @IBOutlet var priorityField: UITextField!
     @IBOutlet var commentField: UITextView!
     @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var recipeImage: UIImageView!
+    @IBOutlet var editButton: UIBarButtonItem!
+    @IBOutlet var deleteButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,10 @@ class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
-        priorityPicker.delegate = self
-        priorityPicker.dataSource = self
-        film = DatabaseFilmManager.shared.chosenFilm
         
-        setFilm()
+        recipe = DatabaseRecipesManager.shared.chosenRecipe
+        
+        setRecipe()
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -43,65 +43,30 @@ class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerV
             return false
     }
     
-    func setFilm(){
-        titleField.text = film.name
-        priorityField.text = priority[film.priority]
-        commentField.text = film.comment
+    func setRecipe(){
+        titleField.text = recipe.name
+        commentField.text = recipe.recipe
         
         titleField.isEnabled = false
-        priorityField.isEnabled = false
         commentField.isEditable = false
-        
         safeButton.isHidden = true
-        
-        selectedPriority = film.priority
     }
     
-    func editFilm(){
+    func editRecipe(){
         titleField.isEnabled = true
-        priorityField.isEnabled = true
         commentField.isEditable = true
         
         safeButton.isHidden = false
     }
     
-    func createPriorityPicker(){
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action:#selector(donePriorityPressed))
-        toolbar.setItems([doneButton], animated: true)
-        
-        priorityField.inputAccessoryView = toolbar
-        priorityField.inputView = priorityPicker
-    }
-    
-    @objc func donePriorityPressed(){
-        priorityField.text = priority[priorityPicker.selectedRow(inComponent: 0)]
-        selectedPriority = priorityPicker.selectedRow(inComponent: 0)
-        self.view.endEditing(true)
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return priority[row]
-    }
-    
     @IBAction func editButtonPressed(_ sender: Any) {
         if edit{
             edit = false
-            setFilm()
+            setRecipe()
         }
         else{
             edit = true
-            editFilm()
+            editRecipe()
         }
     }
     
@@ -114,26 +79,21 @@ class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         }
         
         guard let comment = commentField.text else{
-            return
-        }
-        
-        guard let selectedPriority = selectedPriority else{
-            setErrorLabel(error: .noPriority)
+            setErrorLabel(error: .noRecipe)
             errorLabel.isHidden = false
             return
         }
         
-        film.name = title
-        film.comment = comment
-        film.priority = selectedPriority
+        recipe.name = title
+        recipe.recipe = comment
         
-        DatabaseFilmManager.shared.editFilm(film: film)
+        DatabaseRecipesManager.shared.editRecipes(recipe: recipe)
         self.alertSuccess(sender,true)
-        setFilm()
+        setRecipe()
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        DatabaseFilmManager.shared.deleteFilm(film: film){ success in
+        DatabaseRecipesManager.shared.deleteRecipes(recipe: recipe){ success in
             if success{
                 self.alertSuccess(sender, false)
             }
@@ -145,12 +105,12 @@ class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         
         var title="",message=""
         if edit{
-            title = "Film Edited"
-            message = "You have successfully edited this film!"
+            title = "Recipe Edited"
+            message = "You have successfully edited this recipe!"
         }
         else{
-            title = "Film Deleted"
-            message = "You have successfully deleted this film!"
+            title = "Recipe Deleted"
+            message = "You have successfully deleted this Recipe!"
         }
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
@@ -164,14 +124,15 @@ class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         present(alert, animated: true)
     }
     
-    func setErrorLabel(error:DatabaseFilmManager.FilmError){
+    func setErrorLabel(error:DatabaseRecipesManager.RecipesError){
         switch error {
         case .noName:
             errorLabel.text = "Name requred"
             break
-        case .noPriority:
-            errorLabel.text = "Priority requred"
+        case .noRecipe:
+            errorLabel.text = "Recipe requred"
             break
         }
     }
 }
+

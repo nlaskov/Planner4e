@@ -1,25 +1,27 @@
 //
-//  addBookViewController.swift
+//  addResolutionViewController.swift
 //  The Time Project
 //
-//  Created by Nikola Laskov on 17.04.22.
+//  Created by Nikola Laskov on 21.04.22.
 //
 
 import Foundation
 import UIKit
 
-class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class addResolutionViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     let priority = ["Low","Middle", "High"]
     let priorityPicker = UIPickerView()
     var selectedPriority:Int? = nil
     
-    @IBOutlet var bookTitle: UITextField!
-    @IBOutlet var bookPriority: UITextField!
-    @IBOutlet var bookComment: UITextView!
+    @IBOutlet var titleField: UITextField!
     
-    @IBOutlet var addButton: UIButton!
+    @IBOutlet var priorityField: UITextField!
+    @IBOutlet var commentField: UITextView!
+    
+    @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,7 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
+        
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -38,13 +41,12 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             return false
     }
     
-    @IBAction func addButtonPressed(_ sender: Any) {
+    @IBAction func safeButtonPressed(_ sender: Any) {
         self.errorLabel.isHidden = true
-        DatabaseBookManager.shared.addBook(name: bookTitle.text, priority: selectedPriority,comment: bookComment.text){ success,error in
+        DatabaseResolutionManager.shared.addResolution(name: titleField.text, priority: selectedPriority, comment: commentField.text){ success, error in
             
             if success{
                 _ = self.navigationController?.popViewController(animated: true)
-                
             }
             else{
                 self.setErrorLabel(error: error!)
@@ -53,6 +55,7 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
+    
     func createPriorityPicker(){
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -60,12 +63,12 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action:#selector(donePriorityPressed))
         toolbar.setItems([doneButton], animated: true)
         
-        bookPriority.inputAccessoryView = toolbar
-        bookPriority.inputView = priorityPicker
+        priorityField.inputAccessoryView = toolbar
+        priorityField.inputView = priorityPicker
     }
     
     @objc func donePriorityPressed(){
-        bookPriority.text = priority[priorityPicker.selectedRow(inComponent: 0)]
+        priorityField.text = priority[priorityPicker.selectedRow(inComponent: 0)]
         selectedPriority = priorityPicker.selectedRow(inComponent: 0)
         self.view.endEditing(true)
     }
@@ -81,10 +84,8 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return priority[row]
     }
-
     
-    
-    func setErrorLabel(error:DatabaseBookManager.BookError){
+    func setErrorLabel(error:DatabaseResolutionManager.ResolutionError){
         switch error {
         case .noName:
             errorLabel.text = "Name requred"

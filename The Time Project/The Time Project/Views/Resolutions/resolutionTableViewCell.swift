@@ -1,24 +1,23 @@
 //
-//  bookTableViewCell.swift
+//  resolutionTableViewCell.swift
 //  The Time Project
 //
-//  Created by Nikola Laskov on 16.04.22.
+//  Created by Nikola Laskov on 21.04.22.
 //
 
 import Foundation
 import UIKit
 
-class bookTableViewCell:UITableViewCell{
-    var book:Book = Book()
+class resolutionTableViewCell:UITableViewCell{
+    var resolution:Resolution = Resolution()
     
     
     @IBOutlet var importance: UIImageView!
-    @IBOutlet var title: UILabel!
     @IBOutlet var done: UISwitch!
+    @IBOutlet var title: UILabel!
     
     func setCell(){
-        
-        switch book.priority{
+        switch resolution.priority{
         case 0:
             importance.tintColor = UIColor.init(red: CGFloat(175 as Double/225), green: CGFloat(227 as Double/225), blue: CGFloat(120 as Double/225), alpha: CGFloat(1))
             break
@@ -32,21 +31,14 @@ class bookTableViewCell:UITableViewCell{
             break
         }
         
-        title.text = book.name
-        if book.done{
-            done.isOn = true
-        }
-        else {
-            done.isOn = false
-        }
+        title.text = resolution.name
+        done.isOn = resolution.done
     }
+    
     @IBAction func doneSwitch(_ sender: Any) {
-        if done.isOn == true{
-            book.done = true
-        }
-        else {
-            book.done = false
-        }
-        DatabaseBookManager.shared.editBook(book: book)
+        resolution.done = done.isOn
+        
+        DatabaseResolutionManager.shared.editResolution(resolution: resolution)
     }
+    
 }

@@ -1,5 +1,5 @@
 //
-//  singleBookViewController.swift
+//  singleResolutionViewController.swift
 //  The Time Project
 //
 //  Created by Nikola Laskov on 21.04.22.
@@ -8,21 +8,20 @@
 import Foundation
 import UIKit
 
-class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class singleResolutionViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
     var edit = false
-    var book = Book()
+    var resolution = Resolution()
     let priority = ["Low","Middle", "High"]
     let priorityPicker = UIPickerView()
     var selectedPriority:Int? = nil
-    
-    @IBOutlet var deleteButton: UIButton!
-    @IBOutlet var editButton: UIButton!
     @IBOutlet var titleField: UITextField!
     @IBOutlet var priorityField: UITextField!
     @IBOutlet var commentField: UITextView!
     @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var deleteButton: UIButton!
+    @IBOutlet var editButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,44 +32,37 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
-        book = DatabaseBookManager.shared.chosenBook
+        resolution = DatabaseResolutionManager.shared.chosenResolution
         
-        setBook()
+        setResolution()
     }
-    
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             self.view.endEditing(true)
             return false
     }
     
-    
-    func setBook(){
-        titleField.text = book.name
-        priorityField.text = priority[book.priority]
-        
-        commentField.text = book.comment
+    func setResolution(){
+        titleField.text = resolution.name
+        priorityField.text = priority[resolution.priority]
+        commentField.text = resolution.comment
         
         titleField.isEnabled = false
         priorityField.isEnabled = false
-        
         commentField.isEditable = false
         
         safeButton.isHidden = true
         errorLabel.isHidden = true
         
-        selectedPriority = book.priority
+        selectedPriority = resolution.priority
     }
     
-    func editBook(){
+    func editResolution(){
         titleField.isEnabled = true
         priorityField.isEnabled = true
-        
         commentField.isEditable = true
         
         safeButton.isHidden = false
     }
-    
-    
     
     func createPriorityPicker(){
         let toolbar = UIToolbar()
@@ -101,15 +93,14 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         return priority[row]
     }
     
-    
     @IBAction func editButtonPressed(_ sender: Any) {
         if edit{
             edit = false
-            setBook()
+            setResolution()
         }
         else{
             edit = true
-            editBook()
+            editResolution()
         }
     }
     
@@ -131,17 +122,17 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
             return
         }
         
-        book.name = title
-        book.comment = comment
-        book.priority = selectedPriority
+        resolution.name = title
+        resolution.comment = comment
+        resolution.priority = selectedPriority
         
-        DatabaseBookManager.shared.editBook(book:book)
+        DatabaseResolutionManager.shared.editResolution(resolution: resolution)
         self.alertSuccess(sender,true)
-        setBook()
+        setResolution()
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        DatabaseBookManager.shared.deleteBook(book:book){ success in
+        DatabaseResolutionManager.shared.deleteResolution(resolution: resolution){ success in
             if success{
                 self.alertSuccess(sender,false)
             }
@@ -152,12 +143,12 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         
         var title="",message=""
         if edit{
-            title = "Book Edited"
-            message = "You have successfully edited this book!"
+            title = "Resolution Edited"
+            message = "You have successfully edited this resolution!"
         }
         else{
-            title = "Book Deleted"
-            message = "You have successfully deleted this book!"
+            title = "Resolution Deleted"
+            message = "You have successfully deleted this resolution!"
         }
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
@@ -171,7 +162,7 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         present(alert, animated: true)
     }
     
-    func setErrorLabel(error:DatabaseBookManager.BookError){
+    func setErrorLabel(error:DatabaseResolutionManager.ResolutionError){
         switch error {
         case .noName:
             errorLabel.text = "Name requred"
@@ -181,5 +172,6 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
             break
         }
     }
+    
     
 }
