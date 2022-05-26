@@ -16,7 +16,6 @@ class addFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBOutlet var filmTitle: UITextField!
     @IBOutlet var filmPriority: UITextField!
-    @IBOutlet var filmDirector: UITextField!
     @IBOutlet var filmComment: UITextView!
     
     @IBOutlet var addButton: UIButton!
@@ -29,6 +28,10 @@ class addFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerView
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
+        createPriorityPicker()
+        
+        priorityPicker.delegate = self
+        priorityPicker.dataSource = self
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -38,7 +41,7 @@ class addFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func addButtonPressed(_ sender: Any) {
         self.errorLabel.isHidden = true
-        DatabaseFilmManager.shared.addFilm(name: filmTitle.text, priority: selectedPriority, director: filmDirector.text, comment: filmComment.text){ success, error in
+        DatabaseFilmManager.shared.addFilm(name: filmTitle.text, priority: selectedPriority, comment: filmComment.text){ success, error in
             
             if success{
                 _ = self.navigationController?.popViewController(animated: true)

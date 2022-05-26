@@ -131,6 +131,7 @@ class DatabaseTaskManager:NSObject{
             for item in self.tasks{
                 if item.id == task.id{
                     self.tasks.remove(at: count)
+                    completion(true)
                 }
                 else{
                     count+=1

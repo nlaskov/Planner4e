@@ -260,7 +260,7 @@ class singleTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerV
             message = "You have successfully edited this book!"
         }
         else{
-            title = "BoTaskok Deleted"
+            title = "Task Deleted"
             message = "You have successfully deleted this book!"
         }
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)

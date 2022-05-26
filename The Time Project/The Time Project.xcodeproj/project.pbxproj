@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B030806B28172967002A734D /* addRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030806A28172967002A734D /* addRecipeViewController.swift */; };
 		B06E590328091A93003777EB /* month_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590228091A93003777EB /* month_CalendarCollectionViewCell.swift */; };
 		B06E590528091AA9003777EB /* month_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B527F2483400F808DD /* month_CalendarViewController.swift */; };
 		B06E5907280B05B8003777EB /* booksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5906280B05B8003777EB /* booksViewController.swift */; };
@@ -65,6 +66,7 @@
 		B0DC32072810756300AB10FB /* changeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32062810756300AB10FB /* changeEmailViewController.swift */; };
 		B0DC32092810758700AB10FB /* changePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32082810758700AB10FB /* changePasswordViewController.swift */; };
 		B0DC320B281084C200AB10FB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC320A281084C200AB10FB /* StorageManager.swift */; };
+		B0F98DEF283FA25D00A4FF91 /* SingleRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F98DEE283FA25D00A4FF91 /* SingleRecipeViewController.swift */; };
 		B0FA483E281128AF00CDCE26 /* singleBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA483D281128AF00CDCE26 /* singleBookViewController.swift */; };
 		B0FA484028115CD200CDCE26 /* singleFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA483F28115CD200CDCE26 /* singleFilmViewController.swift */; };
 		B0FA48422811649300CDCE26 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA48412811649300CDCE26 /* Recipe.swift */; };
@@ -72,6 +74,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B030806A28172967002A734D /* addRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRecipeViewController.swift; sourceTree = "<group>"; };
 		B06E590228091A93003777EB /* month_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = month_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B06E5906280B05B8003777EB /* booksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksViewController.swift; sourceTree = "<group>"; };
 		B06E5908280B06FA003777EB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -123,6 +126,7 @@
 		B0DC32062810756300AB10FB /* changeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeEmailViewController.swift; sourceTree = "<group>"; };
 		B0DC32082810758700AB10FB /* changePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordViewController.swift; sourceTree = "<group>"; };
 		B0DC320A281084C200AB10FB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		B0F98DEE283FA25D00A4FF91 /* SingleRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecipeViewController.swift; sourceTree = "<group>"; };
 		B0FA483D281128AF00CDCE26 /* singleBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleBookViewController.swift; sourceTree = "<group>"; };
 		B0FA483F28115CD200CDCE26 /* singleFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleFilmViewController.swift; sourceTree = "<group>"; };
 		B0FA48412811649300CDCE26 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 			children = (
 				B07E2ED5281701B900C584B9 /* recipesViewController.swift */,
 				B07E2ED7281702DC00C584B9 /* recipesCollectionViewCell.swift */,
+				B030806A28172967002A734D /* addRecipeViewController.swift */,
+				B0F98DEE283FA25D00A4FF91 /* SingleRecipeViewController.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				B06E590328091A93003777EB /* month_CalendarCollectionViewCell.swift in Sources */,
 				B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */,
 				B07E2ED6281701B900C584B9 /* recipesViewController.swift in Sources */,
+				B0F98DEF283FA25D00A4FF91 /* SingleRecipeViewController.swift in Sources */,
 				B06E5930280B5D38003777EB /* DatabaseUserManager.swift in Sources */,
 				B09E0C2027F1BFC5003F38B2 /* AppDelegate.swift in Sources */,
 				B0FA483E281128AF00CDCE26 /* singleBookViewController.swift in Sources */,
@@ -466,6 +473,7 @@
 				B06E5939280BF749003777EB /* menuViewController.swift in Sources */,
 				B0B075BC2811EC410024BAEE /* singleTaskViewController.swift in Sources */,
 				B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */,
+				B030806B28172967002A734D /* addRecipeViewController.swift in Sources */,
 				B0DC32072810756300AB10FB /* changeEmailViewController.swift in Sources */,
 				B0B075C12811F80E0024BAEE /* resolutionTableViewCell.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,

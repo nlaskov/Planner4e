@@ -13,11 +13,11 @@ class recipesCollectionViewCell:UICollectionViewCell{
     var recipe:Recipe = Recipe()
     
     @IBOutlet var image: UIImageView!
-    @IBOutlet var name: UITextView!
+    @IBOutlet var name: UILabel!
     
     func setCell(recipe:Recipe){
         self.recipe = recipe
         name.text = recipe.name
-        //image.image = StorageManager.shared.getRecepiePicture(imageName: recipe.image){}
+        
     }
 }

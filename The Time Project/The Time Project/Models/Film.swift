@@ -11,16 +11,14 @@ class Film{
     var name:String
     var priority:Int
     var done:Bool
-    var director:String
     var comment:String
     var id:String
     
-    init(_ name:String,_ priority:Int, _ done:Bool,_ director:String,_ comment:String,_ id:String) {
+    init(_ name:String,_ priority:Int, _ done:Bool,_ comment:String,_ id:String) {
         self.name = name
         self.priority = priority
         self.done = done
         self.comment = comment
-        self.director = director
         self.id = id
     }
     
@@ -28,7 +26,6 @@ class Film{
         name = ""
         priority = -1
         done = false
-        director = ""
         comment = ""
         id = "0"
     }

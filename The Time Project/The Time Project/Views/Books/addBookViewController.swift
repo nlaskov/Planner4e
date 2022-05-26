@@ -17,7 +17,6 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet var bookTitle: UITextField!
     @IBOutlet var bookPriority: UITextField!
     @IBOutlet var bookComment: UITextView!
-    @IBOutlet var bookAuthor: UITextField!
     
     @IBOutlet var addButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
@@ -41,7 +40,7 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBAction func addButtonPressed(_ sender: Any) {
         self.errorLabel.isHidden = true
-        DatabaseBookManager.shared.addBook(name: bookTitle.text, priority: selectedPriority,author: bookAuthor.text,comment: bookComment.text){ success,error in
+        DatabaseBookManager.shared.addBook(name: bookTitle.text, priority: selectedPriority,comment: bookComment.text){ success,error in
             
             if success{
                 _ = self.navigationController?.popViewController(animated: true)
@@ -89,9 +88,6 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         switch error {
         case .noName:
             errorLabel.text = "Name requred"
-            break
-        case .noAuthor:
-            errorLabel.text = "Author requred"
             break
         case .noPriority:
             errorLabel.text = "Priority requred"

@@ -39,10 +39,6 @@ class StorageManager: NSObject{
         
     }
     
-    func changeRecipePicture(oldImageName:String, newImageName:String, newImage:UIImage){
-        
-    }
-    
     func setProfileImage(imageName:String, image:UIImage){
         
     }

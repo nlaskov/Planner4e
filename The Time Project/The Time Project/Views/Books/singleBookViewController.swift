@@ -20,7 +20,6 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet var editButton: UIButton!
     @IBOutlet var titleField: UITextField!
     @IBOutlet var priorityField: UITextField!
-    @IBOutlet var authorField: UITextField!
     @IBOutlet var commentField: UITextView!
     @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
@@ -48,12 +47,12 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     func setBook(){
         titleField.text = book.name
         priorityField.text = priority[book.priority]
-        authorField.text = book.author
+        
         commentField.text = book.comment
         
         titleField.isEnabled = false
         priorityField.isEnabled = false
-        authorField.isEnabled = false
+        
         commentField.isEditable = false
         
         safeButton.isHidden = true
@@ -65,7 +64,7 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     func editBook(){
         titleField.isEnabled = true
         priorityField.isEnabled = true
-        authorField.isEnabled = true
+        
         commentField.isEditable = true
         
         safeButton.isHidden = false
@@ -126,12 +125,6 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
             return
         }
         
-        guard let author = authorField.text else{
-            setErrorLabel(error: .noAuthor)
-            errorLabel.isHidden = false
-            return
-        }
-        
         guard let selectedPriority = selectedPriority else{
             setErrorLabel(error: .noPriority)
             errorLabel.isHidden = false
@@ -140,7 +133,6 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         
         book.name = title
         book.comment = comment
-        book.author = author
         book.priority = selectedPriority
         
         DatabaseBookManager.shared.editBook(book:book)
@@ -183,9 +175,6 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         switch error {
         case .noName:
             errorLabel.text = "Name requred"
-            break
-        case .noAuthor:
-            errorLabel.text = "Author requred"
             break
         case .noPriority:
             errorLabel.text = "Priority requred"
