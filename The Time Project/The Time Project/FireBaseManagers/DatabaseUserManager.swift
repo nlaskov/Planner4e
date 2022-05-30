@@ -38,7 +38,7 @@ class DatabaseUserManager:NSObject{
         guard let newEmail = newEmail else {
             return
         }
-        //user.email = newEmail
+        user.email = newEmail
         ref.collection("Users").document(user.UID).setData(["email":user.email],merge: true)
         
     }
@@ -48,20 +48,19 @@ class DatabaseUserManager:NSObject{
         guard let newName = newName else {
             return
         }
-        //user.name = newName
+        user.name = newName
         ref.collection("Users").document(user.UID).setData(["name":user.name],merge: true)
         
     }
     
-    func changeImage(newImageName:String?, newImage:UIImage){
+    func changeImage(newImageName:String?){
         
         guard let newImageName = newImageName else {
             return
         }
-        //user.image = newImageName
+        user.image = newImageName
         ref.collection("Users").document(user.UID).setData(["image":user.image],merge: true)
         
-        //StorageManager.shared.changeProfileImage
     }
     
     

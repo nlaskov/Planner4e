@@ -25,7 +25,7 @@ class addTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerView
     let categoryPicker = UIPickerView()
     
     let priority = ["Low","Middle", "High"]
-    let category = ["I", "do", "not", "know", "what", "categories", "we", "will", "use", ":)"]
+    let category = ["Дом", "Работа", "Пътуване", "Хоби", "Пазаруване","Друго"]
     var selectedCategory:Int? = nil
     var selectedPriority:Int? = nil
     

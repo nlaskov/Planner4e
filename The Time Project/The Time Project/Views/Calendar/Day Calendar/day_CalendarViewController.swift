@@ -75,52 +75,52 @@ extension CalendarViewController{
         
         switch Calendar.current.component(.weekday, from: date){
         case 1:
-            temp += "Sunday, "
+            temp += "Неделя, "
         case 2:
-            temp += "Monday, "
+            temp += "Понеделник, "
         case 3:
-            temp += "Tuesday, "
+            temp += "Вторнки, "
         case 4:
-            temp += "Wednesday, "
+            temp += "Сряда, "
         case 5:
-            temp += "Thursday, "
+            temp += "Четвъртък, "
         case 6:
-            temp += "Friday, "
+            temp += "Петък, "
         case 7:
-            temp += "Saturday, "
+            temp += "Събота, "
         default:
-            temp += "Nada, "
+            temp += "Нада, "
         }
         
         temp += String(Calendar.current.component(.day, from: date)) + " "
         
         switch Calendar.current.component(.month, from: date){
         case 1:
-            temp += "Jan. "
+            temp += "Яну. "
         case 2:
-            temp += "Feb. "
+            temp += "Феб. "
         case 3:
-            temp += "Mar. "
+            temp += "Мар. "
         case 4:
-            temp += "Apr. "
+            temp += "Апр. "
         case 5:
-            temp += "May, "
+            temp += "Май, "
         case 6:
-            temp += "Jun. "
+            temp += "Юни, "
         case 7:
-            temp += "Jul. "
+            temp += "Юли, "
         case 8:
-            temp += "Aug. "
+            temp += "Авг. "
         case 9:
-            temp += "Sep. "
+            temp += "Сеп. "
         case 10:
-            temp += "Oct. "
+            temp += "Окт. "
         case 11:
-            temp += "Nov. "
+            temp += "Ное. "
         case 12:
-            temp += "Dec. "
+            temp += "Дек. "
         default:
-            temp += "Nada "
+            temp += "Нада "
         }
         
         temp += String(Calendar.current.component(.year, from: date))
@@ -174,8 +174,25 @@ extension CalendarViewController{
             }
             
         }
+        sortDayTasks()
     }
     
+    func sortDayTasks(){
+        var temp = Task()
+        if dayTasks.count == 0 || dayTasks.count == 1{
+            return
+        }
+        print(dayTasks.count)
+        for i in 0...dayTasks.count-2 {
+            for j in i...dayTasks.count-1{
+                if dayTasks[i].priority < dayTasks[j].priority{
+                    temp = dayTasks[i]
+                    dayTasks[i] = dayTasks[j]
+                    dayTasks[j] = temp
+                }
+            }
+        }
+    }
     
     
 }

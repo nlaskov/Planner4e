@@ -43,20 +43,31 @@ class StorageManager: NSObject{
         }
     }
     
-    func changeProfilePicture(newImageName:String, newImage:UIImage){
-        
-    }
-    
-    func setProfileImage(imageName:String?, image:UIImage){
+    func setProfileImage(imageName:String?, image:UIImage, completion: @escaping () -> () ){
         guard let imageName = imageName else{
-            let recipeRef = ref.child(DatabaseUserManager.shared.user.UID).child(UUID().uuidString)
+            let recipeRef = ref.child("\(Auth.auth().currentUser!.uid)/\(UUID().uuidString)")
             let imageData = image.pngData()
             let _ = ref.putData(imageData!, metadata: nil)
             return
         }
-        let recipeRef = ref.child(DatabaseUserManager.shared.user.UID).child(imageName)
+        let recipeRef = ref.child("\(Auth.auth().currentUser!.uid)/\(imageName)")
         let imageData = image.pngData()
         let _ = recipeRef.putData(imageData!, metadata: nil)
+        completion()
+    }
+    
+    func deleteProfileImage(imageName:String?,completion: @escaping () -> () ){
+        guard let imageName = imageName else {
+            completion()
+            return
+        }
+        
+        ref.child("\(Auth.auth().currentUser!.uid)/\(imageName)").delete(){ error in
+            if error != nil{
+                print(error)
+            }
+        }
+        completion()
     }
     
     func setRecipeImage(imageName:String?, image:UIImage){

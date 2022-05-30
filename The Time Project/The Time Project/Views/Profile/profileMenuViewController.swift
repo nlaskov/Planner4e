@@ -20,6 +20,7 @@ class profileMenuViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,12 +31,15 @@ class profileMenuViewController:UIViewController{
         nameLabel.text = "Name: " + DatabaseUserManager.shared.user.name
         emailLabel.text = "Email: " + DatabaseUserManager.shared.user.email
         
-        if DatabaseUserManager.shared.user.image != ""{
+        if DatabaseUserManager.shared.user.image != "Image "{
             //getImage
             StorageManager.shared.getProfilePicture(imageName:DatabaseUserManager.shared.user.image){urlString in
                 let url = URL(string: urlString)
                 self.profileImage.kf.setImage(with:url)
             }
+        }
+        else {
+            self.profileImage.image = UIImage(named: "person.fill")
         }
     }
     

@@ -81,6 +81,7 @@ class CalendarViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         getDayTasks()
+        //sortDayTasks()
         day_CollectionView.reloadData()
     }
     

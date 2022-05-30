@@ -17,10 +17,6 @@ class filmsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSegment.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
-        addButton.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
-        addButton.layer.cornerRadius=25
-        
         if DatabaseFilmManager.shared.films_watched.isEmpty && DatabaseFilmManager.shared.films_unwatched.isEmpty{
             DatabaseFilmManager.shared.getFilms(){
                 self.filmTable.reloadData()

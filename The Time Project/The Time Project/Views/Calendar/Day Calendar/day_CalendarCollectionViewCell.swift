@@ -12,7 +12,7 @@ class day_CalendarCollectionViewCell: UICollectionViewCell{
     
     var task:Task? = nil
     
-    @IBOutlet var category: UIImageView!
+    @IBOutlet var categoryImage: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var done: UISwitch!
     @IBOutlet var cellView: UIView!
@@ -23,10 +23,30 @@ class day_CalendarCollectionViewCell: UICollectionViewCell{
         title.text = task?.name
         setSwitch(value: (task?.done ?? false))
         setImportanse(importanse: task?.priority ?? 2)
+        setCategory(category: task?.category ?? 5)
     }
     
-    func category(category: Int){
-        
+    func setCategory(category: Int){
+        switch category{
+        case 0:
+            categoryImage.image = UIImage(named: "icons8-homebrew-50")
+            break
+        case 1:
+            categoryImage.image = UIImage(named: "icons8-business-50")
+            break
+        case 2:
+            categoryImage.image = UIImage(named: "icons8-aircraft-50")
+            break
+        case 3:
+            categoryImage.image = UIImage(named: "icons8-drawing-50")
+            break
+        case 4:
+            categoryImage.image = UIImage(named: "icons8-add-shopping-cart-50")
+            break
+        default:
+            categoryImage.image = UIImage(named: "icons8-cow-50")
+            break
+        }
     }
     //Set background color of the view and the comment
     func setImportanse(importanse:Int){

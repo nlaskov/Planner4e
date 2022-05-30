@@ -40,6 +40,8 @@
 		B06E594B280CA823003777EB /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E594A280CA823003777EB /* addTaskViewController.swift */; };
 		B07E2ED6281701B900C584B9 /* recipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E2ED5281701B900C584B9 /* recipesViewController.swift */; };
 		B07E2ED8281702DC00C584B9 /* recipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E2ED7281702DC00C584B9 /* recipesCollectionViewCell.swift */; };
+		B088A250283FE01300A8622D /* changeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A24F283FE01300A8622D /* changeImageViewController.swift */; };
+		B088A2542844C22D00A8622D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B088A2532844C22D00A8622D /* Assets.xcassets */; };
 		B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */; };
 		B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */; };
 		B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B127F241F800F808DD /* day_CalendarViewController.swift */; };
@@ -48,7 +50,6 @@
 		B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09E0C2127F1BFC5003F38B2 /* SceneDelegate.swift */; };
 		B09E0C2427F1BFC5003F38B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09E0C2327F1BFC5003F38B2 /* ViewController.swift */; };
 		B09E0C2727F1BFC5003F38B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2527F1BFC5003F38B2 /* Main.storyboard */; };
-		B09E0C2927F1BFC6003F38B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */; };
 		B09E0C2C27F1BFC6003F38B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */; };
 		B0B075BA2811E3190024BAEE /* changeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075B92811E3190024BAEE /* changeNameViewController.swift */; };
 		B0B075BC2811EC410024BAEE /* singleTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075BB2811EC410024BAEE /* singleTaskViewController.swift */; };
@@ -101,6 +102,8 @@
 		B06E594A280CA823003777EB /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
 		B07E2ED5281701B900C584B9 /* recipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipesViewController.swift; sourceTree = "<group>"; };
 		B07E2ED7281702DC00C584B9 /* recipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipesCollectionViewCell.swift; sourceTree = "<group>"; };
+		B088A24F283FE01300A8622D /* changeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeImageViewController.swift; sourceTree = "<group>"; };
+		B088A2532844C22D00A8622D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88B127F241F800F808DD /* day_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +114,6 @@
 		B09E0C2127F1BFC5003F38B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B09E0C2327F1BFC5003F38B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B09E0C2627F1BFC5003F38B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B09E0C2B27F1BFC6003F38B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B09E0C2D27F1BFC6003F38B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0B075B92811E3190024BAEE /* changeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeNameViewController.swift; sourceTree = "<group>"; };
@@ -320,9 +322,9 @@
 				B06E5928280B5A51003777EB /* SystemFiles */,
 				B0B0F74727F2719700B7448B /* Models */,
 				B09E0C2527F1BFC5003F38B2 /* Main.storyboard */,
+				B088A2532844C22D00A8622D /* Assets.xcassets */,
 				B06E5938280BF749003777EB /* menuViewController.swift */,
 				B06E590D280B11DE003777EB /* tabBarController.swift */,
-				B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */,
 				B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */,
 				B06E5913280B5699003777EB /* GoogleService-Info.plist */,
 				B09E0C2D27F1BFC6003F38B2 /* Info.plist */,
@@ -375,6 +377,7 @@
 				B0DC32062810756300AB10FB /* changeEmailViewController.swift */,
 				B0DC32082810758700AB10FB /* changePasswordViewController.swift */,
 				B0B075B92811E3190024BAEE /* changeNameViewController.swift */,
+				B088A24F283FE01300A8622D /* changeImageViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -456,8 +459,8 @@
 				B0F98DF3283FAA5700A4FF91 /* Podfile in Resources */,
 				B09E0C2C27F1BFC6003F38B2 /* LaunchScreen.storyboard in Resources */,
 				B06E5914280B5699003777EB /* GoogleService-Info.plist in Resources */,
-				B09E0C2927F1BFC6003F38B2 /* Assets.xcassets in Resources */,
 				B09E0C2727F1BFC5003F38B2 /* Main.storyboard in Resources */,
+				B088A2542844C22D00A8622D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +551,7 @@
 				B030806B28172967002A734D /* addRecipeViewController.swift in Sources */,
 				B0DC32072810756300AB10FB /* changeEmailViewController.swift in Sources */,
 				B0B075C12811F80E0024BAEE /* resolutionTableViewCell.swift in Sources */,
+				B088A250283FE01300A8622D /* changeImageViewController.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,
 				B0DC32092810758700AB10FB /* changePasswordViewController.swift in Sources */,
 				B06E592E280B5B6E003777EB /* AuthManager.swift in Sources */,
@@ -711,6 +715,7 @@
 				DEVELOPMENT_TEAM = 2L24TQ8W95;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "The Time Project/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Planner4e;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -740,6 +745,7 @@
 				DEVELOPMENT_TEAM = 2L24TQ8W95;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "The Time Project/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Planner4e;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
