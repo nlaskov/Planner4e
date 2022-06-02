@@ -14,15 +14,61 @@ class addRecipeViewController:UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet var imageField: UILabel!
     @IBOutlet var imageButton: UIButton!
     @IBOutlet var commentField: UITextView!
-    @IBOutlet var addButton: UIButton!
+    @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel:UILabel!
-
+    @IBOutlet var recipeLabel: UILabel!
+    @IBOutlet var recipeCommentLabel: UILabel!
+    
     var chosenImage:UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if DatabaseUserManager.shared.bg{
+            recipeLabel.text = "Добави рецепта"
+            nameField.placeholder = "Име"
+            recipeCommentLabel.text = "Рецепта:"
+            safeButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            recipeLabel.text = "Add recipe"
+            nameField.placeholder = "Name"
+            recipeCommentLabel.text = "Recipe:"
+            safeButton.setTitle("Save", for: .normal)
+            
+        }
+    }
+    
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
+    }
+    
+    @IBAction func safeButtonPressed(_ sender: Any) {
+        self.errorLabel.isHidden = true
+        DatabaseRecipesManager.shared.addRecipes(name: nameField.text, image: imageField.text, recipe: commentField.text){ success, error in
+            if success{
+                if self.imageField.text != "Image "{
+                    StorageManager.shared.setRecipeImage(imageName: self.imageField.text, image: self.chosenImage)
+                }
+                
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+            else{
+                self.setErrorLabel(error: error!)
+                self.errorLabel.isHidden = false
+            }
+        }
+    }
+    
     
     @IBAction func imageButtonPressed(_ sender:Any){
         let vc = UIImagePickerController();
@@ -49,4 +95,27 @@ class addRecipeViewController:UIViewController, UIImagePickerControllerDelegate,
         picker.dismiss(animated: true, completion: nil)
     }
     
+    func setErrorLabel(error:DatabaseRecipesManager.RecipesError){
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име."
+                break
+            case .noRecipe:
+                errorLabel.text = "Трябва рецепта"
+                break
+            }
+        }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name required."
+                break
+            case .noRecipe:
+                errorLabel.text = "Recipe required"
+                break
+            }
+        }
+        
+    }
 }

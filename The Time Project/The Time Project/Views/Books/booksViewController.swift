@@ -16,12 +16,6 @@ class booksViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-        viewSegment.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
-        addButton.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
-        addButton.layer.cornerRadius=25
-        
         bookTable.dataSource = self
         bookTable.delegate = self
         
@@ -30,12 +24,24 @@ class booksViewController: UIViewController{
                 self.bookTable.reloadData()
             }
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         bookCheck()
+        DatabaseBookManager.shared.sortBooks()
         bookTable.reloadData();
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            viewSegment.setTitle("За четене", forSegmentAt: 0)
+            viewSegment.setTitle("Прочетени", forSegmentAt: 1)
+        }
+        else{
+            viewSegment.setTitle("To read", forSegmentAt: 0)
+            viewSegment.setTitle("Read", forSegmentAt: 1)
+        }
     }
     
     func bookCheck(){
@@ -50,7 +56,7 @@ class booksViewController: UIViewController{
                 count+=1
             }
         }
-        
+        count = 0
         for item in DatabaseBookManager.shared.books_unread{
             if item.done == true{
                 DatabaseBookManager.shared.books_read.append(item)
@@ -68,15 +74,12 @@ class booksViewController: UIViewController{
         }
         
         bookCheck()
-        
         bookTable.reloadData()
         
         UIView.animate(withDuration: 0.5) {
             self.bookTable.alpha = CGFloat(1)
         }
     }
-    
-    
 }
 extension booksViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

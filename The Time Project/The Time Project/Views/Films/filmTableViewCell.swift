@@ -14,8 +14,13 @@ class filmTableViewCell:UITableViewCell{
     @IBOutlet var importance: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var done: UISwitch!
+    @IBOutlet var checkButton: UIImageView!
     
     func setCell(){
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        checkButton.addGestureRecognizer(tapGR)
+        checkButton.isUserInteractionEnabled = true
         
         switch film.priority{
         case 0:
@@ -33,20 +38,25 @@ class filmTableViewCell:UITableViewCell{
         
         title.text = film.name
         if film.done{
-            done.isOn = true
+            checkButton.image = UIImage(named: "Checkmark")
         }
-        else {
-            done.isOn = false
+        else{
+            checkButton.image = UIImage(named: "Checkmarkempty")
         }
     }
-    @IBAction func changeSwitch(_ sender: Any) {
-        if done.isOn == true{
-            film.done = true
+    
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            if film.done == true{
+                film.done = false
+                checkButton.image = UIImage(named: "Checkmarkempty")
+            }
+            else {
+                film.done = true
+                checkButton.image = UIImage(named: "Checkmark")
+            }
+            DatabaseFilmManager.shared.editFilm(film: film)
         }
-        else {
-            film.done = false
-        }
-        DatabaseFilmManager.shared.editFilm(film: film)
     }
     
 }

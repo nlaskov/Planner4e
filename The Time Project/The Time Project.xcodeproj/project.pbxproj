@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1192D1879380DE9DCE8AAADB /* Pods_The_Time_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1691A10437F0825F6CB4971E /* Pods_The_Time_Project.framework */; };
 		B030806B28172967002A734D /* addRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030806A28172967002A734D /* addRecipeViewController.swift */; };
 		B06E590328091A93003777EB /* month_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590228091A93003777EB /* month_CalendarCollectionViewCell.swift */; };
 		B06E590528091AA9003777EB /* month_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B527F2483400F808DD /* month_CalendarViewController.swift */; };
 		B06E5907280B05B8003777EB /* booksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5906280B05B8003777EB /* booksViewController.swift */; };
 		B06E5909280B06FA003777EB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5908280B06FA003777EB /* Book.swift */; };
 		B06E590C280B090E003777EB /* bookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590B280B090E003777EB /* bookTableViewCell.swift */; };
-		B06E590E280B11DE003777EB /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590D280B11DE003777EB /* tabBarController.swift */; };
 		B06E5910280B239F003777EB /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590F280B239F003777EB /* Film.swift */; };
 		B06E5912280B23BA003777EB /* Resolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5911280B23BA003777EB /* Resolution.swift */; };
 		B06E5914280B5699003777EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B06E5913280B5699003777EB /* GoogleService-Info.plist */; };
@@ -39,6 +39,14 @@
 		B06E594B280CA823003777EB /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E594A280CA823003777EB /* addTaskViewController.swift */; };
 		B07E2ED6281701B900C584B9 /* recipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E2ED5281701B900C584B9 /* recipesViewController.swift */; };
 		B07E2ED8281702DC00C584B9 /* recipesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07E2ED7281702DC00C584B9 /* recipesCollectionViewCell.swift */; };
+		B088A250283FE01300A8622D /* changeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A24F283FE01300A8622D /* changeImageViewController.swift */; };
+		B088A2542844C22D00A8622D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B088A2532844C22D00A8622D /* Assets.xcassets */; };
+		B088A25628489AD800A8622D /* DatabaseTravelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A25528489AD800A8622D /* DatabaseTravelManager.swift */; };
+		B088A25828489B4700A8622D /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A25728489B4700A8622D /* Destination.swift */; };
+		B088A25B28489EF100A8622D /* travelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A25A28489EF100A8622D /* travelTableViewCell.swift */; };
+		B088A25D2848AB4100A8622D /* travelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A25C2848AB4100A8622D /* travelsViewController.swift */; };
+		B088A25F2848B40A00A8622D /* addTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A25E2848B40900A8622D /* addTravelViewController.swift */; };
+		B088A2612848B6FC00A8622D /* singleTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B088A2602848B6FC00A8622D /* singleTravelViewController.swift */; };
 		B09C88AE27F1C90D00F808DD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */; };
 		B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */; };
 		B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09C88B127F241F800F808DD /* day_CalendarViewController.swift */; };
@@ -47,7 +55,6 @@
 		B09E0C2227F1BFC5003F38B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09E0C2127F1BFC5003F38B2 /* SceneDelegate.swift */; };
 		B09E0C2427F1BFC5003F38B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09E0C2327F1BFC5003F38B2 /* ViewController.swift */; };
 		B09E0C2727F1BFC5003F38B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2527F1BFC5003F38B2 /* Main.storyboard */; };
-		B09E0C2927F1BFC6003F38B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */; };
 		B09E0C2C27F1BFC6003F38B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */; };
 		B0B075BA2811E3190024BAEE /* changeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075B92811E3190024BAEE /* changeNameViewController.swift */; };
 		B0B075BC2811EC410024BAEE /* singleTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B075BB2811EC410024BAEE /* singleTaskViewController.swift */; };
@@ -67,6 +74,7 @@
 		B0DC32092810758700AB10FB /* changePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC32082810758700AB10FB /* changePasswordViewController.swift */; };
 		B0DC320B281084C200AB10FB /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DC320A281084C200AB10FB /* StorageManager.swift */; };
 		B0F98DEF283FA25D00A4FF91 /* SingleRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F98DEE283FA25D00A4FF91 /* SingleRecipeViewController.swift */; };
+		B0F98DF3283FAA5700A4FF91 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = B0F98DF2283FAA5700A4FF91 /* Podfile */; };
 		B0FA483E281128AF00CDCE26 /* singleBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA483D281128AF00CDCE26 /* singleBookViewController.swift */; };
 		B0FA484028115CD200CDCE26 /* singleFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA483F28115CD200CDCE26 /* singleFilmViewController.swift */; };
 		B0FA48422811649300CDCE26 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA48412811649300CDCE26 /* Recipe.swift */; };
@@ -74,12 +82,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0557BA24DA785D157097F536 /* Pods-The Time Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Time Project.release.xcconfig"; path = "Target Support Files/Pods-The Time Project/Pods-The Time Project.release.xcconfig"; sourceTree = "<group>"; };
+		1691A10437F0825F6CB4971E /* Pods_The_Time_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_The_Time_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A562DDE6A5AC6EA87B220E48 /* Pods-The Time Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-The Time Project.debug.xcconfig"; path = "Target Support Files/Pods-The Time Project/Pods-The Time Project.debug.xcconfig"; sourceTree = "<group>"; };
 		B030806A28172967002A734D /* addRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addRecipeViewController.swift; sourceTree = "<group>"; };
 		B06E590228091A93003777EB /* month_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = month_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B06E5906280B05B8003777EB /* booksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksViewController.swift; sourceTree = "<group>"; };
 		B06E5908280B06FA003777EB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B06E590B280B090E003777EB /* bookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookTableViewCell.swift; sourceTree = "<group>"; };
-		B06E590D280B11DE003777EB /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
 		B06E590F280B239F003777EB /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		B06E5911280B23BA003777EB /* Resolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolution.swift; sourceTree = "<group>"; };
 		B06E5913280B5699003777EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -96,6 +106,14 @@
 		B06E594A280CA823003777EB /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
 		B07E2ED5281701B900C584B9 /* recipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipesViewController.swift; sourceTree = "<group>"; };
 		B07E2ED7281702DC00C584B9 /* recipesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipesCollectionViewCell.swift; sourceTree = "<group>"; };
+		B088A24F283FE01300A8622D /* changeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeImageViewController.swift; sourceTree = "<group>"; };
+		B088A2532844C22D00A8622D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B088A25528489AD800A8622D /* DatabaseTravelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTravelManager.swift; sourceTree = "<group>"; };
+		B088A25728489B4700A8622D /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		B088A25A28489EF100A8622D /* travelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelTableViewCell.swift; sourceTree = "<group>"; };
+		B088A25C2848AB4100A8622D /* travelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = travelsViewController.swift; sourceTree = "<group>"; };
+		B088A25E2848B40900A8622D /* addTravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTravelViewController.swift; sourceTree = "<group>"; };
+		B088A2602848B6FC00A8622D /* singleTravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleTravelViewController.swift; sourceTree = "<group>"; };
 		B09C88AD27F1C90D00F808DD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B09C88AF27F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B09C88B127F241F800F808DD /* day_CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day_CalendarViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +124,6 @@
 		B09E0C2127F1BFC5003F38B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B09E0C2327F1BFC5003F38B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B09E0C2627F1BFC5003F38B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B09E0C2B27F1BFC6003F38B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B09E0C2D27F1BFC6003F38B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0B075B92811E3190024BAEE /* changeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changeNameViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +144,7 @@
 		B0DC32082810758700AB10FB /* changePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordViewController.swift; sourceTree = "<group>"; };
 		B0DC320A281084C200AB10FB /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B0F98DEE283FA25D00A4FF91 /* SingleRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRecipeViewController.swift; sourceTree = "<group>"; };
+		B0F98DF2283FAA5700A4FF91 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		B0FA483D281128AF00CDCE26 /* singleBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleBookViewController.swift; sourceTree = "<group>"; };
 		B0FA483F28115CD200CDCE26 /* singleFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleFilmViewController.swift; sourceTree = "<group>"; };
 		B0FA48412811649300CDCE26 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -147,12 +165,30 @@
 				B06E591D280B5745003777EB /* FirebaseDatabase in Frameworks */,
 				B06E5919280B5745003777EB /* FirebaseAuth in Frameworks */,
 				B06E5921280B5745003777EB /* FirebaseFirestore in Frameworks */,
+				1192D1879380DE9DCE8AAADB /* Pods_The_Time_Project.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08AAFD243C4E6B6757843BDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A562DDE6A5AC6EA87B220E48 /* Pods-The Time Project.debug.xcconfig */,
+				0557BA24DA785D157097F536 /* Pods-The Time Project.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		76B31BDF9828370A8B59E4EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1691A10437F0825F6CB4971E /* Pods_The_Time_Project.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B06E590428091A99003777EB /* Month Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,11 +234,15 @@
 		B06E592A280B5A89003777EB /* FireBaseManagers */ = {
 			isa = PBXGroup;
 			children = (
-				B07E2ED32816CED900C584B9 /* Done */,
+				B06E592B280B5ABD003777EB /* DatabaseBookManager.swift */,
+				B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */,
+				B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */,
+				B0B075C62811F85E0024BAEE /* DatabaseResolutionManager.swift */,
 				B06E592D280B5B6E003777EB /* AuthManager.swift */,
 				B06E592F280B5D38003777EB /* DatabaseUserManager.swift */,
 				B0DC320A281084C200AB10FB /* StorageManager.swift */,
 				B0FA48432811669500CDCE26 /* DatabaseRecipesManager.swift */,
+				B088A25528489AD800A8622D /* DatabaseTravelManager.swift */,
 			);
 			path = FireBaseManagers;
 			sourceTree = "<group>";
@@ -237,17 +277,6 @@
 			path = Week_Calendar;
 			sourceTree = "<group>";
 		};
-		B07E2ED32816CED900C584B9 /* Done */ = {
-			isa = PBXGroup;
-			children = (
-				B06E592B280B5ABD003777EB /* DatabaseBookManager.swift */,
-				B06E5936280B75BF003777EB /* DatabaseFilmManager.swift */,
-				B06E593A280BFB6C003777EB /* DatabaseTaskManager.swift */,
-				B0B075C62811F85E0024BAEE /* DatabaseResolutionManager.swift */,
-			);
-			path = Done;
-			sourceTree = "<group>";
-		};
 		B07E2ED4281700F600C584B9 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +286,17 @@
 				B0F98DEE283FA25D00A4FF91 /* SingleRecipeViewController.swift */,
 			);
 			path = Recipes;
+			sourceTree = "<group>";
+		};
+		B088A25928489ECF00A8622D /* Travel */ = {
+			isa = PBXGroup;
+			children = (
+				B088A25A28489EF100A8622D /* travelTableViewCell.swift */,
+				B088A25C2848AB4100A8622D /* travelsViewController.swift */,
+				B088A25E2848B40900A8622D /* addTravelViewController.swift */,
+				B088A2602848B6FC00A8622D /* singleTravelViewController.swift */,
+			);
+			path = Travel;
 			sourceTree = "<group>";
 		};
 		B09C88B727F24C2900F808DD /* Day Calendar */ = {
@@ -273,7 +313,10 @@
 			isa = PBXGroup;
 			children = (
 				B09E0C1E27F1BFC5003F38B2 /* The Time Project */,
+				B0F98DF2283FAA5700A4FF91 /* Podfile */,
 				B09E0C1D27F1BFC5003F38B2 /* Products */,
+				08AAFD243C4E6B6757843BDE /* Pods */,
+				76B31BDF9828370A8B59E4EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -294,11 +337,10 @@
 				B0B0F74727F2719700B7448B /* Models */,
 				B09E0C2527F1BFC5003F38B2 /* Main.storyboard */,
 				B06E5938280BF749003777EB /* menuViewController.swift */,
-				B06E590D280B11DE003777EB /* tabBarController.swift */,
-				B09E0C2827F1BFC6003F38B2 /* Assets.xcassets */,
 				B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */,
 				B06E5913280B5699003777EB /* GoogleService-Info.plist */,
 				B09E0C2D27F1BFC6003F38B2 /* Info.plist */,
+				B088A2532844C22D00A8622D /* Assets.xcassets */,
 			);
 			path = "The Time Project";
 			sourceTree = "<group>";
@@ -323,6 +365,7 @@
 				B06E590F280B239F003777EB /* Film.swift */,
 				B06E5911280B23BA003777EB /* Resolution.swift */,
 				B0FA48412811649300CDCE26 /* Recipe.swift */,
+				B088A25728489B4700A8622D /* Destination.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -330,6 +373,7 @@
 		B0DC31F228105A8100AB10FB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B088A25928489ECF00A8622D /* Travel */,
 				B07E2ED4281700F600C584B9 /* Recipes */,
 				B0B075BD2811F7B60024BAEE /* Resolutions */,
 				B0DC31F328105AAD00AB10FB /* Profile */,
@@ -348,6 +392,7 @@
 				B0DC32062810756300AB10FB /* changeEmailViewController.swift */,
 				B0DC32082810758700AB10FB /* changePasswordViewController.swift */,
 				B0B075B92811E3190024BAEE /* changeNameViewController.swift */,
+				B088A24F283FE01300A8622D /* changeImageViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -359,9 +404,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B09E0C3027F1BFC6003F38B2 /* Build configuration list for PBXNativeTarget "The Time Project" */;
 			buildPhases = (
+				12699C4EDCB2ADE0B4A57C03 /* [CP] Check Pods Manifest.lock */,
 				B09E0C1827F1BFC5003F38B2 /* Sources */,
 				B09E0C1927F1BFC5003F38B2 /* Frameworks */,
 				B09E0C1A27F1BFC5003F38B2 /* Resources */,
+				42830758005E1AA3068BFA54 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -424,14 +471,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F98DF3283FAA5700A4FF91 /* Podfile in Resources */,
 				B09E0C2C27F1BFC6003F38B2 /* LaunchScreen.storyboard in Resources */,
 				B06E5914280B5699003777EB /* GoogleService-Info.plist in Resources */,
-				B09E0C2927F1BFC6003F38B2 /* Assets.xcassets in Resources */,
 				B09E0C2727F1BFC5003F38B2 /* Main.storyboard in Resources */,
+				B088A2542844C22D00A8622D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		12699C4EDCB2ADE0B4A57C03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-The Time Project-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42830758005E1AA3068BFA54 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-The Time Project/Pods-The Time Project-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-The Time Project/Pods-The Time Project-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-The Time Project/Pods-The Time Project-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B09E0C1827F1BFC5003F38B2 /* Sources */ = {
@@ -446,6 +536,7 @@
 				B0DC320B281084C200AB10FB /* StorageManager.swift in Sources */,
 				B07E2ED8281702DC00C584B9 /* recipesCollectionViewCell.swift in Sources */,
 				B06E5948280C9BE7003777EB /* addFilmViewController.swift in Sources */,
+				B088A25628489AD800A8622D /* DatabaseTravelManager.swift in Sources */,
 				B06E5907280B05B8003777EB /* booksViewController.swift in Sources */,
 				B09C88B427F2482300F808DD /* week_CalendarViewController.swift in Sources */,
 				B0B075BA2811E3190024BAEE /* changeNameViewController.swift in Sources */,
@@ -453,6 +544,7 @@
 				B09E0C2427F1BFC5003F38B2 /* ViewController.swift in Sources */,
 				B06E5935280B751B003777EB /* filmTableViewCell.swift in Sources */,
 				B0B075C32811F8260024BAEE /* addResolutionViewController.swift in Sources */,
+				B088A2612848B6FC00A8622D /* singleTravelViewController.swift in Sources */,
 				B06E590328091A93003777EB /* month_CalendarCollectionViewCell.swift in Sources */,
 				B09C88B227F241F800F808DD /* day_CalendarViewController.swift in Sources */,
 				B07E2ED6281701B900C584B9 /* recipesViewController.swift in Sources */,
@@ -460,13 +552,14 @@
 				B06E5930280B5D38003777EB /* DatabaseUserManager.swift in Sources */,
 				B09E0C2027F1BFC5003F38B2 /* AppDelegate.swift in Sources */,
 				B0FA483E281128AF00CDCE26 /* singleBookViewController.swift in Sources */,
-				B06E590E280B11DE003777EB /* tabBarController.swift in Sources */,
 				B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */,
 				B06E5912280B23BA003777EB /* Resolution.swift in Sources */,
+				B088A25828489B4700A8622D /* Destination.swift in Sources */,
 				B0FA48442811669500CDCE26 /* DatabaseRecipesManager.swift in Sources */,
 				B06E5946280C9502003777EB /* addBookViewController.swift in Sources */,
 				B06E590C280B090E003777EB /* bookTableViewCell.swift in Sources */,
 				B06E5937280B75BF003777EB /* DatabaseFilmManager.swift in Sources */,
+				B088A25F2848B40A00A8622D /* addTravelViewController.swift in Sources */,
 				B06E594B280CA823003777EB /* addTaskViewController.swift in Sources */,
 				B0FA48422811649300CDCE26 /* Recipe.swift in Sources */,
 				B0FA484028115CD200CDCE26 /* singleFilmViewController.swift in Sources */,
@@ -476,6 +569,7 @@
 				B030806B28172967002A734D /* addRecipeViewController.swift in Sources */,
 				B0DC32072810756300AB10FB /* changeEmailViewController.swift in Sources */,
 				B0B075C12811F80E0024BAEE /* resolutionTableViewCell.swift in Sources */,
+				B088A250283FE01300A8622D /* changeImageViewController.swift in Sources */,
 				B0B0F75027F30B6100B7448B /* Task.swift in Sources */,
 				B0DC32092810758700AB10FB /* changePasswordViewController.swift in Sources */,
 				B06E592E280B5B6E003777EB /* AuthManager.swift in Sources */,
@@ -487,6 +581,8 @@
 				B06E5910280B239F003777EB /* Film.swift in Sources */,
 				B06E5909280B06FA003777EB /* Book.swift in Sources */,
 				B06E5933280B7379003777EB /* filmsViewController.swift in Sources */,
+				B088A25B28489EF100A8622D /* travelTableViewCell.swift in Sources */,
+				B088A25D2848AB4100A8622D /* travelsViewController.swift in Sources */,
 				B06E590528091AA9003777EB /* month_CalendarViewController.swift in Sources */,
 				B06E593B280BFB6C003777EB /* DatabaseTaskManager.swift in Sources */,
 			);
@@ -630,6 +726,7 @@
 		};
 		B09E0C3127F1BFC6003F38B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A562DDE6A5AC6EA87B220E48 /* Pods-The Time Project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -638,6 +735,7 @@
 				DEVELOPMENT_TEAM = 2L24TQ8W95;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "The Time Project/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Planner4e;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -658,6 +756,7 @@
 		};
 		B09E0C3227F1BFC6003F38B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0557BA24DA785D157097F536 /* Pods-The Time Project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -666,6 +765,7 @@
 				DEVELOPMENT_TEAM = 2L24TQ8W95;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "The Time Project/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Planner4e;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

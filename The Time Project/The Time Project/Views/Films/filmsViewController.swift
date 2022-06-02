@@ -17,10 +17,6 @@ class filmsViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSegment.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
-        addButton.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
-        addButton.layer.cornerRadius=25
-        
         if DatabaseFilmManager.shared.films_watched.isEmpty && DatabaseFilmManager.shared.films_unwatched.isEmpty{
             DatabaseFilmManager.shared.getFilms(){
                 self.filmTable.reloadData()
@@ -33,7 +29,21 @@ class filmsViewController: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        filmCheck()
+        DatabaseFilmManager.shared.sortFilms()
         self.filmTable.reloadData()
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            viewSegment.setTitle("За гледане", forSegmentAt: 0)
+            viewSegment.setTitle("Гледани", forSegmentAt: 1)
+        }
+        else{
+            viewSegment.setTitle("To watch", forSegmentAt: 0)
+            viewSegment.setTitle("Watched", forSegmentAt: 1)
+        }
     }
     
     func filmCheck(){

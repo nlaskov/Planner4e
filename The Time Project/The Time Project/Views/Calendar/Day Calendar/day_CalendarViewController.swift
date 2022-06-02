@@ -73,57 +73,112 @@ extension CalendarViewController{
         
         var temp = ""
         
-        switch Calendar.current.component(.weekday, from: date){
-        case 1:
-            temp += "Sunday, "
-        case 2:
-            temp += "Monday, "
-        case 3:
-            temp += "Tuesday, "
-        case 4:
-            temp += "Wednesday, "
-        case 5:
-            temp += "Thursday, "
-        case 6:
-            temp += "Friday, "
-        case 7:
-            temp += "Saturday, "
-        default:
-            temp += "Nada, "
+        if DatabaseUserManager.shared.bg{
+            switch Calendar.current.component(.weekday, from: date){
+            case 1:
+                temp += "Неделя, "
+            case 2:
+                temp += "Понеделник, "
+            case 3:
+                temp += "Вторнки, "
+            case 4:
+                temp += "Сряда, "
+            case 5:
+                temp += "Четвъртък, "
+            case 6:
+                temp += "Петък, "
+            case 7:
+                temp += "Събота, "
+            default:
+                temp += "Нада, "
+            }
+            
+            temp += String(Calendar.current.component(.day, from: date)) + " "
+            
+            switch Calendar.current.component(.month, from: date){
+            case 1:
+                temp += "Яну. "
+            case 2:
+                temp += "Феб. "
+            case 3:
+                temp += "Мар. "
+            case 4:
+                temp += "Апр. "
+            case 5:
+                temp += "Май, "
+            case 6:
+                temp += "Юни, "
+            case 7:
+                temp += "Юли, "
+            case 8:
+                temp += "Авг. "
+            case 9:
+                temp += "Сеп. "
+            case 10:
+                temp += "Окт. "
+            case 11:
+                temp += "Ное. "
+            case 12:
+                temp += "Дек. "
+            default:
+                temp += "Нада "
+            }
+            
+            temp += String(Calendar.current.component(.year, from: date))
         }
-        
-        temp += String(Calendar.current.component(.day, from: date)) + " "
-        
-        switch Calendar.current.component(.month, from: date){
-        case 1:
-            temp += "Jan. "
-        case 2:
-            temp += "Feb. "
-        case 3:
-            temp += "Mar. "
-        case 4:
-            temp += "Apr. "
-        case 5:
-            temp += "May, "
-        case 6:
-            temp += "Jun. "
-        case 7:
-            temp += "Jul. "
-        case 8:
-            temp += "Aug. "
-        case 9:
-            temp += "Sep. "
-        case 10:
-            temp += "Oct. "
-        case 11:
-            temp += "Nov. "
-        case 12:
-            temp += "Dec. "
-        default:
-            temp += "Nada "
+        else{
+            switch Calendar.current.component(.weekday, from: date){
+            case 1:
+                temp += "Sunday, "
+            case 2:
+                temp += "Monday, "
+            case 3:
+                temp += "Tuesday, "
+            case 4:
+                temp += "Wednesday, "
+            case 5:
+                temp += "Thursday, "
+            case 6:
+                temp += "Firday, "
+            case 7:
+                temp += "Saturday, "
+            default:
+                temp += "Nada, "
+            }
+            
+            temp += String(Calendar.current.component(.day, from: date)) + " "
+            
+            switch Calendar.current.component(.month, from: date){
+            case 1:
+                temp += "Jan. "
+            case 2:
+                temp += "Feb. "
+            case 3:
+                temp += "Mar. "
+            case 4:
+                temp += "Apr. "
+            case 5:
+                temp += "May, "
+            case 6:
+                temp += "Jun, "
+            case 7:
+                temp += "Jul, "
+            case 8:
+                temp += "Aug. "
+            case 9:
+                temp += "Sep. "
+            case 10:
+                temp += "Oct. "
+            case 11:
+                temp += "Nov. "
+            case 12:
+                temp += "Dec. "
+            default:
+                temp += "Nada "
+            }
+            
+            temp += String(Calendar.current.component(.year, from: date))
         }
-        
-        temp += String(Calendar.current.component(.year, from: date))
         
         return temp
     }
@@ -174,8 +229,33 @@ extension CalendarViewController{
             }
             
         }
+        sortDayTasks()
     }
     
+    func sortDayTasks(){
+        var temp = Task()
+        if dayTasks.count == 0 || dayTasks.count == 1{
+            return
+        }
+        
+        for i in 0...dayTasks.count-2 {
+            for j in i...dayTasks.count-1{
+                if dayTasks[i].priority < dayTasks[j].priority{
+                    temp = dayTasks[i]
+                    dayTasks[i] = dayTasks[j]
+                    dayTasks[j] = temp
+                }
+                else if dayTasks[i].priority == dayTasks[j].priority {
+                    if dayTasks[i].name > dayTasks[j].name{
+                        temp = dayTasks[i]
+                        dayTasks[i] = dayTasks[j]
+                        dayTasks[j] = temp
+                    }
+                }
+            }
+        }
+        
+    }
     
     
 }

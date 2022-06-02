@@ -15,8 +15,15 @@ class resolutionTableViewCell:UITableViewCell{
     @IBOutlet var importance: UIImageView!
     @IBOutlet var done: UISwitch!
     @IBOutlet var title: UILabel!
+    @IBOutlet var checkButton: UIImageView!
     
     func setCell(){
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        checkButton.addGestureRecognizer(tapGR)
+        checkButton.isUserInteractionEnabled = true
+        
+        
         switch resolution.priority{
         case 0:
             importance.tintColor = UIColor.init(red: CGFloat(175 as Double/225), green: CGFloat(227 as Double/225), blue: CGFloat(120 as Double/225), alpha: CGFloat(1))
@@ -32,13 +39,26 @@ class resolutionTableViewCell:UITableViewCell{
         }
         
         title.text = resolution.name
-        done.isOn = resolution.done
+        if resolution.done{
+            checkButton.image = UIImage(named: "Checkmark")
+        }
+        else{
+            checkButton.image = UIImage(named: "Checkmarkempty")
+        }
     }
     
-    @IBAction func doneSwitch(_ sender: Any) {
-        resolution.done = done.isOn
-        
-        DatabaseResolutionManager.shared.editResolution(resolution: resolution)
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            if resolution.done == true{
+                resolution.done = false
+                checkButton.image = UIImage(named: "Checkmarkempty")
+            }
+            else {
+                resolution.done = true
+                checkButton.image = UIImage(named: "Checkmark")
+            }
+            DatabaseResolutionManager.shared.editResolution(resolution: resolution)
+        }
     }
     
 }

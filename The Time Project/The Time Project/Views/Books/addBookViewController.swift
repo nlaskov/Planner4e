@@ -10,12 +10,14 @@ import UIKit
 
 class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    let priority = ["Low","Middle", "High"]
+    var priority = ["Low","Middle", "High"]
     let priorityPicker = UIPickerView()
     var selectedPriority:Int? = nil
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var bookTitle: UITextField!
     @IBOutlet var bookPriority: UITextField!
+    @IBOutlet var commentLabel: UILabel!
     @IBOutlet var bookComment: UITextView!
     
     @IBOutlet var addButton: UIButton!
@@ -31,6 +33,31 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            priority = ["Нисък","Среден", "Висок"]
+            
+            titleLabel.text = "Добави книга"
+            bookTitle.placeholder = "Заглавие"
+            bookPriority.placeholder = "Приоритет"
+            commentLabel.text = "Коментар:"
+            addButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            priority = ["Low","Middle", "High"]
+            
+            titleLabel.text = "Add Book"
+            bookTitle.placeholder = "Title"
+            bookPriority.placeholder = "Priority"
+            commentLabel.text = "Comment:"
+            addButton.setTitle("Save", for: .normal)
+        }
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -85,13 +112,25 @@ class addBookViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     
     func setErrorLabel(error:DatabaseBookManager.BookError){
-        switch error {
-        case .noName:
-            errorLabel.text = "Name requred"
-            break
-        case .noPriority:
-            errorLabel.text = "Priority requred"
-            break
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име"
+                break
+            case .noPriority:
+                errorLabel.text = "Трябва приоритет"
+                break
+            }
+        }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name requred"
+                break
+            case .noPriority:
+                errorLabel.text = "Priority requred"
+                break
+            }
         }
     }
 }

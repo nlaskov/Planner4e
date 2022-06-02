@@ -23,6 +23,10 @@ class changeNameViewController:UIViewController{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         
         DatabaseUserManager.shared.changeName(newName: newNameField.text)
@@ -31,7 +35,20 @@ class changeNameViewController:UIViewController{
     }
     
     func alertSuccess(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Changed Name", message:"You have successfully changed your name!", preferredStyle: .alert)
+        
+        var title = ""
+        var message = ""
+        
+        if DatabaseUserManager.shared.bg{
+            title = "Сменено име"
+            message = "Успешно смени името си!"
+        }
+        else{
+            title = "Name changed"
+            message = "You successfully changed your name!"
+        }
+        
+        let alert = UIAlertController(title:title , message:message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         
@@ -46,5 +63,16 @@ class changeNameViewController:UIViewController{
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             self.view.endEditing(true)
             return false
+    }
+    
+    func setLanguage(){
+        
+        if DatabaseUserManager.shared.bg{
+            newNameField.placeholder = "Ново име"
+        }
+        else{
+            newNameField.placeholder = "New name"
+        }
+        
     }
 }

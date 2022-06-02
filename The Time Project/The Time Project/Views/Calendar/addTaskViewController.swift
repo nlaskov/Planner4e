@@ -13,19 +13,22 @@ class addTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var nameField: UITextField!
     @IBOutlet var priorityField: UITextField!
     @IBOutlet var categoryField: UITextField!
     @IBOutlet var dateField: UITextField!
+    @IBOutlet var commentLabel: UILabel!
     @IBOutlet var commentField: UITextView!
     @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var saveButton: UIButton!
     
     let datePicker = UIDatePicker()
     let priorityPicker = UIPickerView()
     let categoryPicker = UIPickerView()
     
-    let priority = ["Low","Middle", "High"]
-    let category = ["I", "do", "not", "know", "what", "categories", "we", "will", "use", ":)"]
+    var priority = ["Low","Middle", "High"]
+    var category = ["Дом", "Работа", "Пътуване", "Хоби", "Пазаруване","Друго"]
     var selectedCategory:Int? = nil
     var selectedPriority:Int? = nil
     
@@ -46,6 +49,35 @@ class addTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerView
         categoryPicker.delegate = self
         categoryPicker.dataSource = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            priority = ["Нисък","Среден", "Висок"]
+            category = ["Дом", "Работа", "Пътуване", "Хоби", "Пазаруване","Друго"]
+            titleLabel.text = "Добави задача"
+            nameField.placeholder = "Име"
+            priorityField.placeholder = "Приоритет"
+            categoryField.placeholder = "Категория"
+            dateField.placeholder = "Дата"
+            commentLabel.text = "Коментар:"
+            saveButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            priority = ["Low","Middle", "High"]
+            category = ["Home", "Work", "Travel", "Hobby", "Shopping","Others"]
+            titleLabel.text = "Add Task"
+            nameField.placeholder = "Name"
+            priorityField.placeholder = "Priority"
+            categoryField.placeholder = "Category"
+            dateField.placeholder = "Date"
+            commentLabel.text = "Comment:"
+            saveButton.setTitle("Save", for: .normal)
+        }
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -156,19 +188,37 @@ class addTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func setErrorLabel(error:DatabaseTaskManager.TaskError){
-        switch error {
-        case .noName:
-            errorLabel.text = "Name requred"
-            break
-        case .noCategory:
-            errorLabel.text = "Category requred"
-            break
-        case .noPriority:
-            errorLabel.text = "Priority requred"
-            break
-        case .noDate:
-            errorLabel.text = "Date requred"
-            break
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име"
+                break
+            case .noCategory:
+                errorLabel.text = "Трябва категория"
+                break
+            case .noPriority:
+                errorLabel.text = "Трябва приоритет"
+                break
+            case .noDate:
+                errorLabel.text = "Трябва дата"
+                break
+            }
+        }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name requred"
+                break
+            case .noCategory:
+                errorLabel.text = "Category requred"
+                break
+            case .noPriority:
+                errorLabel.text = "Priority requred"
+                break
+            case .noDate:
+                errorLabel.text = "Date requred"
+                break
+            }
         }
     }
     

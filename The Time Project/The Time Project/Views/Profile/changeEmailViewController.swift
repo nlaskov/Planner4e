@@ -22,6 +22,10 @@ class changeEmailViewController: UIViewController{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             self.view.endEditing(true)
             return false
@@ -47,7 +51,19 @@ class changeEmailViewController: UIViewController{
     }
     
     func alertSuccess(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Changed Email", message:"You have successfully changed your email!", preferredStyle: .alert)
+        
+        var title = ""
+        var message = ""
+        
+        if DatabaseUserManager.shared.bg{
+            title = "Сменен имейл"
+            message = "Успешно смени имейла си!"
+        }
+        else{
+            title = "Email changed"
+            message = "You successfully changed your email!"
+        }
+        let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         
@@ -60,24 +76,58 @@ class changeEmailViewController: UIViewController{
     }
     
     func errorSetter(error: AuthError){
-        if error == .defaultError {
-           self.errorLabel.text = "Something is wrong"
-           
-       } else if error == .noEmail {
-            self.errorLabel.text = "Email is required"
-            
-        } else if error == .noPassword {
-            self.errorLabel.text = "Password is required"
-            
-        } else if error == .incorrectPassword {
-            self.errorLabel.text = "Incorrect Password"
-            
-        } else if error == .invalidEmail {
-            self.errorLabel.text = "Invalid email"
-            
-        } else if error == .emailAlreadyInUse {
-            self.errorLabel.text = "The email is already used"
-            
+        
+        if DatabaseUserManager.shared.bg{
+            if error == .defaultError {
+               self.errorLabel.text = "Нещо не е наред"
+               
+           } else if error == .noEmail {
+                self.errorLabel.text = "Трябва имейл"
+                
+            } else if error == .noPassword {
+                self.errorLabel.text = "Трябва парола"
+                
+            } else if error == .incorrectPassword {
+                self.errorLabel.text = "Грешна парола"
+                
+            } else if error == .invalidEmail {
+                self.errorLabel.text = "Грешен имейл"
+                
+            } else if error == .emailAlreadyInUse {
+                self.errorLabel.text = "Този имейл вече се използва"
+            }
+        }
+        else{
+            if error == .defaultError {
+               self.errorLabel.text = "Something isn`t right"
+               
+           } else if error == .noEmail {
+                self.errorLabel.text = "Email required"
+                
+            } else if error == .noPassword {
+                self.errorLabel.text = "Password required"
+                
+            } else if error == .incorrectPassword {
+                self.errorLabel.text = "Wronge password"
+                
+            } else if error == .invalidEmail {
+                self.errorLabel.text = "Wrong email"
+                
+            } else if error == .emailAlreadyInUse {
+                self.errorLabel.text = "This email is already used"
+            }
+        }
+        
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            newEmailField.placeholder = "Нов имейл"
+            passwordField.placeholder = "Парола"
+        }
+        else{
+            newEmailField.placeholder = "New Email"
+            passwordField.placeholder = "Password"
         }
     }
 }

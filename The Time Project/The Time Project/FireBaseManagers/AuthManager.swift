@@ -44,6 +44,7 @@ class AuthManager: NSObject{
             }
             
             //If there isn`t error
+            let uid = Auth.auth().currentUser!.uid
             self.logInWithEmail = true;
             
             completion(true, nil)

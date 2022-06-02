@@ -17,10 +17,6 @@ class resolutionViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSegment.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
-        addButton.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
-        addButton.layer.cornerRadius = 25
-        
         resolutionTable.dataSource = self
         resolutionTable.delegate = self
         
@@ -33,7 +29,20 @@ class resolutionViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         resolutionCheck()
+        DatabaseResolutionManager.shared.sortResolutions()
         resolutionTable.reloadData()
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            viewSegment.setTitle("За изпълняване", forSegmentAt: 0)
+            viewSegment.setTitle("Изпълнени", forSegmentAt: 1)
+        }
+        else{
+            viewSegment.setTitle("To do", forSegmentAt: 0)
+            viewSegment.setTitle("Done", forSegmentAt: 1)
+        }
     }
     
     func resolutionCheck(){

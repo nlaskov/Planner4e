@@ -81,9 +81,22 @@ class CalendarViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         getDayTasks()
+        
         day_CollectionView.reloadData()
     }
     
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            viewSegment.setTitle("Ден", forSegmentAt: 0)
+            viewSegment.setTitle("Седмица", forSegmentAt: 1)
+            viewSegment.setTitle("Месец", forSegmentAt: 2)
+        }
+        else{
+            viewSegment.setTitle("Day", forSegmentAt: 0)
+            viewSegment.setTitle("Week", forSegmentAt: 1)
+            viewSegment.setTitle("Month", forSegmentAt: 2)
+        }
+    }
     //Change between dayView, weekView and monthView
     @IBAction func segmentChange(_ sender: Any) {
         changeSegment(viewSegment.selectedSegmentIndex)

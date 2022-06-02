@@ -15,8 +15,7 @@ class DatabaseRecipesManager:NSObject{
     
     static let shared = DatabaseRecipesManager()
     private let ref = Firestore.firestore()
-    
-    var recipes:[Recipe]=[Recipe("Recipe 1", "", "", "1"),Recipe("Recipe 2", "", "", "2"),Recipe("Recipe 3", "", "", "3"),Recipe("Recipe 4", "", "", "4"),Recipe("Recipe 5", "", "", "5"),Recipe("Recipe 6", "", "", "6"),Recipe("Recipe 7", "", "", "7"),Recipe("Recipe 8", "", "", "8"),Recipe("Recipe 9", "", "", "9"),Recipe("Recipe 0", "", "", "0")]
+    var recipes:[Recipe] = []
     
     var chosenRecipe:Recipe = Recipe()
     

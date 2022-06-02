@@ -11,6 +11,7 @@ import UIKit
 class recepiesViewController:UIViewController{
     
     
+    @IBOutlet var recipeLabel: UILabel!
     @IBOutlet var recipeCollectionView: UICollectionView!
     @IBOutlet var addButton: UIButton!
     
@@ -19,9 +20,27 @@ class recepiesViewController:UIViewController{
         
         recipeCollectionView.delegate = self
         recipeCollectionView.dataSource = self
+        if (DatabaseRecipesManager.shared.recipes.isEmpty){
+            DatabaseRecipesManager.shared.getRecipes {
+                self.recipeCollectionView.reloadData()
+            }
+        }
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        recipeCollectionView.reloadData()
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            recipeLabel.text = "Рецепти"
+        }
+        else{
+            recipeLabel.text = "Recipes"
+        }
+    }
     
 }
 
@@ -41,5 +60,9 @@ extension recepiesViewController:UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width / 4.0, height: collectionView.frame.size.height / 3.0)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        DatabaseRecipesManager.shared.chosenRecipe = DatabaseRecipesManager.shared.recipes[indexPath.row]
+        performSegue(withIdentifier: "toSingleRecipe", sender: self)
     }
 }
