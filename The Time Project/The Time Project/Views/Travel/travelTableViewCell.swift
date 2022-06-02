@@ -1,19 +1,18 @@
 //
-//  filmTableViewCell.swift
+//  travelTabelViewCell.swift
 //  The Time Project
 //
-//  Created by Nikola Laskov on 17.04.22.
+//  Created by Nikola Laskov on 2.06.22.
 //
 
 import Foundation
 import UIKit
 
-class filmTableViewCell:UITableViewCell{
-    var film:Film = Film()
+class travelTableViewCell:UITableViewCell{
+    var destination:Destination = Destination()
     
-    @IBOutlet var importance: UIImageView!
+    @IBOutlet var importance: UIView!
     @IBOutlet var title: UILabel!
-    @IBOutlet var done: UISwitch!
     @IBOutlet var checkButton: UIImageView!
     
     func setCell(){
@@ -22,7 +21,7 @@ class filmTableViewCell:UITableViewCell{
         checkButton.addGestureRecognizer(tapGR)
         checkButton.isUserInteractionEnabled = true
         
-        switch film.priority{
+        switch destination.priority{
         case 0:
             importance.tintColor = UIColor.init(red: CGFloat(175 as Double/225), green: CGFloat(227 as Double/225), blue: CGFloat(120 as Double/225), alpha: CGFloat(1))
             break
@@ -36,26 +35,26 @@ class filmTableViewCell:UITableViewCell{
             break
         }
         
-        title.text = film.name
-        if film.done{
+        title.text = destination.name
+        if destination.done{
             checkButton.image = UIImage(named: "Checkmark")
         }
-        else{
+        else {
             checkButton.image = UIImage(named: "Checkmarkempty")
         }
     }
     
     @objc func imageTapped(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            if film.done == true{
-                film.done = false
+            if destination.done == true{
+                destination.done = false
                 checkButton.image = UIImage(named: "Checkmarkempty")
             }
             else {
-                film.done = true
+                destination.done = true
                 checkButton.image = UIImage(named: "Checkmark")
             }
-            DatabaseFilmManager.shared.editFilm(film: film)
+            DatabaseTravelManager.shared.editDestination(destination: destination)
         }
     }
     

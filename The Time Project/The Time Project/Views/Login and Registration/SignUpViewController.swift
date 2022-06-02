@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 
 class SignUpViewController: UIViewController{
@@ -71,9 +72,11 @@ class SignUpViewController: UIViewController{
         
         AuthManager.shared.singUp(email: email.text, password: password.text, fullname: fullName.text) { success, error in
             if success {
-                //If registration successful return to TemplateViewController
-                //DatabaseUserManager.shared.addUser(fullName: self.fullName.text)
-                
+                let uid = Auth.auth().currentUser!.uid
+                let _ = DatabaseUserManager.shared.getUser(UID: uid){
+                    self.setLanguage()
+                    
+                }
                 self.dismiss(animated: true, completion: nil)
             }
             else {

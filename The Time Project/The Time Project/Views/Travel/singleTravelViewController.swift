@@ -1,23 +1,22 @@
 //
-//  singleBookViewController.swift
+//  singleTravelViewController.swift
 //  The Time Project
 //
-//  Created by Nikola Laskov on 21.04.22.
+//  Created by Nikola Laskov on 2.06.22.
 //
 
 import Foundation
 import UIKit
 
-class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class singleTravelViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var edit = false
-    var book = Book()
+    var destination = Destination()
     var priority = ["Low","Middle", "High"]
     let priorityPicker = UIPickerView()
     var selectedPriority:Int? = nil
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var deleteButton: UIButton!
     @IBOutlet var titleField: UITextField!
     @IBOutlet var priorityLabel: UILabel!
     @IBOutlet var priorityField: UITextField!
@@ -38,7 +37,7 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
-        book = DatabaseBookManager.shared.chosenBook
+        destination = DatabaseTravelManager.shared.chosenDestnation
         
         setBook()
     }
@@ -51,7 +50,7 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         if DatabaseUserManager.shared.bg{
             priority = ["Нисък","Среден", "Висок"]
             
-            titleLabel.text = "Заглавие:"
+            titleLabel.text = "Име:"
             priorityLabel.text = "Приоритет:"
             commentLabel.text = "Коментар:"
             safeButton.setTitle("Запази", for: .normal)
@@ -59,7 +58,7 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         else{
             priority = ["Low","Middle", "High"]
             
-            titleLabel.text = "Title:"
+            titleLabel.text = "Name:"
             priorityLabel.text = "Priority:"
             commentLabel.text = "Comment:"
             safeButton.setTitle("Save", for: .normal)
@@ -73,10 +72,10 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     func setBook(){
-        titleField.text = book.name
-        priorityField.text = priority[book.priority]
+        titleField.text = destination.name
+        priorityField.text = priority[destination.priority]
         
-        commentField.text = book.comment
+        commentField.text = destination.comment
         
         titleField.isEnabled = false
         priorityField.isEnabled = false
@@ -86,10 +85,10 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         safeButton.isHidden = true
         errorLabel.isHidden = true
         
-        selectedPriority = book.priority
+        selectedPriority = destination.priority
     }
     
-    func editBook(){
+    func editDestination(){
         titleField.isEnabled = true
         priorityField.isEnabled = true
         
@@ -137,7 +136,7 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         }
         else{
             edit = true
-            editBook()
+            editDestination()
         }
     }
     
@@ -159,17 +158,17 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
             return
         }
         
-        book.name = title
-        book.comment = comment
-        book.priority = selectedPriority
+        destination.name = title
+        destination.comment = comment
+        destination.priority = selectedPriority
         
-        DatabaseBookManager.shared.editBook(book:book)
+        DatabaseTravelManager.shared.editDestination(destination: destination)
         self.alertSuccess(sender,true)
         setBook()
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        DatabaseBookManager.shared.deleteBook(book:book){ success in
+        DatabaseTravelManager.shared.deleteDestination(destination: destination){ success in
             if success{
                 self.alertSuccess(sender,false)
             }
@@ -180,20 +179,20 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         
         var title="",message=""
         if edit && DatabaseUserManager.shared.bg{
-            title = "Книга редактирана"
-            message = "Успешно редактирахте тази книга!"
+            title = "Дестинация редактирана"
+            message = "Успешно редактирахте тази дестинация!"
         }
         else if !edit && DatabaseUserManager.shared.bg{
-            title = "Книга изтрита"
-            message = "Успешно изтрихте тази книга!"
+            title = "Дестинация изтрита"
+            message = "Успешно изтрихте тази дестинация!"
         }
         else if edit{
-            title = "Book edited"
-            message = "You successfully edited this book!"
+            title = "Destination edited"
+            message = "You successfully edited this destination!"
         }
         else{
-            title = "Book Deleted"
-            message = "You successfully deleted this book!"
+            title = "Destination Deleted"
+            message = "You successfully deleted this destination!"
         }
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
@@ -207,7 +206,7 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         present(alert, animated: true)
     }
     
-    func setErrorLabel(error:DatabaseBookManager.BookError){
+    func setErrorLabel(error:DatabaseTravelManager.TravelError){
         if DatabaseUserManager.shared.bg{
             switch error {
             case .noName:

@@ -10,20 +10,21 @@ import UIKit
 
 class day_CalendarCollectionViewCell: UICollectionViewCell{
     
-    var task:Task? = nil
+    var task:Task = Task()
     
     @IBOutlet var categoryImage: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var done: UISwitch!
     @IBOutlet var cellView: UIView!
-    @IBOutlet var comment: UITextView!
+    @IBOutlet var checkButton: UIImageView!
     
     //Like init
     func setCell(){
-        title.text = task?.name
-        setSwitch(value: (task?.done ?? false))
-        setImportanse(importanse: task?.priority ?? 2)
-        setCategory(category: task?.category ?? 5)
+        
+        title.text = task.name
+        setSwitch(value: (task.done))
+        setImportanse(importanse: task.priority)
+        setCategory(category: task.category)
     }
     
     func setCategory(category: Int){
@@ -53,47 +54,54 @@ class day_CalendarCollectionViewCell: UICollectionViewCell{
         if importanse == 0{
             self.contentView.backgroundColor = UIColor.init(red: CGFloat(175 as Double/225), green: CGFloat(227 as Double/225), blue: CGFloat(120 as Double/225), alpha: CGFloat(1))
             
-            comment.backgroundColor = UIColor.init(red: CGFloat(175 as Double/225), green: CGFloat(227 as Double/225), blue: CGFloat(120 as Double/225), alpha: CGFloat(1))
         }
         else if importanse == 1 {
             self.contentView.backgroundColor =  UIColor.init(red: CGFloat(249 as Double/225), green: CGFloat(219 as Double/225), blue: CGFloat(98 as Double/225), alpha: CGFloat(1))
-            comment.backgroundColor = UIColor.init(red: CGFloat(249 as Double/225), green: CGFloat(219 as Double/225), blue: CGFloat(98 as Double/225), alpha: CGFloat(1))
+            
         }
         else {
             self.contentView.backgroundColor = UIColor.init(red: CGFloat(249 as Double/225), green: CGFloat(98 as Double/225), blue: CGFloat(125 as Double/225), alpha: CGFloat(1))
-            comment.backgroundColor = UIColor.init(red: CGFloat(249 as Double/225), green: CGFloat(98 as Double/225), blue: CGFloat(125 as Double/225), alpha: CGFloat(1))
+           
         }
     }
     
     //Set the position of the switch and the alpha
     func setSwitch(value:Bool){
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        checkButton.addGestureRecognizer(tapGR)
+        checkButton.isUserInteractionEnabled = true
+        
         if value {
-            done.isOn = true
+            checkButton.image = UIImage(named: "Checkmark")
             self.contentView.alpha = CGFloat(0.4)
             
         }
         else{
-            done.isOn = false
+            checkButton.image = UIImage(named: "Checkmarkempty")
             self.contentView.alpha = CGFloat(1)
         }
-        comment.isHidden = !done.isOn
     }
     
     //When switch is changed to change the alpha
-    @IBAction func changeSwitch(_ sender: Any) {
-        comment.isHidden = !done.isOn
-        
-        if done.isOn {
-            UIView.animate(withDuration: 0.5) {
-                self.contentView.alpha = CGFloat(0.4)
+    
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            if task.done == true{
+                UIView.animate(withDuration: 0.5) {
+                    self.contentView.alpha = CGFloat(1)
+                }
+                task.done = false
+                checkButton.image = UIImage(named: "Checkmarkempty")
             }
-            task?.done = true
-        }
-        else{
-            UIView.animate(withDuration: 0.5) {
-                self.contentView.alpha = CGFloat(1)
+            else {
+                UIView.animate(withDuration: 0.5) {
+                    self.contentView.alpha = CGFloat(0.4)
+                }
+                task.done = true
+                checkButton.image = UIImage(named: "Checkmark")
             }
-            task?.done = false
+            DatabaseTaskManager.shared.editTask(task: task)
         }
     }
     

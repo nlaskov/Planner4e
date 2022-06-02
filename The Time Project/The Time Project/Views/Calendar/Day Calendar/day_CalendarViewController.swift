@@ -237,7 +237,7 @@ extension CalendarViewController{
         if dayTasks.count == 0 || dayTasks.count == 1{
             return
         }
-        print(dayTasks.count)
+        
         for i in 0...dayTasks.count-2 {
             for j in i...dayTasks.count-1{
                 if dayTasks[i].priority < dayTasks[j].priority{
@@ -245,8 +245,16 @@ extension CalendarViewController{
                     dayTasks[i] = dayTasks[j]
                     dayTasks[j] = temp
                 }
+                else if dayTasks[i].priority == dayTasks[j].priority {
+                    if dayTasks[i].name > dayTasks[j].name{
+                        temp = dayTasks[i]
+                        dayTasks[i] = dayTasks[j]
+                        dayTasks[j] = temp
+                    }
+                }
             }
         }
+        
     }
     
     

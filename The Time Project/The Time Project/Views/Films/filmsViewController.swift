@@ -29,6 +29,8 @@ class filmsViewController: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        filmCheck()
+        DatabaseFilmManager.shared.sortFilms()
         self.filmTable.reloadData()
         setLanguage()
     }

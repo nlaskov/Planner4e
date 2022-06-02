@@ -40,6 +40,52 @@ class DatabaseResolutionManager:NSObject{
         }
     }
     
+    func sortResolutions(){
+        var temp = Resolution()
+        if resolutions_done.count == 0 || resolutions_done.count == 1{
+            return
+        }
+        
+        for i in 0...resolutions_done.count-2 {
+            for j in i...resolutions_done.count-1{
+                if resolutions_done[i].priority < resolutions_done[j].priority{
+                    temp = resolutions_done[i]
+                    resolutions_done[i] = resolutions_done[j]
+                    resolutions_done[j] = temp
+                }
+                else if resolutions_done[i].priority == resolutions_done[j].priority {
+                    if resolutions_done[i].name > resolutions_done[j].name{
+                        temp = resolutions_done[i]
+                        resolutions_done[i] = resolutions_done[j]
+                        resolutions_done[j] = temp
+                    }
+                }
+            }
+        }
+        
+        if resolutions_undone.count == 0 || resolutions_undone.count == 1{
+            return
+        }
+        
+        for i in 0...resolutions_undone.count-2 {
+            for j in i...resolutions_undone.count-1{
+                if resolutions_undone[i].priority < resolutions_undone[j].priority{
+                    temp = resolutions_undone[i]
+                    resolutions_undone[i] = resolutions_undone[j]
+                    resolutions_undone[j] = temp
+                }
+                else if resolutions_undone[i].priority == resolutions_undone[j].priority {
+                    if resolutions_undone[i].name > resolutions_undone[j].name{
+                        temp = resolutions_undone[i]
+                        resolutions_undone[i] = resolutions_undone[j]
+                        resolutions_undone[j] = temp
+                    }
+                }
+            }
+        }
+        
+    }
+    
     func addResolution(name:String?,priority:Int?,comment:String?,completion: @escaping (_ success: Bool, _ error: ResolutionError?) -> ()){
         
         guard let name = name else {

@@ -29,6 +29,7 @@ class resolutionViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         resolutionCheck()
+        DatabaseResolutionManager.shared.sortResolutions()
         resolutionTable.reloadData()
         setLanguage()
     }

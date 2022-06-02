@@ -31,17 +31,19 @@ class menuViewController:UIViewController{
             present(loginVC, animated: false)
             
         }
+        else{
+            let uid = Auth.auth().currentUser!.uid
+            let _ = DatabaseUserManager.shared.getUser(UID: uid){
+                self.setLanguage()
+                
+            }
+        }
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let uid = Auth.auth().currentUser!.uid
-        let _ = DatabaseUserManager.shared.getUser(UID: uid){
-            self.setLanguage()
-            print(DatabaseUserManager.shared.bg)
-            
-        }
+        
         
         setLanguage()
     }

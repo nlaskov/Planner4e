@@ -40,6 +40,50 @@ class DatabaseBookManager:NSObject{
         }
     }
     
+    func sortBooks(){
+        var temp = Book()
+        if books_read.count == 0 || books_read.count == 1{
+            return
+        }
+        for i in 0...books_read.count-2 {
+            for j in i...books_read.count-1{
+                if books_read[i].priority < books_read[j].priority{
+                    temp = books_read[i]
+                    books_read[i] = books_read[j]
+                    books_read[j] = temp
+                }
+                else if books_read[i].priority == books_read[j].priority {
+                    if books_read[i].name > books_read[j].name{
+                        temp = books_read[i]
+                        books_read[i] = books_read[j]
+                        books_read[j] = temp
+                    }
+                }
+            }
+        }
+        
+        if books_unread.count == 0 || books_unread.count == 1{
+            return
+        }
+        for i in 0...books_unread.count-2 {
+            for j in i...books_unread.count-1{
+                if books_unread[i].priority < books_unread[j].priority{
+                    temp = books_unread[i]
+                    books_unread[i] = books_unread[j]
+                    books_unread[j] = temp
+                }
+                else if books_unread[i].priority == books_unread[j].priority {
+                    if books_unread[i].name > books_unread[j].name{
+                        temp = books_unread[i]
+                        books_unread[i] = books_unread[j]
+                        books_unread[j] = temp
+                    }
+                }
+            }
+        }
+        
+    }
+    
     func addBook(name:String?,priority:Int? ,comment:String?,completion: @escaping (_ success: Bool, _ error: BookError?) -> ()){
         
         guard let name = name, !name.isEmpty else {

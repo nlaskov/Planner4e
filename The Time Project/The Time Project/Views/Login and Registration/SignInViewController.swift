@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class SignInViewController: UIViewController{
     
@@ -54,10 +55,12 @@ class SignInViewController: UIViewController{
         //Hide error button
         self.errorLabel.isHidden = true
         
-        //Start loading animation
-        
         AuthManager.shared.login(email: email.text, password: password.text){ success, error in
             if success {
+                let uid = Auth.auth().currentUser!.uid
+                let _ = DatabaseUserManager.shared.getUser(UID: uid){
+                    self.setLanguage()
+                }
                 self.dismiss(animated: true, completion: nil)
             }
             else {
@@ -67,7 +70,7 @@ class SignInViewController: UIViewController{
             }
         }
         
-        //Stop loading animation
+        
         
     }
     

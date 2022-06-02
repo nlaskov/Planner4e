@@ -40,6 +40,50 @@ class DatabaseFilmManager:NSObject{
         }
     }
     
+    func sortFilms(){
+        var temp = Film()
+        if films_watched.count == 0 || films_watched.count == 1{
+            return
+        }
+        for i in 0...films_watched.count-2 {
+            for j in i...films_watched.count-1{
+                if films_watched[i].priority < films_watched[j].priority{
+                    temp = films_watched[i]
+                    films_watched[i] = films_watched[j]
+                    films_watched[j] = temp
+                }
+                else if films_watched[i].priority == films_watched[j].priority {
+                    if films_watched[i].name > films_watched[j].name{
+                        temp = films_watched[i]
+                        films_watched[i] = films_watched[j]
+                        films_watched[j] = temp
+                    }
+                }
+            }
+        }
+        
+        if films_unwatched.count == 0 || films_unwatched.count == 1{
+            return
+        }
+        for i in 0...films_unwatched.count-2 {
+            for j in i...films_unwatched.count-1{
+                if films_unwatched[i].priority < films_unwatched[j].priority{
+                    temp = films_unwatched[i]
+                    films_unwatched[i] = films_unwatched[j]
+                    films_unwatched[j] = temp
+                }
+                else if films_unwatched[i].priority == films_unwatched[j].priority {
+                    if films_unwatched[i].name > films_unwatched[j].name{
+                        temp = films_unwatched[i]
+                        films_unwatched[i] = films_unwatched[j]
+                        films_unwatched[j] = temp
+                    }
+                }
+            }
+        }
+        
+    }
+    
     func addFilm(name:String?,priority:Int?,comment:String? ,completion: @escaping (_ success: Bool, _ error: FilmError?) -> ()){
         
         guard let name = name, !name.isEmpty else {

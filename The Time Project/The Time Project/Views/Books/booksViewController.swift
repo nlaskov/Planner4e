@@ -24,11 +24,11 @@ class booksViewController: UIViewController{
                 self.bookTable.reloadData()
             }
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         bookCheck()
+        DatabaseBookManager.shared.sortBooks()
         bookTable.reloadData();
         setLanguage()
     }
@@ -56,7 +56,7 @@ class booksViewController: UIViewController{
                 count+=1
             }
         }
-        count = 0;
+        count = 0
         for item in DatabaseBookManager.shared.books_unread{
             if item.done == true{
                 DatabaseBookManager.shared.books_read.append(item)
@@ -74,15 +74,12 @@ class booksViewController: UIViewController{
         }
         
         bookCheck()
-        
         bookTable.reloadData()
         
         UIView.animate(withDuration: 0.5) {
             self.bookTable.alpha = CGFloat(1)
         }
     }
-    
-    
 }
 extension booksViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

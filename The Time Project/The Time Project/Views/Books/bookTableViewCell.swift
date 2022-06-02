@@ -11,12 +11,18 @@ import UIKit
 class bookTableViewCell:UITableViewCell{
     var book:Book = Book()
     
-    
     @IBOutlet var importance: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var done: UISwitch!
+    @IBOutlet var checkButton: UIImageView!
+    
+    
     
     func setCell(){
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        checkButton.addGestureRecognizer(tapGR)
+        checkButton.isUserInteractionEnabled = true
         
         switch book.priority{
         case 0:
@@ -34,19 +40,24 @@ class bookTableViewCell:UITableViewCell{
         
         title.text = book.name
         if book.done{
-            done.isOn = true
+            checkButton.image = UIImage(named: "Checkmark")
         }
         else {
-            done.isOn = false
+            checkButton.image = UIImage(named: "Checkmarkempty")
         }
     }
-    @IBAction func doneSwitch(_ sender: Any) {
-        if done.isOn == true{
-            book.done = true
+    
+    @objc func imageTapped(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            if book.done == true{
+                book.done = false
+                checkButton.image = UIImage(named: "Checkmarkempty")
+            }
+            else {
+                book.done = true
+                checkButton.image = UIImage(named: "Checkmark")
+            }
+            DatabaseBookManager.shared.editBook(book: book)
         }
-        else {
-            book.done = false
-        }
-        DatabaseBookManager.shared.editBook(book: book)
     }
 }
