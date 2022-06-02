@@ -30,6 +30,18 @@ class booksViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         bookCheck()
         bookTable.reloadData();
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            viewSegment.setTitle("За четене", forSegmentAt: 0)
+            viewSegment.setTitle("Прочетени", forSegmentAt: 1)
+        }
+        else{
+            viewSegment.setTitle("To read", forSegmentAt: 0)
+            viewSegment.setTitle("Read", forSegmentAt: 1)
+        }
     }
     
     func bookCheck(){

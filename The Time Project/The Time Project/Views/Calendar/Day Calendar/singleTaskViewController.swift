@@ -10,10 +10,15 @@ import UIKit
 
 class singleTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var nameField: UITextField!
+    @IBOutlet var priorityLabel: UILabel!
     @IBOutlet var priorityField: UITextField!
+    @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var categoryField: UITextField!
+    @IBOutlet var dateLabel: UILabel!
     @IBOutlet var dateField: UITextField!
+    @IBOutlet var commentLabel: UILabel!
     @IBOutlet var commentField: UITextView!
     @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
@@ -24,14 +29,15 @@ class singleTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     let priorityPicker = UIPickerView()
     let categoryPicker = UIPickerView()
     
-    let priority = ["Low","Middle", "High"]
-    let category = ["Дом", "Работа", "Пътуване", "Хоби", "Пазаруване","Друго"]
+    var priority = ["Low","Middle", "High"]
+    var category = ["Дом", "Работа", "Пътуване", "Хоби", "Пазаруване","Друго"]
     var selectedCategory:Int? = nil
     var selectedPriority:Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setLanguage()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
@@ -50,6 +56,35 @@ class singleTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         
         setTask()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            priority = ["Нисък","Среден", "Висок"]
+            category = ["Дом", "Работа", "Пътуване", "Хоби", "Пазаруване","Друго"]
+            
+            nameLabel.text = "Име:"
+            categoryLabel.text = "Категория:"
+            priorityLabel.text = "Приоритет:"
+            dateLabel.text = "Дата:"
+            commentLabel.text = "Коментар:"
+            safeButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            priority = ["Low","Middle", "High"]
+            category = ["Home", "Work", "Travel", "Hobby", "Shopping","Others"]
+            
+            nameLabel.text = "Name:"
+            categoryLabel.text = "Category:"
+            priorityLabel.text = "Priority:"
+            dateLabel.text = "Date:"
+            commentLabel.text = "Comment:"
+            safeButton.setTitle("Save", for: .normal)
+        }
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -236,32 +271,58 @@ class singleTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func setErrorLabel(error:DatabaseTaskManager.TaskError){
-        switch error {
-        case .noName:
-            errorLabel.text = "Name requred"
-            break
-        case .noCategory:
-            errorLabel.text = "Category requred"
-            break
-        case .noPriority:
-            errorLabel.text = "Priority requred"
-            break
-        case .noDate:
-            errorLabel.text = "Date requred"
-            break
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име"
+                break
+            case .noCategory:
+                errorLabel.text = "Трябва категория"
+                break
+            case .noPriority:
+                errorLabel.text = "Трябва приоритет"
+                break
+            case .noDate:
+                errorLabel.text = "Трябва дата"
+                break
+            }
+        }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name requred"
+                break
+            case .noCategory:
+                errorLabel.text = "Category requred"
+                break
+            case .noPriority:
+                errorLabel.text = "Priority requred"
+                break
+            case .noDate:
+                errorLabel.text = "Date requred"
+                break
+            }
         }
     }
     
     func alertSuccess(_ sender: UIButton,_ edit:Bool) {
         
         var title="",message=""
-        if edit{
-            title = "Task Edited"
-            message = "You have successfully edited this book!"
+        if edit && DatabaseUserManager.shared.bg{
+            title = "Задача редактирана"
+            message = "Успешно редактирахте тази задача!"
+        }
+        else if !edit && DatabaseUserManager.shared.bg{
+            title = "Задача изтрита"
+            message = "Успешно изтрихте тази задача!"
+        }
+        else if edit{
+            title = "Task edited"
+            message = "You successfully edited this task!"
         }
         else{
             title = "Task Deleted"
-            message = "You have successfully deleted this book!"
+            message = "You successfully deleted this task!"
         }
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         

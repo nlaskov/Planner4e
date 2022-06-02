@@ -14,9 +14,11 @@ class addRecipeViewController:UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet var imageField: UILabel!
     @IBOutlet var imageButton: UIButton!
     @IBOutlet var commentField: UITextView!
-    @IBOutlet var addButton: UIButton!
+    @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel:UILabel!
-
+    @IBOutlet var recipeLabel: UILabel!
+    @IBOutlet var recipeCommentLabel: UILabel!
+    
     var chosenImage:UIImage = UIImage()
     
     override func viewDidLoad() {
@@ -27,6 +29,22 @@ class addRecipeViewController:UIViewController, UIImagePickerControllerDelegate,
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if DatabaseUserManager.shared.bg{
+            recipeLabel.text = "Добави рецепта"
+            nameField.placeholder = "Име"
+            recipeCommentLabel.text = "Рецепта:"
+            safeButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            recipeLabel.text = "Add recipe"
+            nameField.placeholder = "Name"
+            recipeCommentLabel.text = "Recipe:"
+            safeButton.setTitle("Save", for: .normal)
+            
+        }
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -78,13 +96,26 @@ class addRecipeViewController:UIViewController, UIImagePickerControllerDelegate,
     }
     
     func setErrorLabel(error:DatabaseRecipesManager.RecipesError){
-        switch error {
-        case .noName:
-            errorLabel.text = "Name requred"
-            break
-        case .noRecipe:
-            errorLabel.text = "Recipe requred"
-            break
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име."
+                break
+            case .noRecipe:
+                errorLabel.text = "Трябва рецепта"
+                break
+            }
         }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name required."
+                break
+            case .noRecipe:
+                errorLabel.text = "Recipe required"
+                break
+            }
+        }
+        
     }
 }

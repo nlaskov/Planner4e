@@ -30,6 +30,18 @@ class resolutionViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         resolutionCheck()
         resolutionTable.reloadData()
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            viewSegment.setTitle("За изпълняване", forSegmentAt: 0)
+            viewSegment.setTitle("Изпълнени", forSegmentAt: 1)
+        }
+        else{
+            viewSegment.setTitle("To do", forSegmentAt: 0)
+            viewSegment.setTitle("Done", forSegmentAt: 1)
+        }
     }
     
     func resolutionCheck(){

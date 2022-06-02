@@ -14,12 +14,15 @@ class DatabaseUserManager:NSObject{
     static let shared = DatabaseUserManager()
     private let ref = Firestore.firestore()
     var user = User()
+    var bg = true
     
-    func getUser(UID:String){
+    func getUser(UID:String,completion: @escaping () -> ()){
 
         ref.collection("Users").document(UID).getDocument(){ (document, error) in
             if let document = document, document.exists {
                 self.user = User(document["name"] as! String, UID, document["email"] as! String, document["image"] as! String)
+                self.bg = document["bg"] as! Bool
+                completion()
             }
         }
     }
@@ -29,7 +32,8 @@ class DatabaseUserManager:NSObject{
         ref.collection("Users").document(user.UID).setData([
             "name": user.name,
             "email":user.email,
-            "image":user.image
+            "image":user.image,
+            "bg":true
         ])
     }
     
@@ -63,6 +67,13 @@ class DatabaseUserManager:NSObject{
         
     }
     
+    func changeLanguage(newLanguage:Bool?){
+        guard let newLanguage = newLanguage else {
+            return
+        }
+        
+        ref.collection("Users").document(user.UID).setData( ["bg":self.bg],merge: true)
+    }
     
     
 }

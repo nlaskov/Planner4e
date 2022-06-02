@@ -10,10 +10,12 @@ import UIKit
 
 class SignInViewController: UIViewController{
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var email: UITextField!
     @IBOutlet var password: UITextField!
     @IBOutlet var signInButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var forgotenPassword: UIButton!
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -23,6 +25,26 @@ class SignInViewController: UIViewController{
         view.addGestureRecognizer(tap)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            titleLabel.text = "Вход"
+            email.placeholder = "Имейл"
+            password.placeholder = "Парола"
+            signInButton.setTitle("Вход", for: .normal)
+            forgotenPassword.setTitle("Забравена парола?", for: .normal)
+        }
+        else{
+            titleLabel.text = "Sign In"
+            email.placeholder = "Email"
+            password.placeholder = "Password"
+            signInButton.setTitle("Sign In", for: .normal)
+            forgotenPassword.setTitle("Forgoten password?", for: .normal)
+        }
+    }
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             self.view.endEditing(true)
             return false
@@ -50,27 +72,40 @@ class SignInViewController: UIViewController{
     }
     
     func errorSetter(error: AuthError){
-        if error == .defaultError {
-           self.errorLabel.text = "Something is wrong"
-           
-       } else if error == .noEmail {
-            self.errorLabel.text = "Email is required"
-            
-        } else if error == .noPassword {
-            self.errorLabel.text = "Password is required"
-            
-        } else if error == .noUser {
-            self.errorLabel.text = "Email or password incorect"
-            
-        } else if error == .invalidEmail {
-            self.errorLabel.text = "Invalid email"
-            
-        } else if error == .emailAlreadyInUse {
-            self.errorLabel.text = "The email is already used"
-            
-        } else if error == .weakPassword {
-            self.errorLabel.text = "Password should be at least 6 characters"
-            
+        if DatabaseUserManager.shared.bg{
+            if error == .defaultError {
+               self.errorLabel.text = "Нещо не е наред"
+               
+           } else if error == .noEmail {
+                self.errorLabel.text = "Трябва имейл"
+                
+            } else if error == .noPassword {
+                self.errorLabel.text = "Трябва парола"
+                
+            } else if error == .noUser {
+                self.errorLabel.text = "Имейла или паролата са грешни"
+                
+            } else if error == .invalidEmail {
+                self.errorLabel.text = "Грешен имейл"
+            }
+        }
+        else{
+            if error == .defaultError {
+               self.errorLabel.text = "Something is wrong"
+               
+           } else if error == .noEmail {
+                self.errorLabel.text = "Email is required"
+                
+            } else if error == .noPassword {
+                self.errorLabel.text = "Password is required"
+                
+            } else if error == .noUser {
+                self.errorLabel.text = "Email or password incorect"
+                
+            } else if error == .invalidEmail {
+                self.errorLabel.text = "Invalid email"
+                
+            }
         }
     }
     

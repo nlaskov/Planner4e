@@ -24,6 +24,9 @@ class changeImageViewController:UIViewController,UIImagePickerControllerDelegate
             self.profileImage.kf.setImage(with: url)
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
     
     @IBAction func pressSaveButton(_ sender: UIButton) {
         //Delete old image
@@ -37,8 +40,17 @@ class changeImageViewController:UIViewController,UIImagePickerControllerDelegate
     
     func alertSuccess(_ sender: UIButton) {
         
-        let title = "Profile image changed"
-        let message = "You have successfully changed your profile image!"
+        var title = ""
+        var message = ""
+        
+        if DatabaseUserManager.shared.bg{
+            title = "Смени снимката си."
+            message = "Успешно смени профилната си снимка!"
+        }
+        else{
+            title = "Picture changed"
+            message = "You successfully changed your profile picture!"
+        }
         
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
@@ -76,6 +88,18 @@ class changeImageViewController:UIViewController,UIImagePickerControllerDelegate
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            uploadButton.setTitle("Качи снимка", for: .normal)
+            saveButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            uploadButton.setTitle("Upload image", for: .normal)
+            saveButton.setTitle("Save", for: .normal)
+        }
+       
     }
    
 }

@@ -12,12 +12,16 @@ class singleResolutionViewController:UIViewController, UIPickerViewDelegate, UIP
     
     var edit = false
     var resolution = Resolution()
-    let priority = ["Low","Middle", "High"]
+    var priority = ["Нисък","Среден", "Висок"]
     let priorityPicker = UIPickerView()
     var selectedPriority:Int? = nil
+    
     @IBOutlet var titleField: UITextField!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var priorityField: UITextField!
+    @IBOutlet var priorityLabel: UILabel!
     @IBOutlet var commentField: UITextView!
+    @IBOutlet var commentLabel: UILabel!
     @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var deleteButton: UIButton!
@@ -25,10 +29,13 @@ class singleResolutionViewController:UIViewController, UIPickerViewDelegate, UIP
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLanguage()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
+        createPriorityPicker()
         
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
@@ -36,6 +43,28 @@ class singleResolutionViewController:UIViewController, UIPickerViewDelegate, UIP
         
         setResolution()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            priority = ["Нисък","Среден", "Висок"]
+            titleLabel.text = "Име:"
+            priorityLabel.text = "Приоритет:"
+            commentLabel.text = "Коментар:"
+            safeButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            priority = ["Low","Middle", "High"]
+            titleLabel.text = "Name:"
+            priorityLabel.text = "Priority:"
+            commentLabel.text = "Comment:"
+            safeButton.setTitle("Save", for: .normal)
+        }
+    }
+    
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             self.view.endEditing(true)
             return false
@@ -142,13 +171,21 @@ class singleResolutionViewController:UIViewController, UIPickerViewDelegate, UIP
     func alertSuccess(_ sender: UIButton,_ edit:Bool) {
         
         var title="",message=""
-        if edit{
-            title = "Resolution Edited"
-            message = "You have successfully edited this resolution!"
+        if edit && DatabaseUserManager.shared.bg{
+            title = "Цел редактирана"
+            message = "Успешно редактирахте тази цел!"
+        }
+        else if !edit && DatabaseUserManager.shared.bg{
+            title = "Цел изтрита"
+            message = "Успешно изтрихте тази цел!"
+        }
+        else if edit{
+            title = "Resolution edited"
+            message = "You successfully edited this resolution!"
         }
         else{
             title = "Resolution Deleted"
-            message = "You have successfully deleted this resolution!"
+            message = "You successfully deleted this resolution!"
         }
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
@@ -163,14 +200,27 @@ class singleResolutionViewController:UIViewController, UIPickerViewDelegate, UIP
     }
     
     func setErrorLabel(error:DatabaseResolutionManager.ResolutionError){
-        switch error {
-        case .noName:
-            errorLabel.text = "Name requred"
-            break
-        case .noPriority:
-            errorLabel.text = "Priority requred"
-            break
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име"
+                break
+            case .noPriority:
+                errorLabel.text = "Трябва приоритет"
+                break
+            }
         }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name required"
+                break
+            case .noPriority:
+                errorLabel.text = "Priority required"
+                break
+            }
+        }
+        
     }
     
     

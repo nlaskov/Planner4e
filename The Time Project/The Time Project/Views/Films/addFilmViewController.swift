@@ -10,12 +10,14 @@ import UIKit
 
 class addFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    let priority = ["Low","Middle", "High"]
+    var priority = ["Low","Middle", "High"]
     let priorityPicker = UIPickerView()
     var selectedPriority:Int? = nil
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var filmTitle: UITextField!
     @IBOutlet var filmPriority: UITextField!
+    @IBOutlet var commentLabel: UILabel!
     @IBOutlet var filmComment: UITextView!
     
     @IBOutlet var addButton: UIButton!
@@ -32,6 +34,31 @@ class addFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerView
         
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            priority = ["Нисък","Среден", "Висок"]
+            
+            titleLabel.text = "Добави филм"
+            filmTitle.placeholder = "Заглавие"
+            filmPriority.placeholder = "Приоритет"
+            commentLabel.text = "Коментар:"
+            addButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            priority = ["Low","Middle", "High"]
+            
+            titleLabel.text = "Add Film"
+            filmTitle.placeholder = "Title"
+            filmPriority.placeholder = "Priority"
+            commentLabel.text = "Comment:"
+            addButton.setTitle("Save", for: .normal)
+        }
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -86,13 +113,25 @@ class addFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func setErrorLabel(error:DatabaseFilmManager.FilmError){
-        switch error {
-        case .noName:
-            errorLabel.text = "Name requred"
-            break
-        case .noPriority:
-            errorLabel.text = "Priority requred"
-            break
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име"
+                break
+            case .noPriority:
+                errorLabel.text = "Трябва приоритет"
+                break
+            }
+        }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name required"
+                break
+            case .noPriority:
+                errorLabel.text = "Priority required"
+                break
+            }
         }
     }
 }

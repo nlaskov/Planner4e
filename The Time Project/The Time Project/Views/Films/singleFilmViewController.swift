@@ -12,30 +12,60 @@ class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     
     var edit = false
     var film = Film()
-    let priority = ["Low","Middle", "High"]
+    var priority = ["Low","Middle", "High"]
     let priorityPicker = UIPickerView()
     var selectedPriority:Int? = nil
     
+    
     @IBOutlet var deleteButton: UIButton!
     @IBOutlet var editButton: UIBarButtonItem!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var titleField: UITextField!
+    @IBOutlet var priorityLabel: UILabel!
     @IBOutlet var priorityField: UITextField!
+    @IBOutlet var commentLabel: UILabel!
     @IBOutlet var commentField: UITextView!
     @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLanguage()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
+        createPriorityPicker()
         
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
         film = DatabaseFilmManager.shared.chosenFilm
         
         setFilm()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            priority = ["Нисък","Среден", "Висок"]
+            
+            titleLabel.text = "Заглавие:"
+            priorityLabel.text = "Приоритет:"
+            commentLabel.text = "Коментар:"
+            safeButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            priority = ["Low","Middle", "High"]
+            
+            titleLabel.text = "Title:"
+            priorityLabel.text = "Priority:"
+            commentLabel.text = "Comment:"
+            safeButton.setTitle("Save", for: .normal)
+        }
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -144,13 +174,21 @@ class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     func alertSuccess(_ sender: UIButton,_ edit:Bool) {
         
         var title="",message=""
-        if edit{
-            title = "Film Edited"
-            message = "You have successfully edited this film!"
+        if edit && DatabaseUserManager.shared.bg{
+            title = "Филм редактиран"
+            message = "Успешно редактирахте този филм!"
+        }
+        else if !edit && DatabaseUserManager.shared.bg{
+            title = "Филм изтрит"
+            message = "Успешно изтрихте този филм!"
+        }
+        else if edit{
+            title = "Film edited"
+            message = "You successfully edited this film!"
         }
         else{
             title = "Film Deleted"
-            message = "You have successfully deleted this film!"
+            message = "You successfully deleted this film!"
         }
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
@@ -165,13 +203,25 @@ class singleFilmViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func setErrorLabel(error:DatabaseFilmManager.FilmError){
-        switch error {
-        case .noName:
-            errorLabel.text = "Name requred"
-            break
-        case .noPriority:
-            errorLabel.text = "Priority requred"
-            break
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име"
+                break
+            case .noPriority:
+                errorLabel.text = "Трябва приоритет"
+                break
+            }
+        }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name required"
+                break
+            case .noPriority:
+                errorLabel.text = "Priority required"
+                break
+            }
         }
     }
 }

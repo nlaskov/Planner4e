@@ -13,9 +13,6 @@ class singleRecipeViewController:UIViewController{
     
     var edit = false
     var recipe = Recipe()
-    let priority = ["Low","Middle", "High"]
-    let priorityPicker = UIPickerView()
-    var selectedPriority:Int? = nil
     
     @IBOutlet var titleField: UITextField!
     @IBOutlet var commentField: UITextView!
@@ -24,10 +21,14 @@ class singleRecipeViewController:UIViewController{
     @IBOutlet var recipeImage: UIImageView!
     @IBOutlet var editButton: UIBarButtonItem!
     @IBOutlet var deleteButton: UIButton!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var recipeLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setLanguage()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
         tap.cancelsTouchesInView = false
@@ -37,6 +38,25 @@ class singleRecipeViewController:UIViewController{
         recipe = DatabaseRecipesManager.shared.chosenRecipe
         
         setRecipe()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            deleteButton.setTitle("Изтрии", for: .normal)
+            nameLabel.text = "Име:"
+            recipeLabel.text = "Рецепта:"
+            safeButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            deleteButton.setTitle("Delete", for: .normal)
+            nameLabel.text = "Name:"
+            recipeLabel.text = "Recipe:"
+            safeButton.setTitle("Save", for: .normal)
+        }
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -83,7 +103,19 @@ class singleRecipeViewController:UIViewController{
             return
         }
         
+        
         guard let comment = commentField.text else{
+            setErrorLabel(error: .noRecipe)
+            errorLabel.isHidden = false
+            return
+        }
+        
+        if title == ""{
+            setErrorLabel(error: .noName)
+            errorLabel.isHidden = false
+            return
+        }
+        else if comment == ""{
             setErrorLabel(error: .noRecipe)
             errorLabel.isHidden = false
             return
@@ -109,14 +141,23 @@ class singleRecipeViewController:UIViewController{
     func alertSuccess(_ sender: UIButton,_ edit:Bool) {
         
         var title="",message=""
-        if edit{
-            title = "Recipe Edited"
-            message = "You have successfully edited this recipe!"
+        if edit && DatabaseUserManager.shared.bg{
+            title = "Рецепта редактирана"
+            message = "Успешно редактирахте тази рецепта!"
+        }
+        else if !edit && DatabaseUserManager.shared.bg{
+            title = "Рецепта изтрита"
+            message = "Успешно изтрихте тази рецепта!"
+        }
+        else if !edit{
+            title = "Deleted recipe"
+            message = "You successfully deleted this recipe!"
         }
         else{
-            title = "Recipe Deleted"
-            message = "You have successfully deleted this Recipe!"
+            title = "Recipe edited"
+            message = "You successfully edited this recipe!"
         }
+        
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: { _ in _ = self.navigationController?.popViewController(animated: true)}))
@@ -130,14 +171,27 @@ class singleRecipeViewController:UIViewController{
     }
     
     func setErrorLabel(error:DatabaseRecipesManager.RecipesError){
-        switch error {
-        case .noName:
-            errorLabel.text = "Name requred"
-            break
-        case .noRecipe:
-            errorLabel.text = "Recipe requred"
-            break
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име."
+                break
+            case .noRecipe:
+                errorLabel.text = "Трябва да има рецепта"
+                break
+            }
         }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name required."
+                break
+            case .noRecipe:
+                errorLabel.text = "Recipe required"
+                break
+            }
+        }
+        
     }
 }
 

@@ -14,7 +14,6 @@
 		B06E5907280B05B8003777EB /* booksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5906280B05B8003777EB /* booksViewController.swift */; };
 		B06E5909280B06FA003777EB /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5908280B06FA003777EB /* Book.swift */; };
 		B06E590C280B090E003777EB /* bookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590B280B090E003777EB /* bookTableViewCell.swift */; };
-		B06E590E280B11DE003777EB /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590D280B11DE003777EB /* tabBarController.swift */; };
 		B06E5910280B239F003777EB /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E590F280B239F003777EB /* Film.swift */; };
 		B06E5912280B23BA003777EB /* Resolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E5911280B23BA003777EB /* Resolution.swift */; };
 		B06E5914280B5699003777EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B06E5913280B5699003777EB /* GoogleService-Info.plist */; };
@@ -85,7 +84,6 @@
 		B06E5906280B05B8003777EB /* booksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = booksViewController.swift; sourceTree = "<group>"; };
 		B06E5908280B06FA003777EB /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		B06E590B280B090E003777EB /* bookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookTableViewCell.swift; sourceTree = "<group>"; };
-		B06E590D280B11DE003777EB /* tabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarController.swift; sourceTree = "<group>"; };
 		B06E590F280B239F003777EB /* Film.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		B06E5911280B23BA003777EB /* Resolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolution.swift; sourceTree = "<group>"; };
 		B06E5913280B5699003777EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -322,12 +320,11 @@
 				B06E5928280B5A51003777EB /* SystemFiles */,
 				B0B0F74727F2719700B7448B /* Models */,
 				B09E0C2527F1BFC5003F38B2 /* Main.storyboard */,
-				B088A2532844C22D00A8622D /* Assets.xcassets */,
 				B06E5938280BF749003777EB /* menuViewController.swift */,
-				B06E590D280B11DE003777EB /* tabBarController.swift */,
 				B09E0C2A27F1BFC6003F38B2 /* LaunchScreen.storyboard */,
 				B06E5913280B5699003777EB /* GoogleService-Info.plist */,
 				B09E0C2D27F1BFC6003F38B2 /* Info.plist */,
+				B088A2532844C22D00A8622D /* Assets.xcassets */,
 			);
 			path = "The Time Project";
 			sourceTree = "<group>";
@@ -535,7 +532,6 @@
 				B06E5930280B5D38003777EB /* DatabaseUserManager.swift in Sources */,
 				B09E0C2027F1BFC5003F38B2 /* AppDelegate.swift in Sources */,
 				B0FA483E281128AF00CDCE26 /* singleBookViewController.swift in Sources */,
-				B06E590E280B11DE003777EB /* tabBarController.swift in Sources */,
 				B09C88B027F1CC6B00F808DD /* day_CalendarCollectionViewCell.swift in Sources */,
 				B06E5912280B23BA003777EB /* Resolution.swift in Sources */,
 				B0FA48442811669500CDCE26 /* DatabaseRecipesManager.swift in Sources */,

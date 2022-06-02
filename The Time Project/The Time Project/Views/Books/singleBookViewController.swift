@@ -12,14 +12,17 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     
     var edit = false
     var book = Book()
-    let priority = ["Low","Middle", "High"]
+    var priority = ["Low","Middle", "High"]
     let priorityPicker = UIPickerView()
     var selectedPriority:Int? = nil
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var deleteButton: UIButton!
     @IBOutlet var editButton: UIButton!
     @IBOutlet var titleField: UITextField!
+    @IBOutlet var priorityLabel: UILabel!
     @IBOutlet var priorityField: UITextField!
+    @IBOutlet var commentLabel: UILabel!
     @IBOutlet var commentField: UITextView!
     @IBOutlet var safeButton: UIButton!
     @IBOutlet var errorLabel: UILabel!
@@ -27,15 +30,41 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setLanguage()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textFieldShouldReturn))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
+        createPriorityPicker()
         
         priorityPicker.delegate = self
         priorityPicker.dataSource = self
         book = DatabaseBookManager.shared.chosenBook
         
         setBook()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            priority = ["Нисък","Среден", "Висок"]
+            
+            titleLabel.text = "Заглавие:"
+            priorityLabel.text = "Приоритет:"
+            commentLabel.text = "Коментар:"
+            safeButton.setTitle("Запази", for: .normal)
+        }
+        else{
+            priority = ["Low","Middle", "High"]
+            
+            titleLabel.text = "Title:"
+            priorityLabel.text = "Priority:"
+            commentLabel.text = "Comment:"
+            safeButton.setTitle("Save", for: .normal)
+        }
     }
     
     @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -151,13 +180,21 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     func alertSuccess(_ sender: UIButton,_ edit:Bool) {
         
         var title="",message=""
-        if edit{
-            title = "Book Edited"
-            message = "You have successfully edited this book!"
+        if edit && DatabaseUserManager.shared.bg{
+            title = "Книга редактирана"
+            message = "Успешно редактирахте тази книга!"
+        }
+        else if !edit && DatabaseUserManager.shared.bg{
+            title = "Книга изтрита"
+            message = "Успешно изтрихте тази книга!"
+        }
+        else if edit{
+            title = "Book edited"
+            message = "You successfully edited this book!"
         }
         else{
             title = "Book Deleted"
-            message = "You have successfully deleted this book!"
+            message = "You successfully deleted this book!"
         }
         let alert = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
@@ -172,13 +209,25 @@ class singleBookViewController:UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     func setErrorLabel(error:DatabaseBookManager.BookError){
-        switch error {
-        case .noName:
-            errorLabel.text = "Name requred"
-            break
-        case .noPriority:
-            errorLabel.text = "Priority requred"
-            break
+        if DatabaseUserManager.shared.bg{
+            switch error {
+            case .noName:
+                errorLabel.text = "Трябва име"
+                break
+            case .noPriority:
+                errorLabel.text = "Трябва приоритет"
+                break
+            }
+        }
+        else{
+            switch error {
+            case .noName:
+                errorLabel.text = "Name required"
+                break
+            case .noPriority:
+                errorLabel.text = "Priority required"
+                break
+            }
         }
     }
     

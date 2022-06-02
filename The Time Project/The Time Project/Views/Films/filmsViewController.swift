@@ -30,6 +30,18 @@ class filmsViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         self.filmTable.reloadData()
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            viewSegment.setTitle("За гледане", forSegmentAt: 0)
+            viewSegment.setTitle("Гледани", forSegmentAt: 1)
+        }
+        else{
+            viewSegment.setTitle("To watch", forSegmentAt: 0)
+            viewSegment.setTitle("Watched", forSegmentAt: 1)
+        }
     }
     
     func filmCheck(){

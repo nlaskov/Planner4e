@@ -11,6 +11,7 @@ import UIKit
 class recepiesViewController:UIViewController{
     
     
+    @IBOutlet var recipeLabel: UILabel!
     @IBOutlet var recipeCollectionView: UICollectionView!
     @IBOutlet var addButton: UIButton!
     
@@ -29,6 +30,16 @@ class recepiesViewController:UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         recipeCollectionView.reloadData()
+        setLanguage()
+    }
+    
+    func setLanguage(){
+        if DatabaseUserManager.shared.bg{
+            recipeLabel.text = "Рецепти"
+        }
+        else{
+            recipeLabel.text = "Recipes"
+        }
     }
     
 }
