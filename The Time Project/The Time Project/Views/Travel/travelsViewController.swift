@@ -42,7 +42,7 @@ class travelViewController: UIViewController{
         else{
             viewSegment.setTitle("To visit", forSegmentAt: 0)
             viewSegment.setTitle("Visited", forSegmentAt: 1)
-            viewSegment.setTitle("Bagage", forSegmentAt: 1)
+            viewSegment.setTitle("Bagage", forSegmentAt: 2)
         }
     }
     

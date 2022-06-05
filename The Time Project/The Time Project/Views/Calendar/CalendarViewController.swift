@@ -48,7 +48,7 @@ class CalendarViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setLanguage()
         //To All
         viewSegment.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
         addTaskButton.backgroundColor = UIColor(red: 0.59, green: 0.92, blue: 0.82, alpha: 1)
@@ -81,7 +81,7 @@ class CalendarViewController: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         getDayTasks()
-        
+        setLanguage()
         day_CollectionView.reloadData()
     }
     

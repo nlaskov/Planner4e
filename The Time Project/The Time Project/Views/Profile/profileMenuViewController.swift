@@ -96,9 +96,10 @@ class profileMenuViewController:UIViewController{
     }
     private func goToLogoutScene() {
         
-            let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginMenu") as! UINavigationController
-            loginVC.modalPresentationStyle = .fullScreen
-            self.present(loginVC, animated: true)
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginMenu") as! UINavigationController
+        loginVC.modalPresentationStyle = .fullScreen
+        self.present(loginVC, animated: true)
+        _ = navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func changeLang(_ sender: Any) {

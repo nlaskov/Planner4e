@@ -167,13 +167,15 @@ class singleTaskViewController:UIViewController, UIPickerViewDelegate, UIPickerV
         task.priority = selectedPriority
         task.category = selectedCategory
         task.comment = comment
+        
         task.day = intDate[0]
         task.month = intDate[1]
-        task.year = intDate[2]
+        task.year = intDate[2] - 2000
         
         DatabaseTaskManager.shared.editTask(task: task)
-        self.alertSuccess(sender, true)
         setTask()
+        self.alertSuccess(sender, true)
+        
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
